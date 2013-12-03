@@ -1,0 +1,393 @@
+\chapter{Estimation des paramètres de la distribution de Laplace
+  asymétrique généralisée}
+
+Ce chapitre présente les différents éléments qui permettent d'obtenir
+des estimateurs convergents à l'aide de la méthode des moments
+généralisée et de l'équation d'estimation optimale. Premièrement, une
+méthode pour obtenir un point de départ efficace pour l'algorithme
+d'optimisation sera détaillée. Enfin, les résultats découlant des deux
+chapitres précédents seront présentés.
+
+\section{Vecteur de paramètres initiaux}
+\label{sec:condinitGAL}
+
+Comme chacune des deux méthodes d'estimation étudiées requiert
+l'utilisation d'un algorithme d'optimisation numérique, on doit être
+en mesure de fournir un vecteur de paramètres initiaux qui favorisera
+la convergence de celui-ci. Ce vecteur doit faire partie de l'espace
+des paramètres $\Omega$, tel que défini à la table
+\ref{tab:roleparamGAL}. Ce vecteur est plus facile à obtenir de
+manière empirique, par exemple, avec la méthode des moments, lorsque
+c'est possible. Cependant, pour la distribution de Laplace asymétrique
+généralisée, le système d'équations formé à partir des quatre premiers
+moments centraux empiriques et théoriques \eqref{eq:momentsGAL} n'a
+pas de solution analytique.
+
+\cite{seneta2004fitting} propose une technique pour obtenir un vecteur
+de paramètres initiaux basé sur la méthode des moments. En utilisant
+la même démarche que ce dernier, on peut obtenir un vecteur pour la
+forme en $\mu$ de la fonction caractéristique
+\eqref{eq:fncaractGALmu}. On pose comme hypothèse dans les équations
+des quatre premiers moments \eqref{eq:moments1GAL},
+\eqref{eq:moments2GAL}, \eqref{eq:moments5GAL} et
+\eqref{eq:moments6GAL}, que le paramètre $\mu$ est significativement
+nul, donc que la distribution est presque symétrique. On impose donc
+que les puissances de ce paramètre plus grandes ou égales à deux
+soient nulles:
+\begin{align}
+  \label{eq:hypotheseMoM}
+  \mu^k=0, \quad k\in\{2,3,4\}.
+\end{align}
+
+En posant l'égalité entre les moments théoriques et leur estimateur
+correspondant, on obtient le système d'équations suivant:
+\begin{align*}
+  \hat{m_1} &= \theta+\tau\,\mu \\
+  \hat{m_2} &= {\sigma}^{2}\,\tau \\
+  \hat{\gamma_1} &= \frac{3\,\mu}{\left| \sigma\right| \,\sqrt{\tau}} \\
+  \hat{\gamma_2} &= \frac{3}{\tau}.
+\end{align*}
+
+Ce système possède deux solutions analytiques, dont une respecte la
+condition selon laquelle le paramètre $\sigma$ doit être positif. On
+note que ce résultat ne constitue qu'un point de départ pour
+l'algorithme d'optimisation numérique et qu'on ne peut, en aucun cas,
+utiliser celui-ci à des fins statistiques. C'est un estimateur biaisé
+et non convergent étant donné la condition \eqref{eq:hypotheseMoM}:
+\begin{subequations}\label{eq:ptdepartGAL}
+  \begin{align}
+    \hat\theta &=-\frac{\hat{\gamma_1}\,\sqrt{\hat{m_2}}-\hat{\gamma_2}\,\hat{m_1}}{\hat{\gamma_2}} \label{eq:ptdepartGAL1}\\
+    \hat\sigma &= \frac{\sqrt{\hat{\gamma_2}\,\hat{m_2}}}{\sqrt{3}} > 0 \label{eq:ptdepartGAL2}\\
+    \hat\mu &= \frac{\hat{\gamma_1}\,\sqrt{\hat{m_2}}}{3} \label{eq:ptdepartGAL3}\\
+    \hat\tau &= \frac{3}{\hat{\gamma_2}}. \label{eq:ptdepartGAL4}
+  \end{align}
+\end{subequations}
+    
+\section{Méthode des moments généralisée}
+
+En premier lieu, on utilise la méthode des moments généralisée afin
+d'estimer les paramètres de la distribution de Laplace asymétrique
+généralisée. Aux fins d'illustration, seulement deux conditions de
+moments seront utilisées. Cependant, pour obtenir des résultats
+optimaux en termes de convergence asymptotique, on doit utiliser au
+moins autant de conditions de moment que de paramètres. Ainsi, en
+considérant la différence entre les moyennes et variances empirique et
+théorique, on obtient les conditions de moment suivantes, qui ont une
+espérance nulle sous les vrais paramètres $\theta_0$:
+\begin{align}
+  h(\theta;Y) &= \left[\begin{array}[]{c}
+      Y - m_1 \\
+      \left(Y - m_1 \right)^2 - m_2
+    \end{array}\right] \label{eq:condmom}\\
+  &= \left[\begin{array}[]{c}
+      Y - \left(\theta+\mu\tau\right) \\
+      \left(Y - \left(\theta+\mu\tau\right) \right)^2 -
+      \tau\left(\sigma^2+\mu^2\right)
+    \end{array}\right]. \label{eq:condmomGAL}
+\end{align}
+
+On définit la contrepartie empirique de ces conditions de moment
+comme suit:
+\begin{align}
+  g(\theta;\mathbf{y}_T) &= \frac{1}{T} \left[\begin{array}[]{c}
+      g_1(\theta;\mathbf{y}_T)\\
+      g_2(\theta;\mathbf{y}_T)
+    \end{array}\right] \nonumber\\
+  &= \frac{1}{T} \left[\begin{array}[]{c}
+      \sum_{t=1}^T y_t - m_1 \\
+      \sum_{t=1}^T \left(y_t - m_1 \right)^2 - m_2
+    \end{array}\right] \label{eq:condmomEMP}\\
+  &= \frac{1}{T} \left[\begin{array}[]{c}
+      \sum_{t=1}^Ty_t - \left(\theta+\mu\tau\right) \\
+      \sum_{t=1}^T\left(y_t - \left(\theta+\mu\tau\right) \right)^2 -
+      \tau\left(\sigma^2+\mu^2\right)
+    \end{array}\right]. \label{eq:condmomEMPGAL}
+\end{align}
+
+On doit définir la matrice de pondération optimale.
+
+\subsection{Matrice de pondération optimale}
+
+On s'intéresse à la forme analytique de la matrice de pondération
+optimale \eqref{eq:matricevcov1}. Celle-ci est obtenue en prenant
+l'espérance du produit extérieur du vecteur des conditions de moment
+théoriques sur elles-mêmes.  Pour des fins de simplification, on
+définit le produit des conditions $i$ et $j$ par la notation
+$H_{i,j}(\theta;Y) = h_i(\theta;Y)h_j(\theta;Y)$.
+\begin{align}
+  S(\theta;Y) &= E \left[\begin{array}{cc}
+      H_{(1,1)}(\theta;Y) & H_{(1,2)}(\theta;Y) \\
+      H_{(2,1)}(\theta;Y) & H_{(2,2)}(\theta;Y)
+    \end{array} \right] \nonumber\\
+  &= \left[\begin{array}{cc}
+      E \left[H_{(1,1)}(\theta;Y)\right] & E \left[H_{(1,2)}(\theta;Y)\right] \\ 
+      E \left[H_{(2,1)}(\theta;Y)\right] & E \left[H_{(2,2)}(\theta;Y)\right] 
+    \end{array} \right]
+\end{align}
+où
+\begin{align*}
+  H_{(1,1)}(\theta;Y) &=\left( Y-\theta-\mu\,\tau\right)^{2} \\
+  H_{(1,2)}(\theta;Y) &=\left( {Y}^{2}-2\,\theta\,Y-2\,\mu\,\tau\,Y+{\theta}^{2}+2\,\mu\,\tau\,\theta+{\mu}^{2}\,{\tau}^{2}-{\sigma}^{2}\,\tau-{\mu}^{2}\,\tau\right)^{2} \\
+  H_{(2,2)}(\theta;Y) &=\left( Y-\theta-\mu\,\tau\right) \,\left(
+    {Y}^{2}-2\,\theta\,Y-2\,\mu\,\tau\,Y+{\theta}^{2}+2\,\mu\,\tau\,\theta+{\mu}^{2}\,{\tau}^{2}-{\sigma}^{2}\,\tau-{\mu}^{2}\,\tau\right).
+\end{align*}
+
+On évalue ensuite l'espérance de chacun des éléments de la matrice, où
+l'on définit de manière analogue celle du produit des conditions de
+moments, $W_{(i,j)}(\theta;Y) = E[H_{(i,j)}(\theta;Y)]$.
+\begin{align}
+  W(\theta;Y) &= \left[\begin{array}{cc}
+      W_{(1,1)}(\theta;Y) & W_{(1,2)}(\theta;Y) \\
+      W_{(2,1)}(\theta;Y) & W_{(2,2)}(\theta;Y)
+    \end{array} \right]
+\end{align}
+où
+\begin{align*}
+  W_{(1,1)} &= {\mu}^{2}\,{\tau}^{2}-2\,{\mu}^{2}\,\nu\,\tau+\nu\,{\sigma}^{2}+{\mu}^{2}\,{\nu}^{2}+{\mu}^{2}\,\nu \\
+  W_{(2,2)} &= {\mu}^{4}\,{\tau}^{4}+\left( -2\,{\mu}^{2}\,{\sigma}^{2}-4\,{\mu}^{4}\,\nu-2\,{\mu}^{4}\right) \,{\tau}^{3}+\left( {\sigma}^{4}+\left( 10\,{\mu}^{2}\,\nu+2\,{\mu}^{2}\right) \,{\sigma}^{2}+6\,{\mu}^{4}\,{\nu}^{2}+10\,{\mu}^{4}\,\nu+{\mu}^{4}\right) \,{\tau}^{2}\\
+  &+\left( -2\,\nu\,{\sigma}^{4}+ \left( -14\,{\mu}^{2}\,{\nu}^{2}-16\,{\mu}^{2}\,\nu\right) \,{\sigma}^{2}-4\,{\mu}^{4}\,{\nu}^{3}-14\,{\mu}^{4}\,{\nu}^{2}-10\,{\mu}^{4}\,\nu\right) \,\tau+\left( 3\,{\nu}^{2}+3\,\nu\right) \,{\sigma}^{4}\\
+  &+\left( 6\,{\mu}^{2}\,{\nu}^{3}+18\,{\mu}^{2}\,{\nu}^{2}+12\,{\mu}^{2}\,\nu\right) \,{\sigma}^{2}+{\mu}^{4}\,{\nu}^{4}+6\,{\mu}^{4}\,{\nu}^{3}+11\,{\mu}^{4}\,{\nu}^{2}+6\,{\mu}^{4}\,\nu \\
+  W_{(1,2)} &= W_{(2,1)} = 3\,{\theta}^{4}+\left( 6\,\mu\,\nu-3\right) \,{\theta}^{3}+\left( 3\,\nu\,{\sigma}^{2}+3\,{\mu}^{2}\,{\nu}^{2}+\left( 3\,{\mu}^{2}-3\,\mu\right) \,\nu\right) \,{\theta}^{2}-{\mu}^{3}\,{\tau}^{3} \\
+  &+\left( \mu\,{\sigma}^{2}+3\,{\mu}^{3}\,\nu+{\mu}^{3}\right) \,{\tau}^{2}+\left( -4\,\mu\,\nu\,{\sigma}^{2}-3\,{\mu}^{3}\,{\nu}^{2}-4\,{\mu}^{3}\,\nu\right) \,\tau+\left( 3\,\mu\,{\nu}^{2}+3\,\mu\,\nu\right) \,{\sigma}^{2}\\
+  &+{\mu}^{3}\,{\nu}^{3}+3\,{\mu}^{3}\,{\nu}^{2}+2\,{\mu}^{3}\,\nu.
+\end{align*}
+
+On évalue quelle serait la valeur de la variance-covariance sous des
+paramètres optimaux. Ce résultat permet par la suite d'évaluer la
+distribution asymptotique des estimateurs.
+
+On obtient l'estimateur de la matrice optimale \eqref{eq:matvcovGMM}
+en effectuant le produit extérieur du vecteur de conditions de moment
+empirique \eqref{eq:condmomGAL}, puis en évaluant la moyenne des
+matrices résultantes de l'équation \eqref{eq:matponderationproduith}:
+\begin{align}
+  \label{eq:matvcovGMMemp1}
+  \hat{S}(\theta;\mathbf{y}_T) &= \frac{1}{T} \sum_{t=1}^T
+  \left[\begin{array}{cc}
+      G_{(1,1)}(\theta;y_t) & G_{(1,2)}(\theta;y_t) \\
+      G_{(2,1)}(\theta;y_t) & G_{(2,2)}(\theta;y_t)
+    \end{array} \right]
+\end{align}
+où
+\begin{align*}
+  G_{(1,1)}(\theta;y_t) &=\left( y_t-\theta-\mu\,\tau\right)^{2} \\
+  G_{(1,2)}(\theta;y_t) &=\left( {y_t}^{2}-2\,\theta\,y_t-2\,\mu\,\tau\,y_t+{\theta}^{2}+2\,\mu\,\tau\,\theta+{\mu}^{2}\,{\tau}^{2}-{\sigma}^{2}\,\tau-{\mu}^{2}\,\tau\right)^{2} \\
+  G_{(2,2)}(\theta;y_t) &=\left( y_t-\theta-\mu\,\tau\right) \,\left(
+    {y_t}^{2}-2\,\theta\,y_t-2\,\mu\,\tau\,y_t+{\theta}^{2}+2\,\mu\,\tau\,\theta+{\mu}^{2}\,{\tau}^{2}-{\sigma}^{2}\,\tau-{\mu}^{2}\,\tau\right).
+\end{align*}
+
+
+\subsection{Variance-covariance des paramètres}
+
+On obtient la variance-covariance asymptotique des paramètres à partir
+de la variance-covariance associée aux conditions de moment, en
+utilisant la méthode delta multivariée. Pour ce faire, on évalue
+d'abord la valeur théorique du gradient $D(\theta)$.
+\begin{align}
+  D(\theta) &= E \left[ \begin{array}{cc}
+      -1 & -2\,\left( Y-\theta-\mu\,\tau\right) \\
+      0 & -2\,\sigma\,\tau \\
+      -\tau & -2\,\tau\,\left( Y-\theta-\mu\,\tau\right) -2\,\mu\,\tau \\
+      -\nu & -2\,\mu\,\left( Y-\theta-\mu\,\tau\right)
+      -{\sigma}^{2}-{\mu}^{2}
+    \end{array}\right] \nonumber\\
+  &= \left[ \begin{array}{cc}
+      -1 & 0 \\
+      0 & -2\,\sigma\,\tau \\
+      -\tau & -2\,\mu\,\tau \\
+      -\nu & -{\sigma}^{2}-{\mu}^{2}
+    \end{array}\right].
+\end{align}
+
+Ensuite, on utilise le résultat \eqref{matricevcovparamGMMnc} afin
+d'obtenir la valeur de la variance-covariance $\mathcal{J}_0^{-1}$.
+
+De la même manière, on évalue la variance-covariance des paramètres
+optimaux en utilisant les valeurs empiriques de la variance-covariance
+des conditions de moment \eqref{eq:matvcovGMMemp1} et du gradient
+$\hat{D}(\theta,\mathbf{y}_T)$, défini par la matrice
+\eqref{eq:gradientGMM}. On a essentiellement à calculer la moyenne
+empirique des gradients obtenus en chaque point $y_t$, puis à utiliser
+le résultat \eqref{matricevcovparamGMMnc} avec les estimateurs
+$\hat{W}_T = \hat{S}^{-1}(\theta,\mathbf{y}_T)$ et
+$\hat{D}(\theta,\mathbf{y}_T)$:
+\begin{align}
+  \hat{D}(\theta,\mathbf{y}_T) &= \frac{1}{T} \sum_{t=1}^{T}
+  \left[ \begin{array}{cc}
+      -1 & -2\,\left( y_t-\theta-\mu\,\tau\right) \\
+      0 & -2\,\sigma\,\tau \\
+      -\tau & -2\,\tau\,\left( y_t-\theta-\mu\,\tau\right) -2\,\mu\,\tau \\
+      -\nu & -2\,\mu\,\left( y_t-\theta-\mu\,\tau\right)
+      -{\sigma}^{2}-{\mu}^{2}
+    \end{array}\right].
+\end{align}
+
+\subsection{Contraintes linéaires}
+
+Une fois l'estimation des paramètres effectuée, on peut tester si ces
+derniers pourraient en fait correspondre à un cas particulier de la
+distribution de Laplace asymétrique généralisée ayant le même support,
+parmi celles figurant à la table \ref{tab:casspeciauxGAL}. Pour ce
+faire, on doit déterminer les paramètres de la distribution sous un
+ensemble de contraintes linéaires, sous la forme
+\eqref{eq:contraintelin}, correspondant au cas particulier, tel
+qu'énuméré dans la table \ref{tab:contraintesGAL}.
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ccc}
+    & \multicolumn{2}{c}{\textbf{Paramètres}} \\
+    \hline
+    $\text{\textbf{Distribution}}$ & $R$ & $r$ \\
+    \hline
+    Laplace symétrique & $\begin{bmatrix}
+      0&0&1&0\\
+      0&0&0&1
+    \end{bmatrix}$ & $\begin{bmatrix}
+      0\\
+      1
+    \end{bmatrix}$  \\[1cm]
+    Laplace asymétrique & $\begin{bmatrix} 0&0&0&1
+    \end{bmatrix}$ & $\begin{bmatrix} 1
+    \end{bmatrix}$  \\[1cm]
+    Dégénérée à $\theta$ & $\begin{bmatrix}
+      0&1&0&0\\
+      0&0&1&0\\
+      0&0&0&1
+    \end{bmatrix}$ & $\begin{bmatrix}
+      0\\
+      0\\
+      0\\
+    \end{bmatrix}$\\\hline
+  \end{tabular}
+  \caption{Contraintes linéaires pour les cas particuliers de la distribution de Laplace asymétrique généralisée $GAL(\theta,\sigma,\mu,\tau)$}
+  \label{tab:contraintesGAL}
+\end{table}
+
+On doit ensuite utiliser un algorithme d'optimisation numérique afin
+de maximiser le lagrangien \eqref{eq:estimateurGMMlagrange} défini par
+la fonction objectif $Q_T(\theta)$ \eqref{eq:objectifGMM2} et
+l'ensemble de contraintes $a(\theta) = R\theta-r$ sélectionné
+précédemment. Enfin, on peut effectuer les tests statistiques de la
+section \ref{sec:testwald} afin de vérifier si les paramètres de la
+distribution contrainte sont significativement différents de ceux de
+la distribution non contrainte. Dans cette situation, l'hypothèse
+selon laquelle le cas particulier serait approprié pour décrire la
+distribution des données de l'échantillon serait rejetée.
+
+Notons qu'on peut aussi estimer les paramètres de chacun des cas
+particuliers directement par la méthode des moments généralisée en
+utilisant des conditions de moment basées sur la moyenne $m_1$ et la
+variance $m_2$ de la forme \eqref{eq:condmom}. Par contre, dans ces
+cas, on devra utiliser des tests d'adéquation non paramétriques afin
+de décider laquelle représente mieux la distribution de l'échantillon
+de données. Ces tests seront présentés au chapitre suivant, à la
+section \ref{sec:testnonparam}.
+
+\section{Méthode de l'équation d'estimation optimale}
+\label{sec:CrowderGAL}
+
+On utilise maintenant la méthode de l'équation d'estimation optimale
+afin d’estimer les paramètres de la distribution de Laplace
+asymétrique généralisée. On considère une équation d'estimation de la
+forme quadratique \eqref{eq:generalquad}, basée sur les conditions de
+moments \eqref{eq:condmomGAL} utilisées à la section précédente.
+
+On évalue d'abord les expressions des dérivées premières de la moyenne
+et de l'écart-type par rapport au vecteur de paramètres
+\eqref{eq:derivmom}:
+\begin{subequations}\label{eq:derivmomGAL}
+  \begin{align}
+    \mu^{\prime}\left( \theta \right) &= \frac{d}{d\theta}\left(\theta+\tau\,\mu\right)  \nonumber\\
+    &= \left[ \begin{array}{c} 1\\
+    0\\
+    \tau\\
+    \mu\end{array} \right]^T \label{eq:derivmom1GAL}\\
+    \sigma^{\prime}\left( \theta \right) &= \frac{d}{d\theta}\sqrt{\tau\sigma^2+\tau\mu^2} \nonumber\\
+    &= \frac{1}{\sqrt {\tau\,{\sigma}^{2}+\tau\,{\mu}^{2}}}
+    \left[ \begin{array}{c}
+        0\\
+        {\tau\,\sigma}\\
+        {\tau\,\mu}\\
+        \frac{{\sigma}^{2}+{\mu}^{2}}{2}
+      \end{array} \right]^T.\label{eq:derivmom2GAL}
+  \end{align}
+\end{subequations}
+
+On peut alors obtenir une forme analytique en utilisant les
+expressions déterminées précédemment pour $\mathbf{a}(\theta)$ et
+$\mathbf{b}(\theta)$ \eqref{eq:coefficientscrowder}, les moments de la
+distribution \eqref{eq:momentsGAL} ainsi que les coefficients
+d'asymétrie et d'aplatissement \eqref{eq:moments56GAL}. Étant donné la
+longueur des expressions obtenues, elles ne seront pas présentées dans
+ce texte. Cependant, on peut facilement les évaluer à l'aide d'un
+logiciel de calcul symbolique. On combine ensuite celles-ci pour
+obtenir l'équation d'estimation optimale $g\left(\theta;\mathbf{y}_T
+\right)$ de forme quadratique.
+
+On obtient cependant des expressions plus faciles à manipuler pour
+$\mathbf{a}(\theta)$ et $\mathbf{b}(\theta)$ en utilisant la version
+modifiée du vecteur de pondération optimal
+\eqref{eq:vecteurcrowdermod}:
+\begin{subequations}
+  \label{eq:vecteurcrowdermodGAL}
+  \begin{align}
+    \mathbf{a}_{mod}^{*}(\theta;\mathbf{y}_T) &= \begin{bmatrix}
+      \frac{-\hat\gamma_2\left(\mathbf{y}_T\right)-2}{\left( {\sigma}^{2}+{\mu}^{2}\right) \,\tau\,\hat\gamma_3\left(\mathbf{y}_T\right) } \\
+      \frac{2\,\sigma\,\hat\gamma_1\left(\mathbf{y}_T\right)}{{\left( {\sigma}^{2}+{\mu}^{2}\right) }^{3/2}\,\sqrt{\tau}\,\hat\gamma_3\left(\mathbf{y}_T\right) } \\
+      \frac{\frac{2\,\mu\,\sqrt{\tau}\,\hat\gamma_1\left(\mathbf{y}_T\right)}{\sqrt{{\sigma}^{2}+{\mu}^{2}}}+\tau\,\left( -\hat\gamma_2\left(\mathbf{y}_T\right)-2\right) }{\left( {\sigma}^{2}+{\mu}^{2}\right) \,\tau\,\hat\gamma_3\left(\mathbf{y}_T\right) } \\
+      \frac{\frac{\sqrt{{\sigma}^{2}+{\mu}^{2}}\,\hat\gamma_1\left(\mathbf{y}_T\right)}{\sqrt{\tau}}+\mu\,\left(
+          -\hat\gamma_2\left(\mathbf{y}_T\right)-2\right) }{\left(
+          {\sigma}^{2}+{\mu}^{2}\right)
+        \,\tau\,\hat\gamma_3\left(\mathbf{y}_T\right) }
+    \end{bmatrix} \\
+    \mathbf{b}_{mod}^{*}(\theta;\mathbf{y}_T) &= \begin{bmatrix}
+      \frac{\hat\gamma_1\left(\mathbf{y}_T\right)}{{\left( {\sigma}^{2}+{\mu}^{2}\right) }^{3/2}\,{\tau}^{3/2}\,\hat\gamma_3\left(\mathbf{y}_T\right) } \\
+      -\frac{2\,\sigma}{{\left( {\sigma}^{2}+{\mu}^{2}\right) }^{2}\,\tau\,\hat\gamma_3\left(\mathbf{y}_T\right) } \\
+      \frac{\tau\,\hat\gamma_1\left(\mathbf{y}_T\right)-\frac{2\,\mu\,\sqrt{\tau}}{\sqrt{{\sigma}^{2}+{\mu}^{2}}}}{{\left( {\sigma}^{2}+{\mu}^{2}\right) }^{3/2}\,{\tau}^{3/2}\,\hat\gamma_3\left(\mathbf{y}_T\right) } \\
+      \frac{\mu\,\hat\gamma_1\left(\mathbf{y}_T\right)-\frac{\sqrt{{\sigma}^{2}+{\mu}^{2}}}{\sqrt{\tau}}}{{\left(
+            {\sigma}^{2}+{\mu}^{2}\right)
+        }^{3/2}\,{\tau}^{3/2}\,\hat\gamma_3\left(\mathbf{y}_T\right) }
+    \end{bmatrix}.
+  \end{align}
+\end{subequations}
+
+On insère ensuite ces dernières dans la forme générale
+\eqref{eq:generalquad} pour obtenir l'équation d'estimation optimale
+modifiée $g_{mod}^{*}\left(\theta;Y \right)$:
+\begin{align}
+  \label{eq:generalquadmod}
+  g_{mod}^{*}\left(\theta;Y \right) = \sum_{t=1}^n \left[
+    \mathbf{a}_{mod}^{*}(\theta;\mathbf{y}_T)(y_t-\mu\left(\theta\right)) +
+    \mathbf{b}_{mod}^{*}(\theta;\mathbf{y}_T)\left((y_t-\mu\left(\theta\right))^2-\sigma^2\left(\theta\right)
+    \right)\right].
+\end{align}
+
+On note qu'afin d'éviter des irrégularités numériques, on suggère,
+dans les deux cas, de faire l'estimation sur des données centrées et
+réduites:
+\begin{align}
+  X_t &=
+  \frac{Y_t-\hat{m_1}}{\sqrt{\hat{m_2}}}. \label{eq:defcentrereduite}
+\end{align}
+
+Comme précédemment, on pourra utiliser la propriété d'invariance
+\eqref{eq:GALscaletrans} de la paramétrisation en $\kappa$ afin de
+retrouver les paramètres de la distribution de la variable aléatoire
+$Y_t$ une fois l'estimation effectuée:
+\begin{align}
+  Y_t &= \hat{\sigma}_{t} X_t + \hat{\mu}_{t} \sim
+  GAL(\hat{\sigma}_{t} \theta +
+  \hat{\mu}_{t},\hat{\sigma}_{t}\sigma,\kappa,\tau). \label{eq:paramnonreduit}
+\end{align}
+
+Afin d'obtenir le vecteur de paramètres estimés $\hat\theta$, on
+minimise la fonction objectif
+$\Lambda\left(\theta;\mathbf{y}_T\right)$
+\eqref{eq:eqnobjectifEE}. Une fois les paramètres obtenus, on peut
+ensuite évaluer la variance-covariance de ces estimateurs, à partir du
+résultat \eqref{eq:Moptimalestimetheta}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 

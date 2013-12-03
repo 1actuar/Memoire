@@ -1,0 +1,30 @@
+\select@language {french}
+\select@language {french}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Mod\IeC {\`e}le de Bachelier: probabilit\IeC {\'e} compos\IeC {\'e}e\relax }}{8}{figure.caption.12}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Distribution des rendements annuels de 40 titres boursiers, de 1890 \IeC {\`a} 1915, Table XVIII de \cite {mitchell1916critique}\relax }}{10}{figure.caption.13}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Premier incr\IeC {\'e}ment d'un processus subordonn\IeC {\'e}\relax }}{23}{figure.caption.16}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Simulation d'un processus de Wiener subordonn\IeC {\'e} par un processus gamma\relax }}{24}{figure.caption.17}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Fonction de densit\IeC {\'e} de la distribution Laplace asym\IeC {\'e}trique g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e avec diff\IeC {\'e}rents param\IeC {\`e}tres: $GAL(y;\theta ,\sigma ,\kappa ,\tau )$\relax }}{31}{figure.caption.19}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Histogramme et estimateur de densit\IeC {\'e} par noyau de 2500 r\IeC {\'e}alisations de la variable al\IeC {\'e}atoire $Y\sim GAL(\theta =0,\sigma =1,\kappa =2,\tau =1)$\relax }}{34}{figure.caption.20}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Probabilit\IeC {\'e} \IeC {\`a} l'extr\IeC {\'e}mit\IeC {\'e} du support\relax }}{40}{figure.caption.23}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Distribution normale tronqu\IeC {\'e}e \IeC {\`a} $w_0$\relax }}{41}{figure.caption.24}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Repr\IeC {\'e}sentation en s\IeC {\'e}rie chronologique de l'\IeC {\'e}chantillon $R_1$\relax }}{98}{figure.caption.28}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Distribution de la variable al\IeC {\'e}atoire $R_1$\relax }}{99}{figure.caption.31}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Graphique Quantile-Quantile\relax }}{100}{figure.caption.33}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces \IeC {\'E}quation du point de selle pour $r=0.01$\relax }}{104}{figure.caption.37}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Densit\IeC {\'e} de $R_1^{*}$ selon la m\IeC {\'e}thode des moments g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e\relax }}{106}{figure.caption.42}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Densit\IeC {\'e} de $R_1^{*}$ selon la m\IeC {\'e}thode de l'\IeC {\'e}quation d'estimation optimale\relax }}{107}{figure.caption.43}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Prix de l'option selon les param\IeC {\`e}tres estim\IeC {\'e}s avec la m\IeC {\'e}thode des moments g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e\relax }}{110}{figure.caption.49}
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Prix de l'option selon les param\IeC {\`e}tres estim\IeC {\'e}s avec la m\IeC {\'e}thode de l'\IeC {\'e}quation d'estimation optimale\relax }}{111}{figure.caption.50}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}

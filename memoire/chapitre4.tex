@@ -1,0 +1,1033 @@
+\chapter{Méthode des moments généralisée} % numéroté
+
+Si l'on pose l'hypothèse selon laquelle un échantillon issu d'une
+population a une certaine distribution de probabilité, on doit
+ensuite déterminer quels sont les paramètres de celle-ci. Ces
+paramètres peuvent être estimés à l'aide de différentes méthodes
+statistiques. La méthode des moments généralisée est une de celles-ci.
+
+\section{Introduction}
+\label{sec:intromethodeGMM}
+
+On considère un échantillon de taille $T$ formé de plusieurs
+réalisations $\mathbf{y} = y(1),\ldots,y(T)$ indépendantes entre elles
+et identiquement distribuées. Selon le modèle paramétrique, cet
+échantillon est formé de réalisations d'une variable aléatoire $Y$
+suivant une distribution particulière. Le vecteur de paramètres de
+celle-ci, $\theta$, de longueur $a$, appartenant à l'espace $\Omega
+\subset \mathbb{R}^a$, doit être estimé à partir de l'échantillon. Une
+première approche consiste à maximiser la fonction de vraisemblance
+$LL(\theta;\mathbf{y})$, qui équivaut au produit de la densité
+$f(y;\theta)$ évaluée à chacune des réalisations $y(t)$:
+\begin{align}
+  \label{eq:vraisemblance}
+  LL(\theta;\mathbf{y}) = \prod_{t=1}^T
+  f(y(t);\theta),\quad\theta\in\Omega.
+\end{align}
+
+L'estimateur $\hat\theta$ est, dans ce cas, la valeur pour
+laquelle l'échantillon a la plus grande probabilité d'être
+observé. Cependant, puisque cela apporte plusieurs simplifications
+intéressantes, on cherchera à maximiser la fonction de
+log-vraisemblance $l(\theta;\mathbf{y}) =
+\ln{(L(\theta;\mathbf{y}))}$:
+\begin{align}
+  \label{eq:thetavraisemblance}
+  \hat\theta = \underset{\theta}{\operatorname{arg\,max}} \,
+  l(\theta;\mathbf{y}).
+\end{align}
+
+Le maximum est obtenu en résolvant la condition de premier ordre,
+c'est-à-dire en égalant le gradient de la fonction de
+log-vraisemblance à 0:
+\begin{align}
+  \label{eq:EEvraisemblance}
+  \frac{\partial{l(\theta;\mathbf{y})}}{\partial{\theta}} &= 0.
+\end{align}
+
+Cette méthode permet d'obtenir un estimateur convergent de variance
+minimale, car elle utilise l'ensemble de l'information contenue dans
+l'échantillon. Cependant, la fonction de vraisemblance doit pouvoir
+être spécifiée sous une forme analytique, et de plus, celle-ci doit
+être différentiable afin de pouvoir utiliser cette méthode, ce qui
+n'est pas le cas avec la distribution de Laplace asymétrique
+généralisée. Lorsque cette situation se présente, une méthode
+alternative est préférée, celle des moments généralisée, comme
+proposée par \cite{hansen1982large}. Celle-ci est décrite par
+\cite{hamilton1994time} dans le contexte de l'étude des séries
+chronologiques. Elle a pour avantage de nécessiter seulement la
+spécification de certaines conditions de moment. Par contre, elle
+n'utilise pas toute l'information fournie par l'échantillon, ce qui ne
+permettra pas d'obtenir un estimateur de variance minimale.
+
+\subsection{Méthode classique des moments}
+\label{sec:methodemoments}
+
+Pour certaines distributions, on ne peut directement estimer les
+paramètres. On cherchera alors des fonctions des paramètres qui sont
+facilement estimables de manière convergente. L'ensemble de fonctions
+le plus commun qui répond à cette condition est celui des moments,
+d'où le nom de la méthode.
+
+La méthode classique des moments a été introduite par Pearson en
+1894. On considère un échantillon de taille $T$ dont les observations
+seront notées $y(t)$. On veut estimer le vecteur de paramètres
+$\theta$, de longueur $a$ de la distribution. On définit les moments
+$\mathbf{m} = m_1, \ldots, m_a$ de la population totale,
+représentée par la variable aléatoire $Y$, comme étant l'espérance des
+puissances de celle-ci, et donc une fonction des paramètres de la
+distribution. On considèrera le même nombre de moments que de
+paramètres à estimer.
+\begin{align}
+  \label{eq:momentspopulation}
+  m_i\left( \theta \right) = E \left[ Y^i \right] ,\qquad i=1,
+  \ldots, a
+\end{align}
+
+Cette méthode consiste à résoudre un système d'équations
+\eqref{eq:momentsechantillon} où l'on égale les moments empiriques
+$m_i(\theta)$ à ceux de la distribution $\hat{m}(\mathbf{y})$.
+\begin{align}
+  \label{eq:momentsechantillon}
+  \left\{\begin{array}{rcl}
+      m_1(\theta) &=& \frac{1}{T}\sum_{t=1}^T y_t\\
+      m_2(\theta) &=& \frac{1}{T}\sum_{t=1}^T y_t^2\\
+      &\vdots& \\
+      m_a(\theta) &=& \frac{1}{T}\sum_{t=1}^T y_t^a
+    \end{array}\right\}
+\end{align}
+
+L'estimateur des moments $\hat\theta_T$ est celui qui résout ce
+système.
+
+\section{Méthode des moments généralisée}
+\label{sec:methodeGMM}
+
+La méthode classique des moments utilise le même nombre d'équations
+d'estimation que de paramètres $(r=a)$.  De plus, le système
+d'équations formé par celles-ci doit admettre une solution réelle
+appartenant à l'espace des paramètres $\Omega$, ce qui n'est pas
+toujours le cas. Lorsque ces deux conditions ne sont pas réunies, on
+doit choisir un vecteur de paramètres $\theta$ pour lequel les moments
+de la population $m_i$ ont une valeur la plus près possible de ceux
+de l'échantillon $\hat{m}_i$ correspondants. Cette distance est notée
+par le vecteur $g(\theta;\mathbf{y})$ et correspond au cas le plus
+simple de la méthode des moments généralisée.
+\begin{align}
+  \label{eq:1}
+  g(\theta;\mathbf{y}) &= \begin{bmatrix}
+    m_1 - \hat{m}_1\\
+    \vdots\\
+    m_r - \hat{m}_r\\
+  \end{bmatrix}.
+\end{align}
+
+Pour obtenir ces estimateurs, on cherchera plutôt à minimiser une
+fonction objectif notée $Q\left(\theta;\mathbf{y} \right)$, qui
+correspond à une norme quadratique pondérée par une matrice définie
+positive $W$:
+\begin{align}
+  Q\left(\theta;\mathbf{y} \right) \equiv g(\theta;\mathbf{y})' W
+  g(\theta;\mathbf{y}).
+\end{align}
+
+\cite{hansen1982large} nomme cette procédure «méthode des moments
+généralisée». Elle est aussi nommée «méthode du $\chi^2$ minimum» par
+\cite{berkson1980minimum}, bien qu'elle n'en soit qu'un cas
+particulier. On retrouve aussi le nom d'estimateur de distance
+minimale, par \cite{wolfowitz1957minimum}.
+
+\subsection{Définition}
+\label{sec:definitionGMM}
+
+On considère un vecteur $\mathbf{y}_{T}$ de longueur $T$ contenant les
+données $y(t)$ de l'échantillon tirées d'une population représentée
+par la variable aléatoire $Y$. On considère de plus un vecteur de
+paramètres $\theta \in \Omega$ de longueur $a$ dont la vraie valeur,
+qui est inconnue, est représentée par la constante $\theta_0$. Soit
+une fonction vectorielle de longueur $r$ de la variable aléatoire $Y$
+appelée condition de moment ou d'orthogonalité:
+\begin{align}
+  \label{eq:def1condmoment}
+  h\left(\theta,Y\right):\left(\mathbb{R}^a \times \mathbb{R}\right)
+  \longrightarrow \mathbb{R}^r.
+\end{align}
+
+L'espérance de cette fonction, sous l'hypothèse $\theta =
+\mathbf{\theta_0}$, est un vecteur nul noté $\mathbf{0}_r$.
+\begin{align}
+  E \left[h\left(\theta_0,Y \right) \right] = \mathbf{0}_r.
+\end{align}
+
+On définit aussi la fonction $g(\theta,\mathbf{y}_{T}):\mathbb{R}^a
+\longrightarrow \mathbb{R}^r$ comme étant la moyenne empirique des
+conditions de moment $h\left(\theta,y \right)$:
+\begin{align}
+  \label{eq:estimateurfonctiongh}
+  g(\theta,\mathbf{y}_{T}) \equiv \frac{1}{T} \sum_{t=1}^T
+  h\left(\theta,y(t) \right).
+\end{align}
+
+L’idée derrière la méthode des moments généralisée est de choisir un
+ensemble de paramètres $\theta$ de sorte que la valeur de la fonction
+$g(\theta,\mathbf{y}_{T})$ soit aussi près que possible du vecteur nul
+$\mathbf{0}_r$. Selon la norme utilisée pour mesurer cette distance,
+les propriétés de l'estimateur $\hat{\theta}_T$ vont varier. Étant
+donné les nombreuses propriétés bien établies dans le domaine des
+statistiques, on utilise la norme quadratique avec pondération,
+appelée aussi moindres carrés généralisés, qui prend la forme
+suivante:
+\begin{align}
+  \label{eq:objectifGMM1}
+  Q(\theta,\mathbf{y}_{T}) = \left[g(\theta,\mathbf{y}_{T}) \right]'
+  W_T \left[g(\theta,\mathbf{y}_{T}) \right].
+\end{align}
+
+Cette fonction de minimisation permettra d'utiliser des tests
+statistiques basés sur la distribution $\chi^2$ de Pearson. La matrice
+carrée $W_T$ de dimension $r\times r$ est définie positive et est
+habituellement une fonction des données de l'échantillon
+$\mathbf{y}_{T}$ et des paramètres $\theta$. Une matrice de
+pondération optimale sera déterminée à la section
+\ref{sec:matriceWoptimaleGMM}.
+
+\subsection{Convergence}
+\label{sec:convergenceGMM}
+
+Si le nombre de paramètres $a$ est égal à celui de conditions de
+moments $r$, alors la fonction objectif atteindra un minimum de 0 au
+point $\mathbf{\hat\theta}$. On obtiendra ce dernier en résolvant
+l'équation suivante pour le paramètre $\theta$:
+\begin{align}
+  g(\hat\theta_T,\mathbf{y}_{T})=0. \label{eq:paramegalecondmomentsGMM}
+\end{align}
+
+Lorsque le nombre de conditions de moments est plus grand que celui
+des paramètres, on ne pourra pas obtenir une solution pour l'équation
+précédente \eqref{eq:paramegalecondmomentsGMM}. La proximité entre la
+valeur de chaque condition de moment et $0$ sera déterminée par la
+matrice de pondération $W_T$. Étant donné que la fonction
+$g(\hat\theta_T,\mathbf{y}_{T})$ est la moyenne échantillonnale de la
+fonction aléatoire $h\left(\theta_0,Y \right)$, on a, par la loi des
+grands nombres, la relation suivante entre ces deux quantités:
+\begin{align}
+  g(\theta,\mathbf{y}_{T}) \stackrel{P}{\longrightarrow} E
+  \left[h\left(\theta,Y \right) \right]. \label{eq:normequadratique}
+\end{align}
+
+On considère la suite d'observations $\left\{y(t) \right\}_{t=1}^T$
+comme un processus stochastique. L'ensemble des conditions de
+régularité suivantes permet d'obtenir un estimateur convergent
+\citep{hansen1982large}.
+\begin{enumerate}
+\item Le processus stochastique $\left\{y(t) \right\}_{t=1}^T$ est
+  \textbf{stationnaire}, dont la distribution conjointe de plusieurs
+  observations ne change pas dans le temps:
+  \begin{align}
+    \label{eq:conditionGMM1.1}
+    F_{Y}(y({t(1)+\tau}) ,\ldots, y({t(k)+\tau})) =
+    F_{Y}(y({t(1)}),\ldots, y({t(k)})), \quad \forall \tau \in
+    \mathbb{R}.
+  \end{align}
+  
+  Il est aussi \textbf{ergodique}, c'est-à-dire que l'on peut déduire
+  les propriétés du processus à partir d'un échantillon (ou
+  réalisation) suffisamment long de celui-ci. Entre autres, la moyenne
+  et la variance d'un échantillon recueilli sur une période en
+  particulier sont représentatives de celles de n'importe quel autre
+  intervalle de temps de ce processus. Dans ces deux dernières
+  situations, on parle aussi de convergence en moyenne
+  ($\mathbb{L}^1$) et en norme quadratique ($\mathbb{L}^2$):
+  \begin{align}
+    \label{eq:conditionGMM1.2}
+    \lim_{T\longrightarrow\infty}\mathrm{E}\left(\left|Y_T-Y\right|^r\right)=0,
+    \quad r\in\left\{1,2\right\}.
+  \end{align}
+
+\item L'\textbf{espace métrique} $(\Omega,\sigma)$, défini par
+  l'espace des paramètres $\Omega$ et la norme valeur absolue est
+  \textbf{séparable}:
+  \begin{align}
+    \label{eq:conditionGMM2.1}
+    \sigma=\left|Y_T-Y\right|^r.
+  \end{align}
+
+  Cette condition définit l'unicité du vecteur de paramètres, car si
+  la distance est nulle, les estimateurs correspondent aux vrais paramètres:
+  \begin{align}
+    \label{eq:conditionGMM2.2}
+    \sigma = 0 &\Longleftrightarrow \mathbf{\hat\theta} = \theta_0,
+    \quad \theta_0 \in \Omega.
+  \end{align}
+
+\item La fonction $h\left(\theta,\mathbf{y}\right)$ est
+  \textbf{mesurable au sens de Borel} pour chaque vecteur $\theta$,
+  c'est-à-dire qu'un sous-ensemble de l'espace des paramètres $\Omega$
+  existe pour chaque valeur qu'elle peut prendre. De plus, la fonction
+  est continue sur l'ensemble $\Omega$ pour chaque échantillon
+  $\mathbf{y}$.
+
+\item L'espérance de la fonction $h\left(\theta, Y \right)$ existe et
+  est définie pour toute valeur $\theta \in \Omega$. De plus, par
+  définition, l'espérance de la fonction pour les vrais paramètres est
+  de 0:
+  \begin{align*}
+    E\left[h\left(\theta_0, Y \right)\right] &= 0.
+  \end{align*}
+
+\item La séquence de matrices de pondération $\left\{ W_T
+  \right\}_{T=1}^{\infty}$ converge presque sûrement, élément par
+  élément, vers une constante $W_0$, en utilisant la norme valeur
+  absolue définie précédemment \eqref{eq:conditionGMM2.1}.
+\end{enumerate}
+
+$\hat\theta_T \in \Omega$ est un estimateur convergent de $\theta$
+lorsque les conditions précédentes sont respectées.
+\begin{align}
+  \hat{\theta}_T &= \operatorname{arg}\min_{\theta\in\Omega} Q(\theta,\mathbf{y}_{T}) \nonumber\\
+  &= \operatorname{arg}\min_{\theta\in\Omega}
+  \left[g(\theta,\mathbf{y}_{T}) \right]' W_T
+  \left[g(\theta,\mathbf{y}_{T}) \right]. \label{eq:estimateurGMM}
+\end{align}
+
+\subsection{Matrice de pondération optimale}
+\label{sec:matriceWoptimaleGMM}
+
+On définit la variance-covariance $\mathbf{S}(\theta;\mathbf{y})$ de
+la moyenne échantillonnale de la fonction
+$h(\theta,\mathbf{y})$. Cette matrice est formée par l'espérance,
+élément par élément, du produit extérieur de l'estimateur par sa
+transposée, multiplié par la taille de l'échantillon $T$
+\begin{align}
+  \label{eq:matricevcov1}
+  \mathbf{S}(\theta;\mathbf{y}) = T \cdot E\left\{ \left[
+      h(\theta,\mathbf{y})\right] \left[ h(\theta,\mathbf{y}) \right]'
+  \right\} .
+\end{align}
+
+La variance-covariance asymptotique de la moyenne échantillonnale de
+la fonction $h(\theta_0,y(t))$ est obtenue en évaluant la matrice
+\eqref{eq:matricevcov1} au point $\mathbf{\theta_0}$.
+\begin{align}
+  \mathbf{S}(\theta_0;\mathbf{y}) = T \left[\cdot \lim_{T
+      \longrightarrow \infty} E \left\{ \left[
+        h(\theta,\mathbf{y})\right] \left[ h(\theta,\mathbf{y})
+      \right]' \right\} \right]_{\theta=\theta_0}
+\end{align}
+
+La valeur optimale de la matrice de pondération $W_T$ de l'équation
+\eqref{eq:estimateurGMM} est obtenue en inversant la
+variance-covariance asymptotique:
+\begin{align}
+  \label{eq:matriceWinvercevcov}
+  W_T = \mathbf{S}^{-1}(\theta_0;\mathbf{y}_T).
+\end{align}
+
+Cependant, comme on ne connaît pas la valeur de $\theta_0$, on
+utilisera l'estimateur convergent ${\mathbf{\hat\theta}}$, qui
+minimise la condition suivante:
+\begin{align}
+  \label{eq:objectifGMM2}
+  Q_T(\theta,\mathbf{y}_{T}) = \left[g(\theta,\mathbf{y}_{T}) \right]'
+  \mathbf{S}_T^{-1}(\theta;\mathbf{y}_T)
+  \left[g(\theta,\mathbf{y}_{T}) \right].
+\end{align}
+
+Le problème d'optimisation se note alors comme suit:
+\begin{align}
+  \label{eq:estimateurGMM2}
+  \hat{\theta}_T &= \operatorname{arg}\min_{\theta\in\Omega}
+  Q_T(\theta,\mathbf{y}_{T}).
+\end{align}
+
+Comme la séquence $\left\{ h(\theta_0,y(t))
+\right\}_{t=-\infty}^{\infty}$ ne présente pas de corrélation
+sérielle, on pourrait estimer la variance-covariance $S_T$ de manière
+convergente en évaluant la moyenne empirique du produit extérieur de
+la condition de moment \citep[p.413]{hamilton1994time}:
+\begin{align}
+  \label{eq:matponderationproduith}
+  \mathbf{S}_T^{*}(\theta;\mathbf{y}_T) = \frac{1}{T} \sum_{t=1}^T
+  \left[g\left(\theta_0,y(t) \right) \right]
+  \left[g\left(\theta_0,y(t) \right) \right]^{\prime}.
+\end{align}
+
+L'estimateur $\mathbf{\hat{S}}_T({\mathbf{\hat\theta}};\mathbf{y}_T)$
+converge en probabilité vers la vraie valeur de la matrice
+$\mathbf{S}(\theta_0;\mathbf{y}_T)$.  Étant donné que l'on estime la
+fonction $h(\theta,\mathbf{y}_{T})$ à l'aide de la fonction
+$g(\mathbf{\hat\theta};\mathbf{y}_T)$, on a aussi la convergence en
+probabilité:
+\begin{align}
+  \mathbf{\hat{S}}_T({\mathbf{\hat\theta}};\mathbf{y}_T) = \frac{1}{T}
+  \sum_{t=1}^T \left[g\left(\hat{\theta}_T,w(t) \right) \right]
+  \left[g\left(\hat{\theta}_T,w(t) \right) \right]^{\prime}
+  \stackrel{P}{\longrightarrow} \mathbf{S}(\theta_0;\mathbf{y}_T).
+\end{align}
+
+L'estimateur de la matrice de pondération optimale est alors défini
+comme étant l'inverse de la variance-covariance estimée:
+\begin{align}
+  \hat{W}_T &=
+  \mathbf{\hat{S}}_T^{-1}(\mathbf{\hat\theta};\mathbf{y}_T). \label{eq:matvcovGMM}
+\end{align}
+
+Comme cette matrice dépend de l'estimateur $\hat\theta$, qui est pour
+l'instant inconnu, elle ne pourra pas être utilisée pour une première
+optimisation de l'équation de minimisation
+\eqref{eq:estimateurGMM}. Cependant, elle pourra être utilisée dans
+une procédure itérative à la section \ref{sec:GMMtwostep}. On devra
+considérer l'utilisation d'un point de départ alternatif pour le
+vecteur de paramètres dans l'algorithme de minimisation.
+
+\subsection{Méthode des moments généralisée itérative}
+\label{sec:GMMtwostep}
+\nocite{wooldridge2001econometric}
+
+La méthode des moments généralisée itérative de
+\cite{hall2005generalized} permet de contourner le problème de
+l'estimation de la matrice
+$\mathbf{\hat{S}}_T(\mathbf{\hat\theta};\mathbf{y}_T)$. Elle consiste,
+en premier lieu, à calculer un estimateur préliminaire
+$\mathbf{\hat{\theta}}^{(0)}$, en utilisant la matrice identité $W_T =
+I_r$ dans l'équation \eqref{eq:estimateurGMM}. On suggère d'utiliser
+un vecteur de valeurs initiales $\hat{\theta}^{I}$ obtenues par une
+autre méthode d'estimation, lorsque possible, comme point de départ de
+l'optimisation numérique.
+
+À l'aide de l'estimateur initial $\mathbf{\hat{\theta}}^{(0)}$, on
+obtient une première évaluation de la matrice de pondération:
+\begin{align}
+  W_T = \left[\hat{S}_T(\mathbf{\hat{\theta}}^{(0)};\mathbf{y}_T)
+  \right]^{-1}.
+\end{align}
+
+En utilisant la matrice $W_T$ comme pour pondérer la fonction objectif
+\eqref{eq:estimateurGMM}, on obtiendra un nouvel estimateur
+$\hat{\theta}_T^{(1)}$.
+
+Par la suite, on répète cette procédure jusqu'à ce qu'on obtienne deux
+estimateurs consécutifs ($\hat{\theta}_T^{(j)}$ et
+$\hat{\theta}_T^{(j+1)}$) qui ne sont pas significativement
+différents, selon un critère d'arrêt $\epsilon_i < \epsilon$.  Ce
+critère d'arrêt prendra ici la forme suivante, qui correspond à la
+norme euclidienne de la différence entre les deux derniers estimateurs
+obtenus:
+\begin{align}
+  \label{eq:criterearret}
+  \epsilon_i =
+  \sqrt{\left[\hat\theta^{(i)}_T-\hat\theta^{(i-1)}_T\right]^{\prime}\left[\hat\theta^{(i)}_T-\hat\theta^{(i-1)}_T\right]}.
+\end{align}
+
+On peut aussi fixer un nombre maximal d'itérations $i_{max}$ si l'on
+ne parvient pas à obtenir le niveau de précision voulu. Par contre,
+dans cette situation, on préfère utiliser un autre point de départ.
+
+Chaque estimateur $\hat{\theta}_T^{(i)}$ a la même distribution
+asymptotique. La méthode itérative a pour avantage, en pratique, que
+les estimateurs produits sont invariants d'échelle et ne dépendent pas
+de la matrice $W_T$ initiale.
+
+\subsection{Distribution asymptotique des estimateurs}
+\label{sec:matvcovGMM}
+
+On considère $\hat{\theta}_T$, la valeur qui minimise la fonction
+objectif $Q(\theta,\mathbf{y}_{T})$ \eqref{eq:objectifGMM2}. Cette
+minimisation équivaut à résoudre le système non linéaire où l'on égale
+la dérivée de l'équation d'optimisation à 0:
+\begin{align} \label{eq:premierordreGMM}
+  \frac{d}{d\theta^{\prime}}Q(\theta,\mathbf{y}_{T}) &=
+  \left[\left.\frac{d}{d\theta^{\prime}}g(\theta,\mathbf{y}_{T})\right|_{\theta=\hat{\theta}}
+  \right]^{\prime} \cdot \hat{W}_T \cdot g(\theta,\mathbf{y}_{T}) \\
+  &= 0. \nonumber
+\end{align}
+
+où le gradient $D'(\theta,\mathbf{y}_{T})$ est
+\begin{align} \label{eq:gradientGMM} D'(\theta,\mathbf{y}_{T}) &=
+  \left[\frac{d}{d\theta^{\prime}}g(\theta,\mathbf{y}_{T})
+  \right]^{\prime} \nonumber\\
+  &= \begin{bmatrix}
+    \frac{d}{d\theta_1}g_1(\theta,\mathbf{y}_{T})& \cdots & \frac{d}{d\theta_1}g_a(\theta,\mathbf{y}_{T}) \\
+    \vdots & \ddots & \vdots \\
+    \frac{d}{d\theta_k}g_1(\theta,\mathbf{y}_{T})& \cdots &
+    \frac{d}{d\theta_k}g_a(\theta,\mathbf{y}_{T})
+  \end{bmatrix}.
+\end{align}
+
+En appliquant le théorème central limite multivarié
+\eqref{eq:TCLmulti2} à l'estimateur des conditions de moments
+$g(\theta,\mathbf{y}_{T})$, on obtient que, lorsque la taille $T$ est
+suffisamment grande, celui-ci converge en loi vers un vecteur
+aléatoire de distribution normale multivariée de moyenne
+$\mathbf{0}_a$ et de variance-covariance
+$T^{-1}\mathbf{S}(\mathbf{\theta};\mathbf{y}_T)$:
+\begin{align}
+  \label{eq:TCL-GMM}
+  \sqrt{T} g(\theta,\mathbf{y}_{T}) \stackrel{L}{\longrightarrow}
+  N\left(\mathbf{0}_a,\mathbf{S}(\mathbf{\theta};\mathbf{y}_T)\right).
+\end{align}
+
+Cette relation permet de conclure que l'estimateur $\hat\theta$ est
+gaussien. On n'a donc qu'à calculer sa variance-covariance
+asymptotique.
+
+Soit $\left\{\mathbf{\hat{S}}_T \right\}_{T=1}^{\infty}$, une séquence
+de matrices $(r \times r)$ définies positives qui convergent en
+probabilité vers la variance-covariance asymptotique:
+\begin{align*}
+  \mathbf{\hat{S}}_T \stackrel{P}{\longrightarrow} \mathbf{S}.
+\end{align*}
+
+On ajoute que la fonction $g(\theta,\mathbf{y}_{T})$ doit être
+différentiable par rapport au vecteur $\theta$ pour tout échantillon
+$\mathbf{y}_{T}$.
+
+On doit préalablement poser un ensemble de conditions supplémentaires
+de régularité:
+\begin{enumerate}
+\item L'estimateur $\hat\theta_T$ converge en probabilité vers la
+  vraie valeur des paramètres $\theta_0$:
+  \begin{align}
+    \label{eq:varasympt.1}
+    \hat\theta_T \stackrel{P}{\longrightarrow} \theta_0.
+  \end{align}
+\item Le théorème central limite s'applique pour la fonction
+  $g(\theta,\mathbf{y}_{T})$ \eqref{eq:TCL-GMM}.
+\item Pour toute séquence d'estimateurs $\left\{ \theta_T^{*}
+  \right\}_{T=1}^{\infty}$ convergents en probabilité $\theta_T^{*}
+  \stackrel{P}{\longrightarrow} \theta_0$, on peut évaluer le gradient
+  $D^{\prime}(\theta,\mathbf{y}_{T})$ de l'équation
+  $g(\theta,\mathbf{y}_{T})$ \eqref{eq:gradientGMM} à l'aide de
+  limites:
+  \begin{align}
+    \label{eq:varasympt.3}
+    D^{\prime}_T(\theta,\mathbf{y}_{T}) &\equiv plim \left\{\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}|_{\theta=\theta_T^{*}} \right\} \nonumber\\
+    &= plim
+    \left\{\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}|_{\theta=\theta_0}
+    \right\}.
+  \end{align}
+  On note que les colonnes de la matrice $D$ sont linéairement
+  indépendantes.
+\end{enumerate}
+
+Pour obtenir la distribution asymptotique de l'estimateur
+$\hat\theta$, on utilise le premier ordre du développement de Taylor
+de la fonction $g(\hat\theta,\mathbf{y}_{T})$ autour de la valeur du
+vrai paramètre $\theta_0$, tel qu'avancé par
+\cite{gourieroux1989statistique}:
+\begin{align}
+  \label{eq:taylorfonction.g}
+  g(\hat\theta,\mathbf{y}_{T}) &= g(\theta_0,\mathbf{y}_{T}) +
+  D^{\prime}_T(\theta,\mathbf{y}_{T}) \left(\hat\theta-\theta_0
+  \right).
+\end{align}
+
+On multiplie de part et d'autre par la matrice $
+\left(\left.\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}\right|_{\theta=\theta_T}
+  \times W_T \right)$ de dimension $(a \times r)$:
+\begin{align}
+  \label{eq:taylorfonction.gprod}
+  \left(\left.\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}\right|_{\theta=\theta_T}
+    \times W_T\right) \times g(\hat\theta,\mathbf{y}_{T}) &=
+  \left(\left.\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}\right|_{\theta=\theta_T}
+    \times W_T\right) \times g(\theta_0,\mathbf{y}_{T})\nonumber\\
+  &+
+  \left(\left.\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}\right|_{\theta=\theta_T}
+    \times W_T\right) \times D^{\prime}_T(\theta,\mathbf{y}_{T})
+  \left(\hat\theta-\theta_0 \right).
+\end{align}
+
+L'équation de premier ordre \eqref{eq:premierordreGMM} nous indique
+que le côté gauche de l'égalité précédente
+\eqref{eq:taylorfonction.gprod} vaut 0. On retrouve alors une
+expression de la distance entre l'estimateur et la vraie valeur des
+paramètres, qui dépend de la matrice de pondération, de la fonction
+$g(\theta_0,\mathbf{y}_{T})$ et du gradient
+$D^{\prime}_T(\theta,\mathbf{y}_{T})$:
+\begin{align}
+  \label{eq:taylorfonction.gprod2}
+  \left(\hat\theta-\theta_0 \right) &= -
+  \left[\left.\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}\right|_{\theta=\theta_T}
+    \times W_T \times D^{\prime}_T(\theta,\mathbf{y}_{T}) \right]^{-1} \nonumber\\
+  &\quad\times
+  \left.\frac{dg(\theta,\mathbf{y}_{T})}{d\theta^{\prime}}\right|_{\theta=\theta_T}
+  \times W_T \times g(\theta_0,\mathbf{y}_{T}).
+\end{align}
+
+La condition de régularité \eqref{eq:varasympt.3} permet la
+convergence de chaque rangée de l'estimateur
+$D^{\prime}_T(\theta,\mathbf{y}_{T})$ vers celles du gradient
+$D^{\prime}(\theta_0,\mathbf{y}_{T})$. De plus, l'équation
+\eqref{eq:taylorfonction.gprod2} implique la relation de convergence
+suivante:
+\begin{align}
+  \label{eq:taylorfonction.gprod3}
+  \sqrt{T} \left(\hat\theta-\theta_0 \right)
+  &\stackrel{P}{\longrightarrow}
+  -\left\{D(\theta,\mathbf{y}_{T})W_TD^{\prime}(\theta,\mathbf{y}_{T})
+  \right\}^{-1} \nonumber\\
+  &\quad\times \left\{D(\theta,\mathbf{y}_{T})W_T\sqrt{T} \cdot
+    g(\theta_0,\mathbf{y}_{T}) \right\}.
+\end{align}
+
+Afin de simplifier la notation, on définit la constante
+$C(\theta,\mathbf{y}_{T})$:
+\begin{align*}
+  C(\theta,\mathbf{y}_{T})=-\left\{D(\theta,\mathbf{y}_{T})W_TD^{\prime}
+    (\theta,\mathbf{y}_{T}) \right\}^{-1} \times
+  D(\theta,\mathbf{y}_{T})W_T.
+\end{align*}
+
+L'équation \eqref{eq:taylorfonction.gprod3} devient
+\begin{align}
+  \label{eq:taylorfonction.gprod4}
+  \sqrt{T} \left(\hat\theta-\theta_0 \right)
+  &\stackrel{P}{\longrightarrow} C(\theta,\mathbf{y}_{T})\sqrt{T}
+  \cdot g(\theta_0,\mathbf{y}_{T}).
+\end{align}
+
+En combinant la relation \eqref{eq:TCL-GMM}, où l'on applique le
+théorème central limite à la fonction $g(\theta_0,\mathbf{y}_{T})$,
+avec la méthode delta multivariée \eqref{eq:deltamethodmult}, on
+retrouve la forme suivante, avec une convergence en loi cependant,
+puisque celle-ci est moins forte que celle en probabilité:
+\begin{align}
+  \sqrt{T} (\hat{\theta}-\theta_0) \stackrel{L}{\longrightarrow}
+  N(0,\mathcal{J}_0^{-1})
+\end{align}
+où
+\begin{align}
+  \mathcal{J}_0^{-1} &=
+  C(\theta,\mathbf{y}_{T})\left\{W_T\right\}^{-1}C(\theta,\mathbf{y}_{T})
+  \nonumber\\
+  &= \left\{D(\theta,\mathbf{y}_{T})W_TD^{\prime}
+    (\theta,\mathbf{y}_{T}) \right\}^{-1} D(\theta,\mathbf{y}_{T})W_T
+  \left\{W_T\right\}^{-1}\nonumber\\
+  &\quad\times W_T D^{\prime}(\theta,\mathbf{y}_{T})
+  \left\{D(\theta,\mathbf{y}_{T})W_TD^{\prime} (\theta,\mathbf{y}_{T})
+  \right\}^{-1}\nonumber\\
+  &=
+  \left\{D(\theta,\mathbf{y}_{T})W_TD^{\prime}(\theta,\mathbf{y}_{T})\right\}^{-1}. \label{matricevcovparamGMMnc}
+\end{align}
+
+\section{Estimation sous contraintes}
+\label{sec:estimGMMcontraint}
+
+La méthode des moments généralisée suppose que le vrai vecteur de
+paramètres $\theta_0$ appartient à l'ensemble $\Omega$. En pratique,
+les paramètres sont souvent soumis à certaines contraintes à
+l'égalité.
+
+On définit un ensemble de $q$ contraintes linéaires implicites
+appliquées au vecteur de paramètres $\theta$ de longueur $a$:
+\begin{align}
+  \label{eq:contraintelin0}
+  \left\{
+    \begin{array}{rcl}
+      r_{(1,1)}\theta_1 + \ldots + r_{(1,a)}\theta_a &=& r_{(1,0)}\\
+      \ldots \\
+      r_{(q,1)}\theta_1 + \ldots + r_{(q,a)}\theta_a &=& r_{(q,0)}
+    \end{array}
+  \right\}.
+\end{align}
+
+On peut les présenter sous la forme d'un système matriciel:
+\begin{align}
+  \label{eq:contraintelin}
+  \underbrace{
+    \begin{bmatrix}
+      r_{(1,1)}&\ldots&r_{(1,a)}\\
+      \vdots&\ddots&\vdots\\
+      r_{(q,1)}&\ldots&r_{(q,a)}\\
+    \end{bmatrix}}_{\mathbf{R}} \times \underbrace{\begin{bmatrix}
+      \theta_1\\
+      \vdots\\
+      \theta_a
+    \end{bmatrix}}_{\mathbf{\theta}} &= \underbrace{\begin{bmatrix}
+      r_{(1,0)}\\
+      \vdots\\
+      r_{(q,0)}
+    \end{bmatrix}}_{\mathbf{r}}.
+\end{align}
+
+Afin de les inclure dans un problème de minimisation, on préfèrera
+utiliser la notation $a(\theta) = R\theta-r$.  On notera au passage
+que le gradient du vecteur de contraintes équivaut à la matrice de
+coefficients:
+\begin{align}
+  \label{eq:gradientcontrainte}
+  \frac{\partial}{\partial\theta^{\prime}} a(\theta) = R.
+\end{align}
+
+Ainsi, on peut estimer les paramètres de la distribution contrainte à
+l'aide de la méthode des moments généralisée, de manière analogue à la
+distribution non contrainte, comme il a été présenté à la section
+précédente. On utilisera la technique du multiplicateur de Lagrange
+afin d'inclure la contrainte $a(\theta)$ dans l'équation de
+minimisation \eqref{eq:estimateurGMM2}. Le vecteur $\gamma$ associe un
+multiplicateur à chaque contrainte linéaire.  On définit le lagrangien
+$\mathcal{L}(\tilde{\theta})$ mettant en relation la fonction objectif
+$Q_T(\theta)$ \eqref{eq:objectifGMM2} et les contraintes $a(\theta)$:
+\begin{equation}
+  \label{eq:estimateurGMMlagrange}
+  \mathcal{L}(\theta) = - Q_T(\theta) - a(\theta)^{\prime} \gamma.
+\end{equation}
+
+L'estimateur contraint $\tilde{\theta}$ est obtenu en maximisant ce
+lagrangien:
+\begin{align}
+  \label{eq:lagrangienGMMcontraint}
+  \tilde{\theta} = \operatorname{arg}\max_{\theta\in\Omega}
+  \mathcal{L}(\theta).
+\end{align}
+
+La solution optimale s'obtient en résolvant les conditions de premier
+ordre par rapport au vecteur de paramètres $\theta$ et celui des
+multiplicateurs de Lagrange $\gamma$:
+
+\begin{align}
+  \frac{\partial}{\partial\theta}Q_T(\tilde\theta) -
+  \frac{\partial}{\partial\theta^{\prime}}a(\tilde\theta)^{\prime}\gamma_{\scriptscriptstyle
+    T} &= 0\label{eq:premierordreGMMlagrange1} \\ a(\tilde\theta) &=
+  0. \label{eq:premierordreGMMlagrange2}
+\end{align}
+
+On s'intéresse aussi à la distribution asymptotique de cet estimateur
+contraint. Pour ce faire, on doit développer les conditions de premier
+ordre comme il a été fait à la section \ref{sec:matvcovGMM} pour
+l'estimateur non contraint.
+
+\subsection{Distribution asymptotique des estimateurs contraints}
+\label{sec:matvcovGMMconst}
+
+Supposons que les conditions de premier ordre sont deux fois
+continûment dérivables par rapport au vecteur $\theta$. On développe
+les équations \eqref{eq:premierordreGMMlagrange1} et
+\eqref{eq:premierordreGMMlagrange2} autour de la vraie valeur du
+paramètre contraint $\theta_0$.  Puis, on les multiplie par les facteurs
+$\frac{1}{\sqrt{T}}$ et $\sqrt{T}$ respectivement. Notons que la
+fonction $a(\theta)$ vaut 0 au point $\theta_0$, ce qui permettra de
+simplifier la seconde équation:
+\begin{subequations} \label{eq:premierordreGMMlagrange1.1-2}
+  \begin{align}
+    \frac{1}{\sqrt{T}} \frac{\partial}{\partial\theta}Q_T(\theta_0) +
+    \frac{1}{T}
+    \frac{\partial^2}{\partial\theta\partial\theta^{\prime}}Q_T(\theta_0)
+    \sqrt{T} (\tilde\theta - \theta_0) -
+    \frac{\partial}{\partial\theta^{\prime}}a(\tilde\theta)^{\prime}\frac{\gamma_{\scriptscriptstyle
+        T}}{\sqrt{T}} &\approx 0 \label{eq:premierordreGMMlagrange1.1}\\
+    \frac{\partial}{\partial\theta^{\prime}} a(\theta_0) \sqrt{T}
+    (\tilde\theta - \theta_0) &\approx
+    0. \label{eq:premierordreGMMlagrange1.2}
+  \end{align}
+\end{subequations}
+
+On définit la matrice d'information de Fisher comme étant la limite de
+l'espérance de la valeur de la dérivée seconde de la fonction
+objectif. Au point $\theta_0$, on identifie l'estimateur de cette
+matrice par $\mathcal{J}_0$, la variance-covariance de l'estimateur
+non contraint \eqref{matricevcovparamGMMnc}:
+\begin{align}
+  \label{eq:fisherJGMMlagrange}
+  \mathcal{J}_0 &= \lim_{T\to\infty} -\frac{1}{T}
+  \frac{\partial^2}{\partial\theta\partial\theta^{\prime}}Q_T(\theta_0).
+\end{align}
+
+On reprend l'équivalent asymptotique de l'équation
+\eqref{eq:premierordreGMMlagrange1.1} pour l'estimateur non contraint:
+\begin{align}
+  \frac{1}{\sqrt{T}} \frac{\partial}{\partial\theta}Q_T(\theta_0) -
+  \mathcal{J}_0 \sqrt{T} (\hat\theta - \theta_0) &\approx
+  0\label{eq:premierordreGMMnc1.1}.
+\end{align}
+
+En combinant ces deux dernières expressions, on peut formuler les
+conditions de premier ordre \eqref{eq:premierordreGMMlagrange1.1-2}
+comme étant asymptotiquement des fonctions linéaires de l'estimateur
+non contraint $\sqrt{T} (\hat\theta - \theta_0)$:
+\begin{align}
+  \mathcal{J}_0 \sqrt{T} (\hat\theta - \theta_0) - \mathcal{J}_0
+  \sqrt{T} (\tilde\theta - \theta_0) -
+  \frac{\partial}{\partial\theta}a(\theta_0)^{\prime}\frac{\gamma_{\scriptscriptstyle
+      T}}{\sqrt{T}} &\approx 0 \label{eq:premierordreGMMlagrange2.1}\\
+  \frac{\partial}{\partial\theta^{\prime}} a(\theta_0) \sqrt{T}
+  (\tilde\theta - \theta_0) &\approx
+  0. \label{eq:premierordreGMMlagrange2.2}
+\end{align}
+
+En réorganisant la première équation
+\eqref{eq:premierordreGMMlagrange2.1}, on obtient:
+\begin{align}
+  \label{eq:premierordreGMMlagrange3.1}
+  \sqrt{T} (\tilde\theta - \theta_0) \approx \sqrt{T} (\hat\theta -
+  \theta_0) - \mathcal{J}_0^{-1}
+  \frac{\partial}{\partial\theta}a(\theta_0)^{\prime}\frac{\gamma_{\scriptscriptstyle
+      T}}{\sqrt{T}}.
+\end{align}
+
+En la reportant dans la seconde équation
+\eqref{eq:premierordreGMMlagrange2.2}, on obtient:
+\begin{align}
+  \label{eq:premierordreGMMlagrange3.2}
+  \frac{\partial}{\partial\theta^{\prime}} a(\theta_0) \sqrt{T}
+  (\hat\theta - \theta_0) - \frac{\partial}{\partial\theta^{\prime}}
+  a(\theta_0) \mathcal{J}_0^{-1}
+  \frac{\partial}{\partial\theta}a(\theta_0)^{\prime}\frac{\gamma_{\scriptscriptstyle
+      T}}{\sqrt{T}} + \frac{\partial}{\partial\theta^{\prime}}
+  a(\theta_0) \sqrt{T} (\tilde\theta - \theta_0) &\approx 0.
+\end{align}
+
+Comme le rang de la matrice $\frac{\partial}{\partial\theta^{\prime}}
+a(\theta_0)$ est égal au nombre de contraintes $r$, alors
+$\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+\mathcal{J}_0^{-1}
+\frac{\partial}{\partial\theta}a(\theta_0)^{\prime}$ est inversible,
+et l'on peut donc isoler le multiplicateur de Lagrange
+$\frac{\gamma_{\scriptscriptstyle T}}{\sqrt{T}}$ en fonction des
+estimateurs contraints $\sqrt{T} (\tilde\theta - \theta_0)$ et non
+contraints $\sqrt{T} (\hat\theta - \theta_0)$:
+\begin{align}
+  \label{eq:LagrangienJ.GMM}
+  \frac{\gamma_{\scriptscriptstyle T}}{\sqrt{T}} & \approx
+  \left(\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+    \mathcal{J}_0^{-1}
+    \frac{\partial}{\partial\theta}a(\theta_0)^{\prime} \right)^{-1}
+  \frac{\partial}{\partial\theta^{\prime}} a(\theta_0) \sqrt{T}
+  (\hat\theta - \theta_0).
+\end{align}
+
+On définit l'estimateur contraint en fonction de l'estimateur non
+contraint en utilisant le lagrangien \eqref{eq:LagrangienJ.GMM} dans
+la condition \eqref{eq:premierordreGMMlagrange3.1}:
+\begin{align}
+  \label{eq:contraintvsncGMM}
+  \sqrt{T} (\tilde\theta - \theta_0) &\approx
+  \left(I-\underbrace{\mathcal{J}_0^{-1}\frac{\partial}{\partial\theta}a(\theta_0)^{\prime}\left(\frac{\partial}{\partial\theta^{\prime}}
+        a(\theta_0) \mathcal{J}_0^{-1}
+        \frac{\partial}{\partial\theta}a(\theta_0)^{\prime}
+      \right)^{-1}\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+    }_{P}\right)\mathcal{J}_0^{-1}\sqrt{T} (\hat\theta - \theta_0) \\
+  & \approx \left(I-P\right)\mathcal{J}_0^{-1}\sqrt{T} (\hat\theta -
+  \theta_0). \nonumber
+\end{align}
+
+La variance asymptotique de l'estimateur contraint est donc, à partir
+du résultat précédent \eqref{eq:contraintvsncGMM} et de la définition
+\eqref{eq:premierordreGMMnc1.1}:
+\begin{align}
+  \label{eq:VcontraintGMM}
+  V\left[\sqrt{T} (\tilde\theta - \theta_0) \right] =
+  \left(I-P\right)\mathcal{J}_0^{-1}.
+\end{align}
+
+L'estimateur $\tilde\theta$ suit donc asymptotiquement une
+distribution normale multivariée de moyenne $\theta_0$ et de variance
+$T\left(I-P\right)\mathcal{J}_0^{-1}$:
+\begin{align}
+  \label{eq:distcontraintGMM}
+  \tilde\theta &\sim
+  \mathcal{N}\left(\theta_0,T\left(I-P\right)\mathcal{J}_0^{-1}\right).
+\end{align}
+
+\section{Tests d'hypothèses paramétriques}
+\label{sec:testparam}
+
+Les tests d'hypothèses paramétriques sont utilisés afin d'évaluer une
+hypothèse concernant les paramètres d'une distribution, en fonction
+d'un échantillon de données. Afin d'effectuer ces tests, on présume
+que la différence entre l'estimateur $\hat\theta$ et la vraie valeur
+des paramètres $\theta_0$ suit une distribution normale
+multivariée. Les hypothèses sont habituellement formulées sous la
+forme de contraintes linéaires, ainsi, les statistiques de test sont
+obtenues à partir du calcul matriciel. Les trois tests les plus
+couramment utilisés dans le cadre de l'estimation par maximum de
+vraisemblance peuvent être adaptés à la méthode des moments
+généralisée \citep{newey1994large}. Pour l'ensemble de ces tests,
+l'hypothèse nulle correspond à la contrainte linéaire suivante:
+\begin{equation}
+  \label{eq:hypcontraintelin}
+  H_0: a(\theta) = R\theta - r = 0.
+\end{equation}
+
+\subsection{Test de Wald}
+\label{sec:testwald}
+
+Le test de Wald permet de vérifier si la différence entre l'estimateur
+non contraint $\hat\theta$ et l'estimateur contraint $\tilde\theta$
+est significative. Les contraintes linéaires posées ne seront pas
+applicables lorsque le résultat est positif. Pour ce faire, on doit
+connaître la distribution asymptotique de celle-ci. Comme la
+distribution asymptotique des deux estimateurs est normale, alors
+celle de cette différence l'est aussi:
+\begin{align}
+  \label{eq:7}
+  (\hat\theta - \tilde\theta) \sim \mathcal{N}(0,TP\mathcal{J}_0^{-1}).
+\end{align}
+
+On obtient l'espérance et la variance de la statistique
+$\sqrt{T}\left(\hat\theta - \tilde\theta\right)$ en utilisant le fait
+que la somme de deux variables aléatoires normales l'est aussi:
+\begin{align}
+  \label{eq:moyennevariancesomme}
+  E\left[\sqrt{T}\left(\hat\theta - \tilde\theta\right) \right] &=
+  E\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] -
+  E\left[\sqrt{T}\left(\tilde\theta - \theta_0\right) \right]\nonumber\\
+  &= \theta_0 - \theta_0 \nonumber\\
+  &= 0 \\
+  V\left[\sqrt{T}\left(\hat\theta - \tilde\theta\right) \right] &=
+  V\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] -
+  V\left[\sqrt{T}\left(\tilde\theta - \theta_0\right) \right]\nonumber\\
+  &= \left(I-(I-P)\right)\mathcal{J}_0^{-1}\nonumber\\
+  &= P\mathcal{J}_0^{-1}.
+\end{align}
+
+On définit la statistique $\chi^{WALD,1}$, qui a asymptotiquement une
+distribution $\chi^2$ avec $q$ degrés de liberté:
+\begin{align}
+  \label{eq:statistiqueWald}
+  \chi^{WALD,1} &= T \left(\hat\theta - \tilde\theta\right)^{\prime} P
+  \left(\hat\theta - \tilde\theta\right) \\
+  &=T \left(\hat\theta - \tilde\theta\right)^{\prime}
+  \mathcal{J}_0^{-1}\frac{\partial}{\partial\theta}a(\theta_0)^{\prime}\left(\frac{\partial}{\partial\theta^{\prime}}
+    a(\theta_0) \mathcal{J}_0^{-1}
+    \frac{\partial}{\partial\theta}a(\theta_0)^{\prime}
+  \right)^{-1}\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+  \left(\hat\theta - \tilde\theta\right). \nonumber
+\end{align}
+
+
+On rejettera l'hypothèse nulle \eqref{eq:hypcontraintelin} lorsque la
+valeur de la statistique $\chi^{WALD,1}$ sera supérieure à un seuil
+critique $\chi_{q,1-\alpha}^2$ au niveau de confiance $1-\alpha$.
+
+Une version asymptotiquement équivalente de ce test qui ne requiert
+pas de calculer la valeur de l'estimateur contraint existe. Ce test
+est équivalent lorsque les contraintes définissent certains paramètres
+comme des constantes. On vérifie si un cas particulier d'une
+distribution s'applique, par exemple avec celle de Laplace asymétrique
+généralisée.
+
+On définit alors la statistique $\chi^{WALD,2}$, qui a aussi
+asymptotiquement une distribution $\chi^2$ avec $q$ degrés de
+liberté. Par contre, ici, on teste si la valeur de la contrainte
+linéaire est significativement différente de 0:
+\begin{align}
+  \label{eq:statistiqueWald2}
+  \chi^{WALD,2} &= T a^{\prime}(\hat\theta)
+  \left(\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+    \mathcal{J}_0^{-1}
+    \frac{\partial}{\partial\theta}a^{\prime}(\theta_0) \right)^{-1}
+  a(\hat\theta).
+\end{align}
+
+
+\subsection{Test du multiplicateur de Lagrange}
+\label{sec:testscore}
+
+Le test du multiplicateur de Lagrange, ou du score, introduit par
+\cite{newey1987hypothesis}, est basé uniquement sur l'estimateur
+contraint et est équivalent asymptotiquement au test de Wald présenté
+à la section précédente. Il vérifie l'application de la contrainte
+\eqref{eq:contraintelin} à l'estimateur $\tilde\theta$. Selon la
+définition du lagrangien \eqref{eq:estimateurGMMlagrange}, si la
+contrainte est vérifiée, alors la restriction $a(\tilde\theta)$ vaudra
+0. Selon la condition de premier ordre
+\eqref{eq:premierordreGMMlagrange2}, la dérivée de la fonction
+objectif de l'estimateur non contraint
+$\frac{\partial}{\partial\theta}Q_T(\theta)$, le score, $\tilde\theta$
+devrait aussi être égale à 0. On cherchera donc à tester si cette
+valeur est significativement différente de 0.
+
+On définit la statistique du multiplicateur de Lagrange $\chi^{LM,1}$,
+qui a asymptotiquement une distribution $\chi^2_q$ avec $q$ degrés de
+liberté:
+\begin{align}
+  \label{statistiqueLM}
+  \chi^{LM,1} &= T \frac{\partial}{\partial\theta}Q_T(\tilde\theta) P
+  \frac{\partial}{\partial\theta}Q_T(\tilde\theta).
+\end{align}
+
+On rejettera l'hypothèse nulle \eqref{eq:hypcontraintelin} lorsque la
+valeur de la statistique $\chi^{LM,1}$ sera supérieure à un seuil
+critique $\chi_{q,1-\alpha}^2$ au niveau de confiance $1-\alpha$.
+
+On peut construire un test équivalent, basé sur la valeur du
+multiplicateur, dont la matrice de variance-covariance est l'inverse
+de celle de la contrainte. On définit alors la statistique
+$\chi^{LM,2}$ suivante:
+\begin{align}
+  \label{eq:statistiqueLM2}
+  \chi^{LM,2} &= T \gamma^{\prime}
+  \frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+  \mathcal{J}_0^{-1}
+  \frac{\partial}{\partial\theta}a^{\prime}(\theta_0) \gamma.
+\end{align}
+
+\subsection{Test basé sur la statistique de métrique de distance}
+
+La statistique de métrique de distance est basée sur la différence
+entre les valeurs minimales de la fonction objectif $Q_T(\theta)$
+obtenues lors de l'optimisation avec contraintes
+\eqref{eq:estimateurGMMlagrange} et sans contraintes
+\eqref{eq:estimateurGMM}.
+
+On définit la statistique $\chi^{DM}$:
+\begin{align}
+  \label{statistiqueD}
+  \chi^{DM} &= -T \left[Q_T(\tilde\theta) - Q_T(\hat\theta)\right].
+\end{align}
+
+Cette statistique a asymptotiquement une distribution $\chi^2_q$ avec
+$q$ degrés de liberté. Elle est l'analogue de la statistique du ratio
+de vraisemblance dans le cadre de l'estimation par la méthode du
+maximum de vraisemblance.
+
+Le test basé sur la métrique de distance vérifie que la contrainte
+\eqref{eq:contraintelin} posée lors de l'estimation du vecteur
+$\tilde\theta$ est valide. Un des désavantages de ce test est qu'il
+requiert deux optimisations. Par contre, on peut facilement récupérer
+les valeurs de $Q_T(\theta)$ lors de l'estimation.
+
+On rejettera l'hypothèse nulle \eqref{eq:hypcontraintelin} lorsque la
+valeur de la statistique $\chi^{DM}$ sera supérieure à un seuil
+critique $\chi_{q,1-\alpha}^2$ au niveau de confiance $1-\alpha$.
+
+\subsection{En résumé}
+\label{sec:resumetests}
+
+On rassemble les différentes statistiques permettant d'effectuer un
+test d'hypothèse paramétrique à la table \ref{tab:testsparamGMM}.
+\begin{table}[!ht]
+  \centering
+  \begin{tabular}{cc}
+    \hline
+    \textbf{Statistique} & \textbf{Valeur} \\
+    \hline
+    $\chi^{WALD,1}$ & $T \left(\hat\theta - \tilde\theta\right)^{\prime}
+    \mathcal{J}_0^{-1}\frac{\partial}{\partial\theta}a(\theta_0)^{\prime}\left(\frac{\partial}{\partial\theta^{\prime}}
+      a(\theta_0) \mathcal{J}_0^{-1}
+      \frac{\partial}{\partial\theta}a(\theta_0)^{\prime}
+    \right)^{-1}\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+    \left(\hat\theta - \tilde\theta\right)$ \\
+    $\chi^{WALD,2}$ & $T a^{\prime}(\hat\theta)
+    \left(\frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+      \mathcal{J}_0^{-1}
+      \frac{\partial}{\partial\theta}a^{\prime}(\theta_0) \right)^{-1}
+    a(\hat\theta)$ \\
+    $\chi^{LM,1}$ & $T \frac{\partial}{\partial\theta}Q_T(\tilde\theta) P
+    \frac{\partial}{\partial\theta}Q_T(\tilde\theta)$ \\
+    $\chi^{LM,2}$ & $T \gamma^{\prime}
+    \frac{\partial}{\partial\theta^{\prime}} a(\theta_0)
+    \mathcal{J}_0^{-1}
+    \frac{\partial}{\partial\theta}a^{\prime}(\theta_0) \gamma$ \\
+    $\chi^{DM}$ & $-T \left[Q_T(\tilde\theta) - Q_T(\hat\theta)\right]$ \\
+    \hline
+  \end{tabular}
+  \caption{Tests d'hypothèse paramétriques pour la méthode des moments généralisée}
+  \label{tab:testsparamGMM}
+\end{table}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 

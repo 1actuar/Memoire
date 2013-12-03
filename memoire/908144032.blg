@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: 908144032.aux
+The style file: plainnatmod.bst
+A level-1 auxiliary file: resume.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: remerciements.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: chapitre1.aux
+A level-1 auxiliary file: chapitre2.aux
+A level-1 auxiliary file: chapitre3.aux
+A level-1 auxiliary file: chapitre4.aux
+A level-1 auxiliary file: chapitre5.aux
+A level-1 auxiliary file: chapitre6.aux
+A level-1 auxiliary file: chapitre7.aux
+A level-1 auxiliary file: chapitre8.aux
+A level-1 auxiliary file: chapitre9.aux
+A level-1 auxiliary file: conclusion.aux
+A level-1 auxiliary file: annexe1.aux
+A level-1 auxiliary file: annexe2.aux
+A level-1 auxiliary file: annexe3.aux
+A level-1 auxiliary file: deed.aux
+Database file #1: memoire.bib
+You've used 62 entries,
+            2773 wiz_defined-function locations,
+            971 strings with 13495 characters,
+and the built_in function-call counts, 25173 in all, are:
+= -- 2351
+> -- 953
+< -- 79
++ -- 341
+- -- 279
+* -- 1701
+:= -- 3797
+add.period$ -- 199
+call.type$ -- 62
+change.case$ -- 259
+chr.to.int$ -- 62
+cite$ -- 124
+duplicate$ -- 1356
+empty$ -- 2325
+format.name$ -- 387
+if$ -- 5400
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 80
+newline$ -- 329
+num.names$ -- 248
+pop$ -- 578
+preamble$ -- 1
+purify$ -- 217
+quote$ -- 0
+skip$ -- 1031
+stack$ -- 0
+substring$ -- 1122
+swap$ -- 191
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 582
+warning$ -- 0
+while$ -- 275
+width$ -- 0
+write$ -- 821

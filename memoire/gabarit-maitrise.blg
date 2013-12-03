@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: gabarit-maitrise.aux
+The style file: plainnatmod.bst
+A level-1 auxiliary file: resume.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: remerciements.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: chapitre1.aux
+A level-1 auxiliary file: chapitre2.aux
+A level-1 auxiliary file: chapitre3.aux
+A level-1 auxiliary file: chapitre4.aux
+A level-1 auxiliary file: chapitre5.aux
+A level-1 auxiliary file: chapitre6.aux
+A level-1 auxiliary file: chapitre7.aux
+A level-1 auxiliary file: chapitre8.aux
+A level-1 auxiliary file: chapitre9.aux
+A level-1 auxiliary file: conclusion.aux
+A level-1 auxiliary file: annexe1.aux
+A level-1 auxiliary file: annexe2.aux
+A level-1 auxiliary file: annexe3.aux
+A level-1 auxiliary file: deed.aux
+Database file #1: memoire.bib
+Warning--empty booktitle in walterlevy
+Warning--empty year in walterlevy
+Warning--empty year in walterlevy
+You've used 63 entries,
+            2773 wiz_defined-function locations,
+            974 strings with 13683 characters,
+and the built_in function-call counts, 25492 in all, are:
+= -- 2374
+> -- 963
+< -- 80
++ -- 345
+- -- 282
+* -- 1720
+:= -- 3843
+add.period$ -- 201
+call.type$ -- 63
+change.case$ -- 263
+chr.to.int$ -- 63
+cite$ -- 129
+duplicate$ -- 1378
+empty$ -- 2363
+format.name$ -- 391
+if$ -- 5467
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 81
+newline$ -- 333
+num.names$ -- 252
+pop$ -- 596
+preamble$ -- 1
+purify$ -- 220
+quote$ -- 0
+skip$ -- 1041
+stack$ -- 0
+substring$ -- 1124
+swap$ -- 192
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 593
+warning$ -- 3
+while$ -- 278
+width$ -- 0
+write$ -- 830
+(There were 3 warnings)

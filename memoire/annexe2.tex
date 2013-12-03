@@ -1,0 +1,145 @@
+\chapter{Éléments de statistique mathématique}
+
+\section{Loi faible des grands nombres}
+\label{sec:loifaible}
+
+La \textbf{loi faible des grands nombres} est un résultat important en
+probabilité, car il permet de définir la notion d'estimateur
+convergent. Soit une suite de variables aléatoires indépendantes et
+identiquement distribuées $\left\{X_T \right\}_{T=1}^{\infty}$ ayant
+une espérance $E\left[ X \right]$ et une variance $V\left[ X \right]$
+finies. Selon la loi faible des grands nombres, pour tout nombre réel
+strictement positif $\varepsilon$, la probabilité que la différence
+entre la moyenne empirique $Y_T=\frac{X_1+X_2+\cdots+X_T}{T}$ et
+l'espérance $E\left[ X \right]$ soit supérieure à la valeur
+$\varepsilon$ tend vers 0 lorsque $T$ tend vers l'infini.
+\begin{align}
+  \label{loifaible}
+  \lim_{T \to +\infty} \mathbb{P}\left(\left|Y_T - E\left[ X
+      \right]\right| \geq \varepsilon\right) = 0 ,\quad
+  \forall\varepsilon>0
+\end{align}
+
+On dit alors que la suite d'estimateurs
+$\left\{Y_T\right\}_{T=1}^{\infty}$ converge en probabilité vers
+l'espérance $E\left[ X \right]$. L'estimateur de l'espérance $Y_T$ est
+alors \textbf{convergent}.
+
+\section{Théorème central limite}
+\label{sec:theor-centr-limite}
+
+Le \textbf{théorème central limite} est un résultat fondamental en
+probabilité qui énonce le rôle de la distribution normale. Il démontre
+que toute somme de variables aléatoires indépendantes et identiquement
+distribuées suit approximativement une loi normale. Ce résultat permet
+entre autres d'identifier la distribution limite d'un estimateur
+convergent.
+
+\subsection{Cas univarié}
+\label{sec:cas-univarie}
+
+Soit une suite d'observations $X_1, \ldots, X_T$ d'un échantillon
+aléatoire d'une distribution de moyenne $\mu$ et de variance
+$\sigma^2$:
+\begin{align}
+  \label{eq:TCL}
+  Y_T &= \frac{1}{\sqrt{T}\sigma} \left(\sum_{t=1}^T X_t - T\mu\right) \nonumber\\
+  &= \frac{\sqrt{T}}{\sigma}\left(\overline{X}_T-\mu\right).
+\end{align}
+Alors, cette variable aléatoire converge en distribution vers une
+variable aléatoire normale centrée réduite:
+\begin{align}
+  \label{eq:TCL2}
+  Y_T \stackrel{L}{\rightarrow} \mathcal{N}(0,1).
+\end{align}
+
+\subsection{Cas multivarié}
+\label{sec:cas-multivarie}
+
+On peut aussi généraliser ce théorème pour des observations
+multivariées. On considère alors une série d'observations
+multivariées $\mathbf{X_1}, \ldots, \mathbf{X_T}$ où
+\begin{align}
+  \label{eq:defmultiX}
+  \mathbf{X_t}=\begin{bmatrix} X_{t(1)} \\ \vdots \\
+    X_{t(k)} \end{bmatrix}, \quad t=1,\ldots,T.
+\end{align}
+
+On définit maintenant la variable aléatoire correspondante:
+\begin{align}
+  \label{eq:TCLmulti1}
+  \mathbf{Y}_T &= \frac{1}{T}\begin{bmatrix} \sum_{t=1}^{T} \left [
+      X_{t(1)} \right ] \\ \vdots \\ \sum_{t=1}^{T} \left [ X_{t(k)}
+    \right ] \end{bmatrix}.
+\end{align}
+
+Dans cette situation, la variable aléatoire converge en distribution
+vers une variable aléatoire de distribution normale multivariée
+centrée de matrice de variance-covariance $\mathbf{\Sigma}$:
+\begin{align}
+  \label{eq:TCLmulti2}
+  \sqrt{T}\left(\mathbf{Y}_T - \mu\right)\ \stackrel{L}{\rightarrow}\
+  \mathcal{N}_k(0,\mathbf{\Sigma})
+\end{align}
+
+où
+\begin{align*}
+  \mathbf{\Sigma} &= \begin{bmatrix}
+    \omega_{(1,1)} &\cdots& \omega_{(1,k)} \\
+    \vdots & \ddots & \vdots \\
+    \omega_{(k,1)} &\cdots& \omega_{(k,k)} \\
+  \end{bmatrix} ,\quad \mbox{avec } \omega_{(j,k)} = \begin{cases}
+    Var\left[X_{1(j)}\right] , &(j=k) \\
+    Cov\left[X_{1(j)},X_{1(k)}\right] , &(j \neq k).
+  \end{cases}
+\end{align*}
+
+\section{Méthode delta multivariée}
+\label{sec:deltamethod}
+
+Dans le cas univarié, on utilise la méthode delta pour évaluer la
+distribution d'une fonction d'un estimateur, en supposant que la
+distribution de cet estimateur est asymptotiquement normale de
+variance connue.
+
+Dans le cas multivarié, on estime la distribution d'une fonction d'un
+vecteur d'estimateurs, dont la distribution asymptotique est normale
+multivariée, avec une matrice de variance-covariance $\Sigma$.
+
+On a donc, pour un estimateur convergent $\hat\theta_T$, en appliquant
+le théorème central limite, le résultat suivant:
+\begin{align}
+  \sqrt{T} (\hat\theta_T - \theta_0) \stackrel{L}{\longrightarrow}
+  \mathcal{N}(0,\Sigma).
+\end{align}
+On cherche la distribution d'une fonction $h(\hat\theta_T)$. On
+développe cette fonction sous la forme d'une série de Taylor et en
+conservant seulement les deux premiers termes:
+\begin{align}
+  h(\hat\theta_T) \approx h(\theta_0) + \nabla
+  \left[h(\theta_0)\right]'\cdot(\hat\theta_T - \theta_0).
+\end{align}
+On a donc, après quelques manipulations, que la variance de la
+fonction $h(\hat\theta_T)$ est approximativement
+\begin{align}
+  Var\left[h(\hat\theta_T) \right] \approx \nabla
+  \left[h(\theta_0)\right]' \left(\frac{\Sigma}{T}\right) \nabla
+  \left[h(\theta_0)\right].
+\end{align}
+
+La distribution de la fonction $h(\hat\theta_T)$ est alors
+asymptotiquement
+\begin{align}
+  \label{eq:deltamethodmult}
+  h(\hat\theta_T) \stackrel{L}{\longrightarrow}
+  N\left(h(\theta_0),\nabla \left[h(\theta_0)\right]'
+    \left(\frac{\Sigma}{T}\right) \nabla
+    \left[h(\theta_0)\right]\right).
+\end{align}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 

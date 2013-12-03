@@ -1,0 +1,1608 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2012 Universite Laval
+%
+% This file may be distributed and/or modified under the conditions
+% of the LaTeX Project Public License, either version 1.3c of this
+% license or (at your option) any later version. The latest version
+% of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2006/05/20 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Universite Laval
+% <ulthese-dev@bibl.ulaval.ca>.
+%
+% This work consists of the files ulthese.dtx and ulthese.ins
+% and the derived files listed in the README file.
+%
+% \fi
+%
+% \iffalse
+%<*dtx>
+\ProvidesFile{ulthese.dtx}
+%</dtx>
+%<class>\NeedsTeXFormat{LaTeX2e}[2009/09/24]
+%<class>\ProvidesClass{ulthese}%
+%<*class>
+  [2012/09/30 v1.0 Classe pour les theses et memoires de l'Universite Laval]
+%</class>
+%<*driver>
+\documentclass[11pt]{ltxdoc}
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{natbib}
+  \usepackage[francais]{babel}
+  \usepackage[autolanguage]{numprint}
+  \usepackage{mathpazo}
+  \usepackage[scaled=0.92]{helvet}
+  \usepackage{color,booktabs}
+  \EnableCrossrefs
+  \CodelineIndex
+  \RecordChanges
+
+  \definecolor{doclinkcolor}{rgb}{0,0,0.5}
+
+  \usepackage{hyperref}
+  \hypersetup{colorlinks,allcolors=doclinkcolor}
+
+  \frenchbsetup{%
+    CompactItemize=false,         % ne pas compacter les listes
+    ThinSpaceInFrenchNumbers=true % espace fine dans les nombres
+  }
+\begin{document}
+  \DocInput{ulthese.dtx}
+\end{document}
+%</driver>
+% \fi
+% \CheckSum{568}
+% \DoNotIndex{\',\^,\`,\ ,\ae}
+% \DoNotIndex{\RequirePackage,\ExecuteOptions,\ifthenelse,\ProcessOptions}
+% \DoNotIndex{\newcommand,\newcommand*,\newboolean}
+% \DoNotIndex{\setlength,\setboolean}
+% \changes{1.0}{2012-09-30}{Version initiale}
+% \GetFileInfo{ulthese.dtx}
+% \title{\textsf{ulthese}: une classe pour les thèses et mémoires de
+%   l'Université Laval\thanks{Ce document décrit la classe
+%   \textsf{ulthese}~\fileversion, datée du \filedate.}}
+% \author{Faculté des études supérieures et postdoctorales\thanks{%
+%   Cette classe et sa documentation ont été rédigés par Vincent
+%   Goulet~(Faculté des sciences et de génie) avec la collaboration de
+%   Koassi D'Almeida~(Faculté des études supérieures et postdoctorales) et
+%   Pierre Lasou~(Bibliothèque).}}
+% \maketitle
+% \tableofcontents
+%
+% \section{Introduction}
+%
+% La classe \textsf{ulthese} permet de composer avec {\LaTeX} des thèses
+% et mémoires immédiatement conformes aux règles générales de
+% présentation matérielle de la Faculté des études supérieures et
+% postdoctorales (FESP) de l'Université Laval. Ces règles définissent
+% principalement la présentation de la page titre des thèses et mémoires
+% ainsi que la disposition du texte sur la page. La classe en elle-même
+% est donc relativement simple.
+%
+% Cependant, la classe \textsf{ulthese} est basée sur la classe
+% \textsf{memoir}, une extension de la classe standard \textsf{book}
+% facilitant à plusieurs égards la préparation de documents d'allure
+% professionnelle dans {\LaTeX}. La classe \textsf{memoir} est très
+% configurable et incorpore d'office plus de 30 des paquetages
+% (\emph{packages}) les plus populaires\footnote{%
+%   Consulter la section~18.24 de la documentation de \textsf{memoir}
+%   pour la liste ou encore le fichier journal (\emph{log}) de la
+%   compilation d'un document utilisant la classe \textsf{ulthese}.}. %
+% L'intégralité des fonctionnalités de \textsf{memoir} est disponible
+% dans \textsf{ulthese}.
+%
+% La classe \textsf{memoir} fait maintenant partie des distributions
+% {\LaTeX} modernes; elle devrait donc être installée et disponible sur
+% votre système. La classe est livrée avec une documentation exhaustive:
+% le manuel d'instructions fait près de 600~pages! Il peut être utile de
+% s'y référer de temps à autre pour réaliser une mise en page
+% particulière. Rechercher sur votre système le fichier |memman.pdf| ou
+% le %
+% \href{http://mirrors.ctan.org/macros/latex/contrib/memoir/memman.pdf}{%
+%   consulter en ligne} %
+% sur le site %
+% \href{http://www.ctan.org/}{%
+%   \emph{Comprehensive R Archive Network} (CTAN)}.
+%
+%
+% \section{Installation}
+%
+% L'installation de la classe consiste à créer le fichier
+% |ulthese.cls| et plusieurs gabarits |.tex| à partir du code source
+% documenté se trouvant dans le fichier |ulthese.dtx|. Il est
+% recommandé de simplement créer ces fichiers dans le dossier de
+% travail de la thèse ou du mémoire.
+%
+% Pour procéder à l'installation, décompresser l'archive |ulthese.zip|
+% dans le dossier de travail, puis compiler avec {\LaTeX} le fichier
+% |ulthese.ins| en exécutant
+% \begin{quote}
+%   |latex ulthese.ins|
+% \end{quote}
+% depuis une invite de commande. Si l'on est peu familier avec
+% l'invite de commande, on peut aussi procéder comme avec tout
+% document {\LaTeX}, soit ouvrir le fichier |ulthese.ins| dans son
+% éditeur de texte favori et lancer la compilation avec {\LaTeX},
+% pdf{\TeX} ou pdf{\LaTeX} depuis celui-ci.
+%
+% \section{Utilisation}
+%
+% La classe est chargée avec la commande
+% \begin{quote}
+%   |\documentclass[|\meta{options}|]{ulthese}|
+% \end{quote}
+% Les marges, l'interligne et la numérotation des pages sont adaptées
+% aux règles de présentation matérielle de la FESP. Les options et les
+% commandes définies par la classe sont décrites dans les sections
+% suivantes.
+%
+% \subsection{Options de la classe}
+% \label{sec:utilisation:options}
+%
+% Les \meta{options} que l'on peut spécifier au chargement de la classe
+% sont les suivantes:
+% \begin{description}
+% \item[|10pt|] sélectionne une taille de police de 10~points;
+% \item[|11pt|] sélectionne une taille de police de 11~points;
+% \item[|12pt|] sélectionne une taille de police de 12~points;
+% \item[|nonatbib|] empêche de charger le paquetage \textsf{natbib} (voir
+%   la section~\ref{sec:bibliographystyle});
+% \item[|english, francais, ...|] langues utilisées dans le document;
+% \item[\mdseries\meta{options memoir}] autres options du paquetage
+%   \textsf{memoir}.
+% \end{description}
+%
+% Si aucune taille de police n'est précisée, la classe utilisera une
+% taille par défaut de 11~points. La taille des polices de la page
+% titre n'est pas affectée par les options |10pt|, |11pt| et |12pt|.
+%
+% Le paquetage \textsf{natbib} est normalement chargé par la classe.
+% L'option |nonatbib| permet d'empêcher le chargement en cas de
+% conflit avec un autre paquetage de mise en forme de la
+% bibliographie.
+%
+% Les langues sont passées au paquetage \textsf{babel}; voir la
+% section~\ref{sec:langues}. Leur libellé devrait donc correspondre
+% aux options de ce paquetage. La dernière langue spécifiée est la
+% langue active par défaut dans le document.
+%
+% Toute autre option sera passée à la classe \textsf{memoir} dont,
+% entre autres, le format du papier. Le format lettre nord-américain
+% (option |letterpaper|) est utilisé par défaut. Si la thèse doit être
+% imprimée en format international A4, utiliser l'option |a4paper|. La
+% classe \textsf{memoir} est toujours chargée avec les options
+% |twoside|, et |openright|.
+%
+% \subsection{Nouvelles commandes}
+%
+% La classe \textsf{ulthese} définit quelques nouvelles commandes
+% servant principalement à créer la page titre et des éléments des pages
+% liminaires.
+%
+% \subsubsection{Commandes de la page titre}
+% \label{sec:commandes-pagetitre}
+%
+% Les commandes ci-dessous servent à définir les divers éléments de la
+% page titre et leur disposition sur la page.
+%
+% \begin{DescribeMacro}{\titre}
+%   Titre principal de la thèse ou du mémoire. Ne pas utiliser la
+%   commande |\title| de {\LaTeX} pour ce faire.
+%
+%   Un titre très long devra être coupé manuellement avec |\\| ou
+%   |\newline|. Dans un tel cas, il est également nécessaire de
+%   retrancher de l'espacement vertical pour éviter que les autres
+%   éléments de la page titre ne soient poussés vers le bas. Pour ce
+%   faire, ajouter la déclaration
+%   \begin{quote}
+%     |\vspace*{-|$n$|\baselineskip}|
+%   \end{quote}
+%   à la fin de la \emph{dernière} ligne de titre s'il y a $n + 1$
+%   lignes de titre au total.
+%
+%   Par exemple, la déclaration d'un titre d'une seule ligne est:
+%   \begin{quote}
+%     |\titre{Ceci est un titre d'une seule ligne}|
+%   \end{quote}
+%   Pour un titre de deux lignes, on écrira:
+%   \begin{quote}
+%     |\titre{Ceci est la première ligne d'un long titre \\| \\
+%     |       et ceci est la seconde \vspace*{-1\baselineskip}}|
+%   \end{quote}
+%   Pour un titre de trois lignes, c'est alors:
+%   \begin{quote}
+%     |\titre{Ceci est la première ligne d'un très long titre \\| \\
+%     |       pour lequel deux lignes ne suffisent pas \\| \\
+%     |       alors voici la troisième \vspace*{-2\baselineskip}}|
+%   \end{quote}
+%   Ainsi de suite.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\soustitre}
+%   Sous-titre de la thèse ou du mémoire, le cas échéant. Les remarques
+%   sur un long titre principal s'appliquent également au sous-titre.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\auteur}
+%   Nom complet de l'auteur de la thèse ou du mémoire, sous la forme
+%   |Prénom Nom| avec seulement des majuscules initiales. Ne pas
+%   utiliser la commande |\author| de {\LaTeX} pour le nom de l'auteur.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\annee}
+%   Année du dépôt final de la thèse ou du mémoire.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\programme}
+%   Nom du complet officiel du programme d'études comme «Doctorat en
+%   informatique» ou «Maîtrise en mathématiques». Si le programme
+%   comporte une majeure, séparer sa mention de celle du programme
+%   principal par un tiret demi-quadratin (obtenu avec |--|).
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\PhD,}
+%   \begin{DescribeMacro}{\MSc,}
+%     \begin{DescribeMacro}{\MA, \dots}
+%       Déclaration du type de grade auquel donne droit la thèse ou le
+%       mémoire. Consulter le tableau~\ref{tab:grades} pour la liste
+%       complète des commandes et des grades correspondants.
+%     \end{DescribeMacro}
+%   \end{DescribeMacro}
+% \end{DescribeMacro}
+%
+% \begin{table}
+%   \centering
+%   \begin{tabular}{lp{9cm}}
+%     \toprule
+%     Commande & Nom du grade (sigle) \\
+%     \midrule
+%     |\LLD|\index{LLD=\verb+\LLD+}
+%       & Docteur en droit (L.L.D.) \\
+%     |\DPsy|\index{DPsy=\verb+\DPsy+}
+%       & Docteur en psychologie (D.Psy.) \\
+%     |\DThP|\index{DThP=\verb+\DThP+}
+%       & Docteur en théologie pratique (D.Th.P.) \\
+%     |\PhD|\index{PhD=\verb+\PhD+}
+%       & Philosophi{\ae} doctor (Ph.D.) \\
+%     \addlinespace[6pt]
+%     |\LLM|\index{LLM=\verb+\LLM+}
+%       & Maître en droit (L.L.M.) \\
+%     |\MA|\index{MA=\verb+\MA+}
+%       & Maître ès arts (M.A.) \\
+%     |\MMus|\index{MMus=\verb+\MMus+}
+%       & Maître en musique (M.Mus.) \\
+%     |\MSc|\index{MSc=\verb+\MSc+}
+%       & Maître ès sciences (M.Sc.) \\
+%     |\MServSoc|\index{MServSoc=\verb+\MServSoc+}
+%       & Maître en service social (M.Serv.Soc.) \\
+%     |\MScGeogr|\index{MScGeogr=\verb+\MScGeogr+}
+%       & Maître en sciences géographiques (M.Sc.G\'eogr.) \\
+%     |\MATDR|\index{MATDR=\verb+\MATDR+}
+%       & Maître en aménagement du territoire et développement régional
+%       (M.ATDR) \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{Commandes de déclaration du grade et libellés correspondants}
+%   \label{tab:grades}
+% \end{table}
+%
+% \begin{DescribeMacro}{\multifacultaire}
+%   Déclaration d'une thèse ou d'un mémoire multifacultaire. Requiert
+%   d'utiliser aussi la commande |\faculteUL| ci-dessous.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\cotutelle}
+%   Déclaration d'une thèse ou d'un mémoire réalisé en cotutelle avec
+%   une autre université. Requiert d'utiliser aussi les commandes
+%   |\univcotutelle| et |\gradecotutelle| ci-dessous.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\univcotutelle}
+%   Nom, ville et pays de l'université de cotutelle, déclarés sous la
+%   forme
+%   \begin{quote}
+%     |\univcotutelle{Nom de l'université \\ Ville, Pays}|
+%   \end{quote}
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\gradecotutelle}
+%   Grade conféré par l'université de cotutelle, déclaré sous la forme
+%   \begin{quote}
+%     |\gradecotutelle{Nom du grade (sigle)}|
+%   \end{quote}
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\extensionUdeS}
+%   Déclaration que la thèse est réalisée en extension à l'Université
+%   de Sherbrooke. Requiert d'utiliser aussi les commandes
+%   |\faculteUL| et |\faculteUdeS| ci-dessous.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\extensionUQO}
+%   Déclaration que la thèse est réalisée en extension à l'Université du
+%   Québec en Outaouais. Requiert d'utiliser aussi les commandes
+%   |\faculteUL| et |\faculteUQO| ci-dessous.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\extensionUQAC}
+%   Déclaration que le mémoire est réalisé en extension à l'Université
+%   du Québec à Chicoutimi. Requiert d'utiliser aussi les commandes
+%   |\faculteUL| et |\faculteUQAC| ci-dessous.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\faculteUL}
+%   Cette macro a deux usages:
+%   \begin{enumerate}
+%   \item noms des facultés pour les thèses et mémoires
+%     multifacultaires, séparés par des commandes |\\|;
+%   \item nom de la faculté de l'Université Laval où sont réalisés les
+%     thèses et mémoires en extension aux universités de Sherbrooke, du
+%     Québec en Outaouais ou du Québec à Chicoutimi.
+%   \end{enumerate}
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\faculteUdeS}
+%   Nom de la faculté de l'Université de Sherbrooke hébergeant la thèse
+%   en extension.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\faculteUQO}
+%   Nom de la faculté de l'Université du Québec en Outaouais hébergeant
+%   la thèse en extension.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\faculteUQAC}
+%   Nom de la faculté de l'Université du Québec à Chicoutimi hébergeant
+%   le mémoire en extension.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\pagetitre}
+%   Déclaration de création de la page titre. Ne pas utiliser la
+%   commande |\pagetitle| de {\LaTeX} pour ce faire. De toutes les
+%   commandes ci-dessus, c'est la seule qui doit se trouver dans le
+%   corps du document plutôt que dans le préambule.
+% \end{DescribeMacro}
+%
+% \subsubsection{Commandes des pages liminaires}
+%
+% La classe définit deux commandes pour créer des pages liminaires
+% prévues aux règles de présentation matérielle.
+%
+% \begin{DescribeMacro}{\dedicace}
+%   La commande |\dedicace| ajoute une dédicace («À mes parents», «À
+%   Camille») à la thèse ou au mémoire. La dédicace est disposée seule
+%   sur une page recto, à une dizaine de lignes de la marge du haut et
+%   alignée à droite. Par défaut, elle est composée en italique.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\epigraphe}
+%   La commande |\epigraph| sert à ajouter une épigraphe au début du
+%   document. Comme la dédicace, l'épigraphe est disposée seule sur une
+%   page recto, à une dizaine de lignes de la marge du haut et alignée à
+%   droite. La commande accepte deux arguments, soit le texte de la
+%   citation et son auteur ou la source, dans l'ordre.
+% \end{DescribeMacro}
+%
+% Pour ajouter une épigraphe au début d'un ou plusieurs chapitres,
+% utiliser directement la commande |\epigraph| de \textsf{memoir}, sur
+% laquelle |\dedicace| et |\epigraphe| sont d'ailleurs basées.
+%
+% \subsection{Citations}
+% \label{sec:citations}
+%
+% \begin{DescribeEnv}{quote}
+%   {\LaTeX} offre deux environnements pour les citations dans le
+%   texte: |quote| et |quotation|. Le premier sert pour les citations
+%   «courtes», quelques lignes au plus. Dans la classe, le texte est
+%   alors placé en retrait des marges normales de 10~mm à gauche et à
+%   droite.
+% \end{DescribeEnv}
+%
+% \begin{DescribeEnv}{quotation}
+%   L'environnement |quotation|, quant à lui, doit être utilisé pour
+%   les citations «longues», celles qui peuvent s'étendre sur plus de
+%   cinq lignes ou, surtout, plus d'un paragraphe. Dans la classe, le
+%   texte est alors toujours placé en retrait de 10~mm, mais également
+%   à interligne simple. De plus, les paragraphes, le cas échéant,
+%   sont séparés d'un espace vertical afin de bien les distinguer les
+%   uns des autres.
+% \end{DescribeEnv}
+%
+% \subsection{Interligne}
+%
+% \begin{DescribeMacro}{\OnehalfSpacing}
+%   L'espacement d'un interligne et demi utilisé dans la classe est
+%   obtenu avec la commande |\OnehalfSpacing| de \textsf{memoir}.
+%   L'interligne simple est automatiquement rétabli pour la page
+%   titre, la table des matières, la liste des tableaux, la liste
+%   des figures et les longues citations (section~\ref{sec:citations}).
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\SingleSpacing}
+%   Si ce devait être nécessaire ailleurs dans le document, la
+%   commande |\SingleSpacing| permet de passer à l'interligne simple.
+% \end{DescribeMacro}
+%
+%
+% \subsection{Autres paquetages chargés}
+% \label{sec:paquetages}
+%
+% Outre \textsf{memoir} et \textsf{babel}, la classe \textsf{ulthese}
+% charge pour son usage quelques paquetages qui peuvent aussi être
+% utiles pour l'utilisateur de la classe. Il n'est donc pas nécessaire
+% de charger de nouveau les paquetages suivants:
+% \begin{description}
+% \item[\normalfont\textsf{natbib}] gestion de la bibliographie (si
+%   l'option |nonatbib| de la classe est absente; voir aussi la
+%   section~\ref{sec:bibliographystyle});
+% \item[\normalfont\textsf{numprint}] permet de composer
+%   automatiquement des nombres avec un séparateur toutes les trois
+%   positions (une espace en français). Requis par la commande
+%   |\nombre| de \textsf{babel};
+% \item[\normalfont\textsf{graphicx}] support pour l'insertion et la
+%   manipulation de graphiques;
+% \item[\normalfont\textsf{xcolor}] extension du paquetage
+%   \textsf{color} pour gérer les couleurs dans le texte;
+% \item[\normalfont\textsf{textcomp}] multitude de symboles spéciaux,
+%   dont un beau symbole de copyright, \textcopyright.
+% \item[\normalfont\textsf{helvet}] remplacement de la police sans
+%   empattements (\emph{serifs}) standard par la police Helvetica pour
+%   composer la page titre. Le paquetage est chargé avec l'option
+%   |scaled=0.92|. Consulter la section~\ref{sec:police} pour des
+%   informations additionnelles.
+% \end{description}
+% La section~\ref{sec:meo} sur la mise en {\oe}uvre de la classe
+% fournit plus de détails sur la liste des paquetages chargés et les
+% raisons pour lesquelles ils sont requis dans la classe.
+%
+% \section{Français et autres langues}
+% \label{sec:langues}
+%
+% Une complication additionnelle pour les auteurs rédigeant dans une
+% langue autre que l'anglais consiste à adapter {\LaTeX} à leur
+% langue, qu'il s'agisse des mots clés, de la typographie ou de la
+% césure des mots. La solution à ce problème provient du paquetage
+% standard \textsf{babel}. Celui-ci permet de combiner plusieurs
+% langues dans un même document et de passer de l'une à l'autre
+% facilement. Il est chargé par la classe \textsf{ulthese}.
+%
+% Aucune langue n'est spécifiée dans la classe. La plupart des auteurs
+% auront recours à l'anglais et au français, ne serait-ce que pour les
+% deux résumés demandés par la FESP. Les langues utilisées dans le
+% document doivent être spécifiées comme options à la classe, tel que
+% mentionné à la section~\ref{sec:utilisation:options}. La
+% \emph{dernière} langue spécifiée devient par défaut la langue active
+% du document.
+%
+% \begin{DescribeMacro}{\selectlanguage}
+%   La commande |\selectlanguage| de \textsf{babel} permet de passer de
+%   la langue courante à la langue spécifiée en argument.
+% \end{DescribeMacro}
+%
+% \begin{DescribeEnv}{otherlanguage}
+%   L'environnement |otherlanguage| de \textsf{babel} permet de faire
+%   la même chose que la commande |\selectlanguage|, sauf que le
+%   changement de langue est local à l'environnement --- utile pour
+%   les brefs changements de langue.
+% \end{DescribeEnv}
+%
+% Si vous n'êtes pas autrement familier avec le paquetage \textsf{babel},
+% consulter sa documentation, ne serait-ce que les chapitres consacrés
+% aux langues utilisées dans votre thèse ou mémoire. Rechercher sur
+% votre système le fichier |babel.pdf| ou le %
+% \href{http://mirrors.ctan.org/macros/latex/required/babel/babel.pdf}{%
+%   consulter en ligne} %
+% sur CTAN.
+%
+% \section{Police de caractère du document}
+% \label{sec:police}
+%
+% Les documents {\LaTeX} sont facilement reconnaissables par leur
+% police de caractère par défaut, Computer Modern. Avec toute
+% distribution {\LaTeX} moderne, il est maintenant simple d'utiliser
+% l'une ou l'autre des polices Postscript standards. D'ailleurs la
+% classe \textsf{ulthese} utilise la police sans empattements
+% Helvetica pour composer la page titre.
+%
+% La FESP permet l'utilisation des polices Times et
+% Palatino\footnote{%
+%   Police utilisée dans le présent document.} %
+% dans les thèse et mémoires {\LaTeX}. Pour utiliser ces polices,
+% charger les paquetages \textsf{mathptmx} ou \textsf{mathpazo},
+% respectivement. Pour les détails, consulter la documentation de
+% l'ensemble de paquetages PSNFSS. Rechercher sur votre système le
+% fichier |psnfss2e.pdf| ou le %
+% \href{http://mirrors.ctan.org/macros/latex/required/psnfss/psnfss2e.pdf}{%
+% consulter en ligne} %
+% sur CTAN.
+%
+% \section{Gabarits}
+%
+% Il est recommandé de segmenter tout document d'une certaine ampleur
+% dans des fichiers |.tex| distincts pour chaque partie ---
+% habituellement un fichier par chapitre. Le document complet est
+% composé à l'aide d'un fichier maître qui contient le préambule
+% {\LaTeX} et un ensemble de commandes
+% |\include|\index{include=\verb+\include+} pour réunir les parties
+% dans un tout.
+%
+% La classe \textsf{ulthese} est livrée avec un ensemble de gabarits sur
+% lesquels se baser pour:
+% \begin{itemize}
+% \item les fichiers maîtres de divers types de thèses et mémoires
+%   (standard, sur mesure, en cotutelle, en extension, etc.);
+% \item les fichiers des parties les plus usuelles (résumés français
+%   et anglais, avant-propos, introduction, chapitres, conclusion,
+%   etc.).
+% \end{itemize}
+% Les noms des fichiers devraient permettre de facilement identifier
+% leur contenu (une bonne pratique; |rappels.tex| est plus parlant et
+% résiste mieux aux changements à l'ordre des chapitres que
+% |chapitre1.tex|).
+%
+% Pour débuter la rédaction, renommer le gabarit de document maître
+% approprié d'après votre numéro de dossier. Par exemple, l'étudiante
+% dont le numéro de dossier est 900352789 et qui entame la rédaction
+% d'une thèse multifacultaire renommera le fichier
+% \begin{quote}
+%   |gabarit-doctorat-multifacultaire.tex|
+% \end{quote}
+% en
+% \begin{quote}
+%   |900352789.tex|.
+% \end{quote}
+% Les autres gabarits de documents maîtres peuvent alors être
+% supprimés.
+%
+% Les gabarits comportent des commentaires succincts pour vous guider
+% dans la préparation de votre document. Les sections suivantes
+% fournissent des détails additionnels, et ce, dans l'ordre où les
+% commandes apparaissent dans les gabarits.
+%
+% \subsection{Encodage des fichiers}
+%
+% Taper de longs textes en français en {\LaTeX} devient rapidement
+% pénible si on utilise les commandes |\'e|, |\`a| ou |\^e| pour entrer
+% les lettres accentuées. Afin de pouvoir plutôt entrer directement |é|,
+% |à| ou |ê|, {\LaTeX} doit être configuré pour reconnaître les lettres
+% accentuées. C'est le rôle du paquetage \textsf{inputenc}.
+%
+% Cependant, il existe plusieurs manières différentes d'encoder --- ou
+% d'enregistrer --- les lettres accentuées et autres caractères
+% spéciaux (comme, par exemple, le symbole de l'euro) dans un
+% ordinateur. La méthode la plus répandue et celle standard sur les
+% versions récentes des systèmes d'exploitation Linux et OS~X est
+% l'UTF-8 de la norme
+% \href{http://fr.wikipedia.org/wiki/Unicode}{Unicode}. Les gabarits
+% sont livrés dans ce type d'encodage.
+%
+% La déclaration
+% \begin{quote}
+%   |\usepackage[utf8]{inputenc}|
+% \end{quote}
+% dans le préambule assure que {\LaTeX} traitera correctement des
+% fichiers source encodés en UTF-8.
+%
+% La norme Unicode n'est pas aussi uniformément supportée par Windows.
+% Selon l'éditeur de texte employé et la version du système
+% d'exploitation, il peut être nécessaire d'utiliser les normes
+% d'encodage %
+% \href{http://fr.wikipedia.org/wiki/ISO_8859-1}{ISO~8859-1} %
+% (ou Latin-1; option |latin1| de \textsf{inputenc}), %
+% \href{http://fr.wikipedia.org/wiki/ISO_8859-15}{ISO~8859-15} %
+% (ou Latin-9; option |latin9|) ou %
+% \href{http://fr.wikipedia.org/wiki/Windows-1252}{Windows-1252} %
+% (options |cp1252| ou |ansinew|).
+%
+%
+% \subsection{Paquetages additionnels}
+%
+% Tel qu'explicité à la section~\ref{sec:paquetages}, la classe
+% charge déjà quelques paquetages. Cependant, il est fort probable que
+% vous devrez en charger d'autres pour composer votre document. Les
+% gabarits prévoient un endroit pour le chargement de paquetages
+% additionnels. Il est recommandé d'inscrire vos commandes
+% |\usepackage| à cet endroit afin de respecter un certain ordre de
+% chargement; voir la section suivante.
+%
+% Si vous utilisez un paquetage non standard dans les distributions
+% courantes (MiK\TeX, \TeX~Live, Mac\TeX), vous devez le fournir avec
+% le code source de votre document lors du dépôt final.
+%
+% \subsection{Hyperliens}
+% \label{sec:hyperref}
+%
+% Le paquetage \textsf{hyperref} permet de transformer toutes les
+% références en hyperliens cliquables lorsque le document {\LaTeX} est
+% produit avec |pdflatex|. L'interaction de ce paquetage avec les autres
+% est parfois (voire souvent) délicate. Pour cette raison, il est
+% habituellement nécessaire de charger \textsf{hyperref} en tout
+% dernier. C'est pourquoi il n'est pas chargé dans la classe, mais
+% plutôt dans les gabarits. Prendre soin de maintenir le dernier rang de
+% chargement lors de l'édition d'un gabarit.
+%
+% La configuration du paquetage dans les gabarits fait en sorte que
+% les liens sont simplement signalés par une couleur de texte
+% légèrement contrastante. L'utilisation de couleurs dans un document
+% requiert le paquetage |xcolor|, chargé par la classe. La couleur de
+% lien par défaut, |ULlinkcolor|, est définie dans la classe; voir la
+% section~\ref{sec:couleurs}.
+%
+% \subsection{Police sans empattements}
+%
+% Tel que mentionné à la section~\ref{sec:police}, la police sans
+% empattements Helvetica est chargée par la classe pour composer la page
+% titre. Ainsi, toute utilisation des commandes |\textsf| et |\sffamily|
+% sélectionnera cette police.
+%
+% Si vous composez la thèse ou le mémoire dans la police par défaut de
+% {\LaTeX}, vous souhaiterez sans doute que les commandes ci-dessus
+% sélectionnent plutôt la version sans empattements de Computer
+% Modern; comparer
+% \begin{quote}
+%   \sffamily Texte sans empattements en Helvetica
+% \end{quote}
+% et
+% \begin{quote}
+%   \fontfamily{cmss}\selectfont Texte sans empattements en Computer Modern
+% \end{quote}
+% Pour ce faire, décommentez la ligne du gabarit afin que la
+% commande
+% \begin{quote}
+%   |\renewcommand{\sfdefault}{cmss}|
+% \end{quote}
+% apparaisse dans le préambule.
+%
+% \subsection{Options de \textsf{babel}}
+%
+% \begin{DescribeMacro}{\frenchbsetup}
+%   La commande |\frenchbsetup|\index{frenchbsetup=\verb+\frenchbsetup+}
+%   de \textsf{babel} permet de contrôler certains ajustements
+%   typographiques apportés par le paquetage en mode français. Consulter
+%   la documentation de \textsf{babel} pour la liste des options de
+%   configuration disponibles.
+% \end{DescribeMacro}
+%
+% Les concepteurs de la classe \textsf{ulthese}  proposent deux
+% ajustements dans les gabarits:
+% \begin{enumerate}
+% \item l'option |CompactItemize=false| évite que le mode français de
+%   \textsf{babel} ne diminue l'espacement vertical dans les listes;
+% \item avec l'option |ThinSpaceInFrenchNumbers=true|, une espace fine
+%   sera utilisée comme séparateur des milliers dans les nombres plutôt
+%   qu'une espace pleine.
+% \end{enumerate}
+% \begin{DescribeMacro}{\nombre}
+%   D'ailleurs, à ce sujet, le paquetage \textsf{numprint} étant
+%   chargé dans la classe, on peut utiliser la commande |\nombre| pour
+%   formater automatiquement les nombres. Par exemple, le résultat de
+%   |\nombre{123456789}| est \nombre{123456789}.
+% \end{DescribeMacro}
+%
+% \subsection{Style de la bibliographie}
+% \label{sec:bibliographystyle}
+%
+% \begin{DescribeMacro}{\bibliographystyle}
+%   Il est fortement recommandé d'utiliser BIB{\TeX} pour la préparation
+%   de la bibliographie. Le formatage de la bibliographie est contrôlé
+%   par un style choisi par la commande |\bibliographystyle|. Les styles
+%   standards de {\LaTeX} sont |plain|, |unsrt|, |alpha| et |abbrv|.
+% \end{DescribeMacro}
+%
+% Pour plus de flexibilité, il est recommandé d'utiliser le paquetage
+% \textsf{natbib} pour la gestion des références et des styles de la
+% bibliographie. Entre autres choses, ce paquetage supporte le style de
+% citation auteur-année fréquemment employé en sciences naturelles,
+% plusieurs commandes de citation, un grand nombres de styles de
+% bibliographie ainsi que des entrées spécifiques pour les numéros ISBN
+% et les URL. Le paquetage fournit des styles de bibliographie
+% |plainnat|, |unsrtnat| et |abbrvnat| similaires aux styles standards,
+% mais plus complets. Il existe des
+% \href{http://mirrors.ctan.org/biblio/bibtex/contrib/bib-fr/}{versions
+%   francisées} de ces styles (et de quelques autres) dans CTAN.
+%
+% Afin d'assurer le bon fonctionnement avec \textsf{babel}, le
+% paquetage \textsf{natbib} est chargé par la classe \textsf{ulthese}
+% (à moins que l'option |nonatbib| ne soit spécifiée). Pour consulter
+% sa documentation, rechercher sur votre système le fichier
+% |natbib.pdf| ou le %
+% \href{http://mirrors.ctan.org/macros/latex/contrib/natbib/natbib.pdf}{%
+%   consulter en ligne} %
+% sur CTAN.
+%
+% De plus, Vincent Goulet a préparé la feuille de style
+% |francais.bst| compatible avec \textsf{natbib}; consulter la
+% section \href{http://vgoulet.act.ulaval.ca/latex/}{LaTeX en
+% français} de son site Web. La feuille de style permet de composer
+% des bibliographies auteur-année respectant les normes de typographie
+% française telles qu'édictées dans \cite{Malo:1996}. Pour utiliser ce
+% style, on spécifera dans le préambule du document LaTeX
+% \begin{quote}
+%   |\bibliographystyle{francais}|
+% \end{quote}
+%
+% Autrement, la FESP n'a pas d'exigences particulières quant à la
+% présentation de la bibliographie (présentation du titre, des auteurs
+% et autres informations bibliographiques).
+%
+% \subsection{Déclarations de la page titre}
+%
+% Les gabarits comportent toutes les déclarations nécessaires pour
+% composer la page titre des divers types de thèse ou de mémoires.
+% Vous devez remplacer les éléments se trouvant entre crochets <~> en
+% respectant la forme indiquée. Assurez-vous de supprimer les
+% caractères < et > afin qu'il n'apparaissent pas sur la page titre de
+% votre document.
+%
+% \subsection{Pages liminaires}
+%
+% \begin{DescribeMacro}{\frontmatter}
+%   La commande |\frontmatter| déclare que {\LaTeX} doit considérer le
+%   matériel qui suit comme des pages liminaires. En pratique, cela
+%   résulte essentiellement en une numérotation des pages en chiffres
+%   romains.
+% \end{DescribeMacro}
+%
+% Les normes de présentation de la FESP édictent que les thèses et
+% mémoires devraient comporter les pages liminaires suivantes, dans
+% l'ordre:
+% \begin{enumerate}
+% \item la page titre (obligatoire);
+% \item un résumé en français (obligatoire);
+% \item un résumé en anglais (recommandé mais non obligatoire);
+% \item une table des matières (obligatoire);
+% \item une liste des tableaux;
+% \item une liste des figures;
+% \item une liste des abbréviations et des sigles;
+% \item une dédicace;
+% \item une épigraphe;
+% \item des remerciements;
+% \item un avant-propos (obligatoire dans le cas d'un mémoire ou d'une
+%   thèse avec insertion d'articles).
+% \end{enumerate}
+%
+% Les commandes
+% \begin{quote}
+%   |\pagetitre| \\
+%   |\tableofcontents| \\
+%   |\listoftables| \\
+%   |\listoffigures| \\
+%   |\dedicace{|\meta{texte}|}| \\
+%   |\epigraphe{|\meta{texte}|}{|\meta{auteur}|}|
+% \end{quote}
+% permettent de générer les pages correspondantes. Seules les deux
+% dernières commandes admettent des arguments.
+%
+% \begin{DescribeMacro}{\chapter*}
+%   Les résumés, la liste des abbréviations et des sigles, les
+%   remerciements et l'avant-propos sont composés comme des chapitres
+%   normaux, mais sans être numérotés. Il faut donc définir ces éléments
+%   avec la commande |\chapter*|.
+% \end{DescribeMacro}
+%
+% \begin{DescribeMacro}{\phantomsection}
+%   \begin{DescribeMacro}{\addcontentsline}
+%     Les sections declarées avec la commande |\chapter*|
+%     n'apparaissent pas dans la table des matières. Comme les normes
+%     de présentation de la FESP exigent que toutes les pages
+%     liminaires y figurent, on fait suivre les commandes
+%     |\chapter*{|\meta{Titre}|}| des commandes
+%   \end{DescribeMacro}
+% \end{DescribeMacro}
+% \begin{quote}
+%   |\phantomsection\addcontentsline{toc}{chapter}{|\meta{Titre}|}|
+% \end{quote}
+% Celles-ci ajoutent à la table des matières (|toc|) une section de
+% niveau |chapter| dont le titre est \meta{Titre}. La commande
+% |\phantomsection| est rendue nécessaire (ou recommandée) par le
+% paquetage \textsf{hyperref}.
+%
+% \subsection{Corps du document}
+%
+% \begin{DescribeMacro}{\mainmatter}
+%   La commande |\mainmatter| délimite le début du corps du document. La
+%   numérotation des pages passe en chiffres arabes.
+% \end{DescribeMacro}
+%
+% Le corps du document devrait normalement compter une introduction (non
+% numérotée), un développement divisé en chapitres (numérotés) et une
+% conclusion (non numérotée).
+%
+% \subsection{Annexes}
+%
+% \begin{DescribeMacro}{\appendix}
+%   Si la thèse ou le mémoire comporte une ou plusieurs annexes,
+%   composer celles-ci comme des chapitres normaux insérés dans le
+%   document maître après la commande |\appendix|. Cette commande a
+%   pour effet de passer d'un mode de numération numérique (1, 2, 3,
+%   \dots) à un mode alphabétique (A, B, C, \dots).
+% \end{DescribeMacro}
+%
+% \subsection{Bibliographie}
+%
+% \begin{DescribeMacro}{\bibliography}
+%   Si vous utilisez BIB{\TeX}, la bibliographie est insérée dans le
+%   document à l'endroit où apparait la commande |\bibliography| dans le
+%   code source.
+% \end{DescribeMacro}
+%
+% Consulter la section~\ref{sec:bibliographystyle} pour des
+% informations additionnelles sur la préparation de la bibliographie.
+%
+% \section{Aide additionnelle}
+%
+% Pour obtenir de l'aide additionnelle sur l'utilisation de la classe
+% \textsf{ulthese} (et sur celle de {\LaTeX} en général), prière de
+% consulter d'abord
+% \begin{enumerate}
+% \item le \href{http://www.theses.ulaval.ca/wiki/}{WikiThèse} de
+%   l'Université Laval;
+% \item les
+%   \href{http://listes.ulaval.ca/listserv/archives/ulthese-aide.html}{archives}
+%   de la liste de distribution \texttt{ulthese-aide}.
+% \end{enumerate}
+% Si la réponse à votre question ne se trouve ni dans le wiki, ni dans
+% les archives, alors écrire à l'adresse
+% \href{mailto:ulthese-aide@bibl.ulaval.ca}{\url{ulthese-aide@bibl.ulaval.ca}}.
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% ^^A Début du code de la classe
+%
+% \appendix
+% \section{Mise en {\oe}uvre}
+% \label{sec:meo}
+%
+% Cette section passe en revue le code {\TeX} et {\LaTeX} de la
+% classe. Elle ne risque d'intéresser que les personnes qui souhaitent
+% explorer comment la classe est programmée.
+%
+% \subsection{Options de la classe}
+%
+% Il y a deux options propres à la classe: la taille de la police de
+% caractères en points et la possibilité d'empêcher le chargement du
+% paquetage \textsf{natbib}.
+%
+% \begin{macro}{nonatbib}
+%   Pour des raisons de programmation, on traite l'option |nonatbib|
+%   en premier. Celle-ci permet d'empêcher la classe de charger le
+%   paquetage \textsf{natbib} en cas d'incompatibilité avec d'autres
+%   paquetages spécialisés de mise en forme de la bibliographie. Le
+%   paquetage \textsf{ifthen} est nécessaire pour définir cette option
+%   booléenne et pour plusieurs autres usages internes à la classe.
+%    \begin{macrocode}
+%<*class>
+\RequirePackage{ifthen}
+\newboolean{UL@natbib}
+\setboolean{UL@natbib}{true}
+\DeclareOption{nonatbib}{\setboolean{UL@natbib}{false}}
+%    \end{macrocode}
+% \end{macro}
+%
+% Les valeurs possibles pour la taille de la police de caractères sont
+% |10pt|, |11pt| et |12pt|. Cette option est gérée au niveau de la
+% classe afin de s'assurer que les divers éléments sur la page titre
+% sont toujours de la même taille. La taille de la police par défaut
+% permet de déterminer si, par exemple, le titre du document doit être
+% dans la taille |\Huge|, |\huge| ou |\LARGE| de \textsf{memoir}.
+%
+% \begin{macro}{\UL@ptsize}
+%   La taille de la police est passée à \textsf{memoir} et la macro
+%   |\UL@ptsize| stocke la taille des caractères pour usage futur.
+%    \begin{macrocode}
+\newcommand*{\UL@ptsize}{}
+\DeclareOption{10pt}{%
+  \PassOptionsToClass{10pt}{memoir}
+  \renewcommand*{\UL@ptsize}{10}}
+\DeclareOption{11pt}{%
+  \PassOptionsToClass{11pt}{memoir}
+  \renewcommand*{\UL@ptsize}{11}}
+\DeclareOption{12pt}{%
+  \PassOptionsToClass{12pt}{memoir}
+  \renewcommand*{\UL@ptsize}{12}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Chargement de la classe \textsf{memoir}}
+%
+% Toutes les options de la classe sont passées à \textsf{memoir}. Le
+% format de papier et la taille de police par défaut sont, dans
+% l'ordre, |letterpaper| et |11pt|. Les options de \textsf{memoir}
+% |twoside| et |openright| sont explicitement déclarées afin d'éviter
+% toute tentative de passer outre à ces exigences de la FESP.
+%    \begin{macrocode}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
+\ExecuteOptions{11pt,letterpaper}
+\ProcessOptions
+\LoadClass[twoside,openright]{memoir}
+%    \end{macrocode}
+%
+% \subsection{Paquetages requis}
+%
+% La classe s'efforce de charger un minimum de paquetages afin d'éviter
+% les conflits potentiels.
+%
+%  Il est aujourd'hui préférable d'utiliser les polices T1.
+%    \begin{macrocode}
+\RequirePackage[T1]{fontenc}
+%    \end{macrocode}
+%
+% Le paquetage \textsf{natbib} doit être chargé avant \textsf{babel}
+% pour bien fonctionner. C'est pourquoi il est chargé dans la classe,
+% à moins que l'option |nonatbib| n'ait été spécifiée au chargement de
+% la classe.
+%    \begin{macrocode}
+\ifthenelse{\boolean{UL@natbib}}{\RequirePackage{natbib}}{}
+%    \end{macrocode}
+%
+% Le support pour les langues autres que l'anglais est offert par le
+% paquetage \textsf{babel}. Les langues sont passées en option de la
+% classe, et non du paquetage. Le paquetage \textsf{numprint} est
+% requis par \textsf{babel} pour la définition de la commande de mise
+% en forme des nombres |\nombre|.
+%    \begin{macrocode}
+\RequirePackage{babel}
+\RequirePackage[autolanguage]{numprint}
+%    \end{macrocode}
+%
+% L'insertion du logo de l'Université sur la page titre requiert
+% \textsf{graphicx}. On définit également une couleur pour les
+% hyperliens dans le document (mais \textsf{hyperref} est chargé dans
+% les gabarits afin de demeurer le dernier paquetage chargé; voir la
+% section~\ref{sec:hyperref}).
+%    \begin{macrocode}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+%    \end{macrocode}
+%
+% La commande |\textcopyright| utilisée sur la page titre requiert le
+% paquetage \textsf{textcomp} pour obtenir un beau signe de copyright.
+%    \begin{macrocode}
+\RequirePackage{textcomp}
+%    \end{macrocode}
+%
+% \subsection{Police pour la page titre}
+%
+% La page titre est composée dans la police Helvetica. Le chargement
+% du paquetage \textsf{helvet} a pour effet de redéfinir la commande
+% |\sfdefault|.
+%    \begin{macrocode}
+\RequirePackage[scaled=0.92]{helvet}
+%    \end{macrocode}
+%
+% \subsection{Couleur des hyperliens}
+% \label{sec:couleurs}
+%
+% La classe définit une couleur standard pour les hyperliens, une
+% teinte de bleu assez foncée pour être à fois visible en couleur et
+% peu contrastante si le document est imprimé en noir et blanc.
+%    \begin{macrocode}
+\definecolor{ULlinkcolor}{rgb}{0,0,0.3}
+%    \end{macrocode}
+%
+% \subsection{Marges}
+%
+% Les marges exigées par les normes de présentation de la FESP sont de
+% 25~mm partout, sauf 35~mm pour la marge de reliure (gauche pour les
+% pages impaires, droite pour les pages paires). Le pied de page est
+% placé de sorte que le folio de page se retrouve à 10~mm du bas de la
+% page.
+%    \begin{macrocode}
+\setlrmarginsandblock{35mm}{25mm}{*}
+\setulmarginsandblock{25mm}{*}{1}
+\setheadfoot{\baselineskip}{20mm}
+\checkandfixthelayout[lines]
+%    \end{macrocode}
+%
+% \subsection{Interligne}
+%
+% L'espacement entre les lignes est d'un interligne et demi.
+% L'espacement «double» entre les paragraphes est fixé à
+% |0.5\baselineskip| afin d'en arriver à une disposition agréable à
+% l'{\oe}il. Le retrait de première ligne est supprimé puisque plus
+% nécessaire suite à l'ajout de l'espacement entre les paragraphes.
+%    \begin{macrocode}
+\OnehalfSpacing
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{0em}
+%    \end{macrocode}
+%
+% La table des matières, la liste des tableaux et la liste des figures
+% sont composées à interligne simple.
+%    \begin{macrocode}
+\renewcommand{\tocheadstart}{\SingleSpacing\chapterheadstart}
+\renewcommand{\lotheadstart}{\SingleSpacing\chapterheadstart}
+\renewcommand{\lofheadstart}{\SingleSpacing\chapterheadstart}
+%    \end{macrocode}
+%
+% \subsection{Entêtes et pieds de page}
+%
+% Les règles pour les entêtes et pieds de page sont uniformes pour
+% tout le document: aucun entête et folio sur le bord extérieur du
+% pied de page. On définit un style de page pour ce faire ainsi qu'un
+% alias entre le nouveau style |ul| et le style standard |plain|.
+% Raison: les premières pages de chapitres utilisent par défaut le
+% style |plain|; avec l'alias c'est le style |ul| qui sera activé.
+%    \begin{macrocode}
+\makepagestyle{ul}
+  \makeevenfoot{ul}{\thepage}{}{}
+  \makeoddfoot{ul}{}{}{\thepage}
+\aliaspagestyle{plain}{ul}
+\pagestyle{ul}
+%    \end{macrocode}
+%
+% \subsection{Page titre}
+%
+% La page titre est composée avec les polices présentées au
+% tableau~\ref{tab:polices}. Les commandes sélectionnant ces polices
+% sont adaptées selon la taille de police choisie pour le document
+% afin d'être toujours identiques.
+%
+% \begin{table}
+%   \centering
+%   \begin{tabular}{ll}
+%     \toprule
+%     Élément          & Police \\
+%     \midrule
+%     Titre            & 20~points gras \\
+%     Sous-titre       & 17~points gras \\
+%     Auteur           & 14~points gras \\
+%     Nom du programme & 14~points gras \\
+%     Autres éléments  & 14~points normal \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{Taille et type de police des éléments de la page titre}
+%   \label{tab:polices}
+% \end{table}
+%
+%    \begin{macrocode}
+\ifthenelse{\UL@ptsize=10}{%
+  \newcommand*{\UL@fonttitle}{\normalfont\Huge\bfseries\sffamily}
+  \newcommand*{\UL@fontsubtitle}{\normalfont\huge\bfseries\sffamily}
+  \newcommand*{\UL@fontauthor}{\normalfont\LARGE\bfseries\sffamily}
+  \newcommand*{\UL@fontprogram}{\UL@fontauthor}
+  \newcommand*{\UL@fontbase}{\normalfont\LARGE\sffamily}}{}
+\ifthenelse{\UL@ptsize=11}{%
+  \newcommand*{\UL@fonttitle}{\normalfont\huge\bfseries\sffamily}
+  \newcommand*{\UL@fontsubtitle}{\normalfont\LARGE\bfseries\sffamily}
+  \newcommand*{\UL@fontauthor}{\normalfont\Large\bfseries\sffamily}
+  \newcommand*{\UL@fontprogram}{\UL@fontauthor}
+  \newcommand*{\UL@fontbase}{\normalfont\Large\sffamily}}{}
+\ifthenelse{\UL@ptsize=12}{%
+  \newcommand*{\UL@fonttitle}{\normalfont\LARGE\bfseries\sffamily}
+  \newcommand*{\UL@fontsubtitle}{\normalfont\Large\bfseries\sffamily}
+  \newcommand*{\UL@fontauthor}{\normalfont\large\bfseries\sffamily}
+  \newcommand*{\UL@fontprogram}{\UL@fontauthor}
+  \newcommand*{\UL@fontbase}{\normalfont\large\sffamily}}{}
+%    \end{macrocode}
+%
+% Définition de deux valeurs booléennes servant à adapter la
+% composition de la page titre plus loin: y a-t-il un sous-titre ou
+% non et est-ce que le type de programme (doctorat ou maîtrise) est
+% masculin ou non?
+%    \begin{macrocode}
+\newboolean{UL@hassubtitle}
+\newboolean{UL@isprogmasc}
+%    \end{macrocode}
+%
+% Définition des commandes permettant de construire la page titre.
+% L'interface utilisateur est basée sur un ensemble de commandes
+% internes. On commence par celles-ci.
+%    \begin{macrocode}
+\newcommand{\UL@maintitle}{}
+\newcommand{\UL@subtitle}{}
+\newcommand*{\UL@author}{}
+\newcommand*{\UL@program}{}
+\newcommand*{\UL@year}{}
+\newcommand*{\UL@typeofdoc}{}
+\newcommand*{\UL@degree}{}
+\newcommand*{\UL@nameother}{}
+\newcommand*{\UL@degreeother}{}
+\newcommand*{\UL@facUL}{}
+\newcommand*{\UL@facother}{}
+\newcommand*{\UL@extensionat}{}
+\newcommand*{\UL@extensionloc}{}
+%    \end{macrocode}
+% Puis les commandes visibles pour les utilisateurs, qui redéfinissent
+% les commandes internes. Voir la
+% section~\ref{sec:commandes-pagetitre} pour leur signification.
+%    \begin{macrocode}
+\newcommand{\titre}[1]{\renewcommand{\UL@maintitle}{#1}}
+\newcommand{\soustitre}[1]{%
+  \setboolean{UL@hassubtitle}{true}
+  \renewcommand{\UL@subtitle}{#1}}
+\newcommand*{\auteur}[1]{\renewcommand*{\UL@author}{#1}}
+\newcommand*{\annee}[1]{\renewcommand*{\UL@year}{#1}}
+\newcommand*{\programme}[1]{\renewcommand*{\UL@program}{#1}}
+\newcommand*{\LLD}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{true}
+  \renewcommand*{\UL@typeofdoc}{Th\`ese}
+  \renewcommand*{\UL@degree}{Docteur en droit (L.L.D.)}}
+\newcommand*{\DPsy}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{true}
+  \renewcommand*{\UL@typeofdoc}{Th\`ese}
+  \renewcommand*{\UL@degree}{Docteur en psychologie (D.Psy.)}}
+\newcommand*{\DThP}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{true}
+  \renewcommand*{\UL@typeofdoc}{Th\`ese}
+  \renewcommand*{\UL@degree}{Docteur en th\'eologie pratique (D.Th.P.)}}
+\newcommand*{\PhD}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{true}
+  \renewcommand*{\UL@typeofdoc}{Th\`ese}
+  \renewcommand*{\UL@degree}{Philosophi{\ae} doctor (Ph.D.)}}
+\newcommand*{\LLM}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre en droit (L.L.M.)}}
+\newcommand*{\MA}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre \`es arts (M.A.)}}
+\newcommand*{\MMus}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre en musique (M.Mus.)}}
+\newcommand*{\MSc}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre \`es sciences (M.Sc.)}}
+\newcommand*{\MServSoc}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre en service social (M.Serv.Soc.)}}
+\newcommand*{\MScGeogr}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre en sciences géographiques (M.Sc.G\'eogr.)}}
+\newcommand*{\MATDR}{%
+  \newcommand*{\UL@typenum}{0}
+  \setboolean{UL@isprogmasc}{false}
+  \renewcommand*{\UL@typeofdoc}{M\'emoire}
+  \renewcommand*{\UL@degree}{Ma\^itre en am\'enagement du territoire et d\'eveloppement r\'egional (M.ATDR)}}
+\newcommand*{\multifacultaire}{\renewcommand*{\UL@typenum}{1}}
+\newcommand*{\cotutelle}{%
+  \renewcommand*{\UL@typenum}{2}
+  \edef\UL@typeofdoc{\UL@typeofdoc\ en cotutelle}}
+\newcommand*{\univcotutelle}[1]{\renewcommand*{\UL@nameother}{#1}}
+\newcommand*{\gradecotutelle}[1]{\renewcommand*{\UL@degreeother}{#1}}
+\newcommand*{\extensionUdeS}{%
+  \renewcommand*{\UL@typenum}{3}
+  \renewcommand*{\UL@extensionat}{Universit\'e de Sherbrooke}
+  \renewcommand*{\UL@extensionloc}{Sherbrooke, Qu\'ebec}}
+\newcommand*{\extensionUQO}{%
+  \renewcommand*{\UL@typenum}{3}
+  \renewcommand*{\UL@extensionat}{Universit\'e du Qu\'ebec en Outaouais}
+  \renewcommand*{\UL@extensionloc}{Gatineau, Qu\'ebec}}
+\newcommand*{\extensionUQAC}{%
+  \renewcommand*{\UL@typenum}{3}
+  \renewcommand*{\UL@extensionat}{Universit\'e du Qu\'ebec \`a Chicoutimi}
+  \renewcommand*{\UL@extensionloc}{Chicoutimi, Qu\'ebec}}
+\newcommand{\faculteUL}[1]{\renewcommand*{\UL@facUL}{#1}}
+\newcommand*{\faculteUdeS}[1]{\renewcommand*{\UL@facother}{#1}}
+\newcommand*{\faculteUQO}[1]{\renewcommand*{\UL@facother}{#1}}
+\newcommand*{\faculteUQAC}[1]{\renewcommand*{\UL@facother}{#1}}
+%    \end{macrocode}
+%
+% Outre le nom de l'auteur et la notice de copyright en bas de page,
+% la page titre peut être divisée en trois grands blocs:
+% \begin{enumerate}
+% \item le titre et le sous-titre, le cas échéant;
+% \item la description du type de document (thèse, thèse en cotutelle,
+%   mémoire, etc.);
+% \item les détails sur la ou les facultés, la ou les universités,
+%   etc.
+% \end{enumerate}
+% À ces blocs s'ajoutent quatre grandes catégories de disposition des
+% éléments sur la page titre selon le type de thèse ou de mémoire:
+% standard, multifacultaire, en cotutelle et en extension. Les
+% commandes internes ci-dessous prennent en compte toutes les
+% combinaisons possibles.
+%
+% \begin{macro}{\UL@title}
+%   La commande |\UL@title| prépare le titre. Si le document ne
+%   comporte pas de sous-titre, un espace est ajouté pour ne pas
+%   décaler vers le haut les autres éléments de la page.
+%    \begin{macrocode}
+\newcommand{\UL@title}{%
+  {\UL@fonttitle\UL@maintitle\par}
+  {\UL@fontsubtitle
+    \ifthenelse{\boolean{UL@hassubtitle}}{\UL@subtitle}{%
+      \vspace*{\baselineskip}}\par}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Ul@docid}
+%   La commande |\Ul@docid| prépare la mention du type de document. La
+%   thèse ou le mémoire en cotutelle requiert un traitement différent
+%   puisque le programme d'étude apparaît immédiatement sous la mention.
+%    \begin{macrocode}
+\newcommand{\UL@docid}{%
+  {\UL@fontprogram\UL@typeofdoc\par
+  \ifnum\UL@typenum=2 \UL@program\par \fi}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Ul@details}
+%   La commande |\Ul@details| est la plus complexe puisque la
+%   disposition des informations additionnelles sur le document
+%   varie beaucoup selon le type de thèse ou de mémoire.
+%    \begin{macrocode}
+\newcommand{\UL@details}{%
+  \ifcase\UL@typenum\relax% 0 standard
+    \vspace{96pt}
+    {\UL@fontprogram\UL@program}\par
+    \UL@degree\par
+    \vspace{112pt}
+    Qu\'ebec, Canada\par
+  \or%                      1 multifacultaire
+    \vspace{96pt}
+    {\UL@fontprogram\UL@program}\par
+    \UL@degree\par
+    \vspace{36pt}
+    \UL@facUL\par
+    \vspace{48pt}
+    Qu\'ebec, Canada\par
+  \or%                      2 cotutelle
+    \vspace{72pt}
+    Universit\'e Laval\par Qu\'ebec, Canada\par
+    \UL@degree\par
+    \vspace{\baselineskip} et\par \vspace{\baselineskip}
+    \UL@nameother\par
+    \UL@degreeother\par
+  \or%                      3 extension
+    \vspace{48pt}
+    {\UL@fontprogram\UL@program\ de l'Universit\'e Laval\par
+      \ifthenelse{\boolean{UL@isprogmasc}}{offert}{offerte}
+      en extension \`a l'\UL@extensionat}\par
+    \vspace{36pt}
+    \UL@degree\par
+    \vspace{36pt}
+    \UL@facother\par \UL@extensionat\par \UL@extensionloc\par
+    \vspace{\baselineskip}
+    \UL@facUL\par Universit\'e Laval\par Qu\'ebec, Canada\par
+  \fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\pagetitre}
+%   Construction de la page titre. Le nom de l'auteur et la notice de
+%   copyright sont insérées directement dans le code de la commande
+%   |\pagetitre|. On doit rétablir sur la page titre l'interligne
+%   simple et l'espacement nul entre les paragraphes (|\parskip|). La
+%   page titre des thèses et mémoires en cotutelle ou en extension ne
+%   comporte pas de logo de l'Université Laval.
+%    \begin{macrocode}
+\newcommand{\pagetitre}{{%
+    \clearpage
+    \thispagestyle{empty}
+    \SingleSpacing\setlength{\parskip}{0pt}
+    \centering
+    \UL@fontbase
+    \ifthenelse{\UL@typenum > 1}{\vspace*{0pt}\par}{%
+      \includegraphics[height=40px,keepaspectratio=true]{ul_p}\par}
+    \vspace{72pt}
+    \UL@title
+    \vspace{48pt}
+    \UL@docid
+    \vspace{72pt}
+    {\UL@fontauthor\UL@author}\par
+    \UL@details
+    \vfill
+    {\textcopyright} \UL@author, \UL@year\par
+    \cleardoublepage
+  }}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Listes des figures et des tableaux}
+%
+% Le paquetage \textsf{babel} définit comme titre pour la liste des
+% figures «Table des figures», alors que la liste des tableaux est
+% «Liste des tableaux». Pour une plus grande symétrie, la classe
+% redéfinit le titre correspondant à |\listoffigures|. La commande
+% |\addto| est nécessaire pour éviter que \textsf{babel} redéfinisse
+% le titre à |\begin{document}|.
+%    \begin{macrocode}
+\addto\captionsfrench{\renewcommand{\listfigurename}{Liste des figures}}
+%    \end{macrocode}
+%
+% \subsection{Dédicace et épigraphe}
+%
+% La dédicace et l'épigraphe sont mises en forme avec la commande
+% |\epigraph| de \textsf{memoir}.
+% \begin{macro}{\dedicace}
+%   La dédicace est une épigraphe simplifiée placée seule sur une
+%   page, alignée à droite à une dizaine de lignes de la marge
+%   supérieure, sans auteur ou source et sans ligne de démarcation.
+%    \begin{macrocode}
+\newcommand{\dedicace}[1]{{%
+    \clearpage
+    \pagestyle{empty}
+    \setlength{\beforeepigraphskip}{10\baselineskip}
+    \setlength{\epigraphrule}{0pt}
+    \epigraphtextposition{flushright}
+    \mbox{}\epigraph{\itshape #1}{}
+  }}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\epigraphe}
+%   L'épigraphe de début de document est placée seule sur une page à
+%   une dizaine de lignes de la marge supérieure. Pour le reste, on
+%   s'en remet à la commande |\epigraph| de \textsf{memoir}.
+%    \begin{macrocode}
+\newcommand{\epigraphe}[2]{{%
+    \clearpage
+    \pagestyle{empty}
+    \setlength{\beforeepigraphskip}{10\baselineskip}
+    \mbox{}\epigraph{#1}{#2}
+  }}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Citations}
+%
+% \begin{environment}{quote}
+%   La classe redéfinit l'environnement |quote| de \textsf{memoir}
+%   afin que le texte des citations se trouve en retrait de 10~mm à
+%   gauche et à droite, conformément aux règles de présentation de la
+%   FESP.
+%    \begin{macrocode}
+\renewenvironment{quote}{%
+  \list{}{\rightmargin 10mm \leftmargin 10mm}%
+  \item[]}{\endlist}
+%    \end{macrocode}
+%   \end{environment}
+%
+% \begin{environment}{quotation}
+%   Il en va de même de l'environnement |quotation|. Cependant, cet
+%   environnement passe également à l'interligne simple et la classe
+%   ajuste l'espacement vertical entre les paragraphes afin que
+%   ceux-ci soient bien distincts les uns des autres tout en demeurant
+%   raisonnablement compacts. Cet espacement est ici fixé à 6~points.
+%    \begin{macrocode}
+\renewenvironment{quotation}{%
+  \list{}{%
+    \SingleSpacing
+    \listparindent 0em
+    \itemindent    \listparindent
+    \leftmargin    10mm
+    \rightmargin   \leftmargin
+    \parsep        6\p@ \@plus\p@}%
+  \item[]}{\endlist}
+%    \end{macrocode}
+% \end{environment}
+%
+% \subsection{Numérotation des divisions du document}
+%
+% Par défaut, \textsf{memoir} numérote les divisions du document
+% seulement jusqu'au niveau des sections. La classe étend la
+% numérotation aux sous-sections.
+%    \begin{macrocode}
+\setsecnumdepth{subsection}
+%</class>
+%    \end{macrocode}
+% ^^A Fin du code de la classe
+%
+% \begin{thebibliography}{1}
+% \providecommand{\bibnamefont}[1]{#1}
+% \providecommand{\selectlanguage}[1]{\relax}
+% \bibitem[{Malo(1996)}]{Malo:1996}
+% \bibnamefont{Malo}, M. 1996, {\selectlanguage{francais}\emph{Guide de la
+%   communication écrite au cégep, à l'université et en entreprise}}, Québec
+%   Amérique.
+% \end{thebibliography}
+%
+% \Finale
+%
+% \iffalse
+% ^^A Gabarits du document maître
+%<*gabarit>
+%<phd&standard>%% GABARIT POUR THÈSE STANDARD
+%<phd&mesure>%% GABARIT POUR THÈSE SUR MESURE
+%<phd&multifac>%% GABARIT POUR THÈSE MULTIFACULTAIRE
+%<phd&cotutelle>%% GABARIT POUR THÈSE EN COTUTELLE
+%<phd&UdeS>%% GABARIT POUR THÈSE EN EXTENSION À L'UNIVERSITÉ DE SHERBROOKE
+%<phd&UQO>%% GABARIT POUR THÈSE EN EXTENSION À L'UQO
+%<m&standard>%% GABARIT POUR MÉMOIRE STANDARD
+%<m&mesure>%% GABARIT POUR MÉMOIRE SUR MESURE
+%<m&UQAC>%% GABARIT POUR MÉMOIRE EN EXTENSION À L'UQAC
+%%
+%% Consulter la documentation de la classe ulthese pour une
+%% description détaillée de la classe, de ce gabarit et des options
+%% disponibles.
+%%
+%% [Ne pas hésiter à supprimer les commentaires après les avoir lus.]
+%%
+%% Déclaration de la classe avec les langues les plus courantes. Le
+%% français sera la langue par défaut du document.
+\documentclass[11pt,english,francais]{ulthese}
+  %% Encodage utilisé pour les caractères accentués dans les fichiers
+  %% source du document. Les gabarits sont encodés en UTF-8.
+  \usepackage[utf8]{inputenc}
+
+  %% Charger ici les autres paquetages nécessaires pour le document.
+  %% Quelques exemples; décommenter au besoin.
+  %\usepackage{amsmath}          % recommandé pour les mathématiques
+  %\usepackage{mathpazo}         % texte en Palatino
+  %\usepackage{mathptmx}         % texte en Times
+
+  %% Gestion des hyperliens dans le document. S'assurer que hyperref
+  %% est le dernier paquetage chargé.
+  \usepackage{hyperref}
+  \hypersetup{colorlinks,allcolors=ULlinkcolor}
+
+  %% Pour utiliser Computer Modern comme police sans empattements
+  %% (serif) plutôt que Helvetica, décommenter la ligne ci-dessous.
+  %\renewcommand{\sfdefault}{cmss}
+
+  %% Options de mise en forme du mode français de babel. Consulter la
+  %% documentation du paquetage babel pour les options disponibles.
+  \frenchbsetup{%
+    CompactItemize=false,         % ne pas compacter les listes
+    ThinSpaceInFrenchNumbers=true % espace fine dans les nombres
+  }
+
+  %% Style de la bibliographie.
+  \bibliographystyle{}
+
+  %% Déclarations de la page titre. Remplacer les éléments entre < >.
+  %% Supprimer les caractères < >. Couper un long titre ou un long
+  %% sous-titre manuellement avec \\. Terminer une éventuelle deuxième
+  %% ligne de titre ou de sous-titre avec \vspace*{-\baselineskip}.
+  \titre{<Titre principal>}
+  % \titre{Ceci est un exemple de long titre \\
+  %   avec saut de ligne manuel \vspace*{-\baselineskip}}
+  % \soustitre{Sous-titre le cas échéant}
+  % \soustitre{Ceci est un exemple de long-titre \\
+  %   avec saut de ligne manuel \vspace*{-\baselineskip}}
+  \auteur{<Prénom Nom>}
+%<phd&(standard|multifac|cotutelle)>  \programme{Doctorat en <discipline> -- <majeure s'il y a lieu>}
+%<phd&mesure>  \programme{Doctorat sur mesure en <discipline> -- <majeure s'il y a lieu>}
+%<phd&(UdeS|UQO)>  \programme{Doctorat en <discipline>}
+%<m&standard>  \programme{Maîtrise en <discipline> -- <majeure s'il y a lieu>}
+%<m&mesure>  \programme{Maîtrise sur mesure en <discipline> -- <majeure s'il y a lieu>}
+%<m&UQAC>  \programme{Maîtrise en <discipline>}
+  \annee{<20xx>}
+%<phd>  \PhD     % ou l'un de \LLD, \DPsy, \DThP
+%<m>  \MSc     % ou l'un de \LLM, \MA, \MMus, \MServSoc, \MScGeogr, \MATDR
+%<cotutelle>  \cotutelle
+%<cotutelle>  \univcotutelle{<Université de cotutelle> \\ <Ville>, <Pays>}
+%<cotutelle>  \gradecotutelle{<Nom du grade> (<sigle du grade>)}
+%<multifac>  \multifacultaire
+%<multifac>  \faculteUL{<Faculté 1> \\ <Faculté 2>}
+%<UdeS>  \extensionUdeS
+%<UQO>  \extensionUQO
+%<UQAC>  \extensionUQAC
+%<UdeS|UQO|UQAC>  \faculteUL{<Nom de la faculté UL>}
+%<UdeS>  \faculteUdeS{<Nom de la faculté UdeS>}
+%<UQO>  \faculteUQO{<Nom de la faculté UQO>}
+%<UQAC>  \faculteUQAC{<Nom de la faculté UQAC>}
+
+\begin{document}
+
+\frontmatter                    % pages liminaires
+
+\pagetitre                      % production de la page titre
+
+\include{resume}                % résumé français
+\include{abstract}              % résumé anglais
+\cleardoublepage
+
+\tableofcontents                % production de la TdM
+\cleardoublepage
+
+\listoftables                   % production de la liste des tableaux
+\cleardoublepage
+
+\listoffigures                  % production de la liste des figures
+\cleardoublepage
+
+\dedicace{Dédicace si désiré}
+\cleardoublepage
+
+\epigraphe{Texte de l'épigraphe}{Source ou auteur}
+\cleardoublepage
+
+\include{remerciements}         % remerciements
+\include{avantpropos}           % avant-propos
+
+\mainmatter                     % corps du document
+
+\include{introduction}          % introduction
+\include{chapitre1}             % chapitre 1
+\include{chapitre2}             % chapitre 2, etc.
+\include{conclusion}            % conclusion
+
+\appendix                       % annexes le cas échéant
+
+\include{annexe}                % annexe A
+
+\bibliography{}                 % production de la bibliographie
+
+\end{document}
+%</gabarit>
+%
+% ^^A Gabarits des parties du document
+%<*resume>
+\chapter*{Résumé}                      % ne pas numéroter
+\phantomsection\addcontentsline{toc}{chapter}{Résumé} % inclure dans TdM
+
+\begin{otherlanguage*}{francais}
+  Texte du résumé en français.
+\end{otherlanguage*}
+%</resume>
+%
+%<*abstract>
+\chapter*{Abstract}                      % ne pas numéroter
+\phantomsection\addcontentsline{toc}{chapter}{Abstract} % inclure dans TdM
+
+\begin{otherlanguage*}{english}
+  Text of English abstract.
+\end{otherlanguage*}
+%</abstract>
+%
+%<*remerciements>
+\chapter*{Remerciements}         % ne pas numéroter
+\phantomsection\addcontentsline{toc}{chapter}{Remerciements} % inclure dans TdM
+
+Texte des remerciements en prose.
+%</remerciements>
+%
+%<*avantpropos>
+\chapter*{Avant-propos}         % ne pas numéroter
+\phantomsection\addcontentsline{toc}{chapter}{Avant-propos} % inclure dans TdM
+
+L'avant-propos est surtout nécessaire pour une thèse par article.
+%</avantpropos>
+%
+%<*introduction>
+\chapter*{Introduction}         % ne pas numéroter
+\phantomsection\addcontentsline{toc}{chapter}{Introduction} % inclure dans TdM
+
+Une thèse ou un mémoire devrait normalement débuter par une
+introduction. Celle-ci est traitée comme un chapitre normal, sauf
+qu'elle n'est pas numérotée.
+%</introduction>
+%
+%<*chapitre>
+\chapter{Titre du chapitre}     % numéroté
+
+Texte du chapitre.
+%</chapitre>
+%
+%<*conclusion>
+\chapter*{Conclusion}         % ne pas numéroter
+\phantomsection\addcontentsline{toc}{chapter}{Conclusion} % dans TdM
+
+Une thèse ou un mémoire devrait normalement se terminer par une
+conclusion, placée avant les annexes, le cas échéant. Celle-ci est
+traitée comme un chapitre normal, sauf qu'elle n'est pas numérotée.
+%</conclusion>
+%
+%<*annexe>
+\chapter{Titre de l'annexe}     % numérotée
+
+Texte de l'annexe.
+%</annexe>
+% Local Variables:
+% mode: doctex
+% coding: utf-8
+% TeX-master: t
+% End:
+% \fi

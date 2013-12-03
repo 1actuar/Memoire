@@ -1,0 +1,391 @@
+\chapter{Méthode de l'équation d'estimation
+  optimale} % numéroté
+
+Une équation d'estimation est une fonction des données de
+l'échantillon et des paramètres d'un modèle qui spécifie de quelle
+manière on doit procéder pour estimer ces derniers, lorsque la
+distribution de la population est inconnue. Cette approche a un
+avantage sur les méthodes de vraisemblance, car elle ne requiert pas
+l'utilisation de la fonction de densité ou de répartition, mais
+seulement les moments de la distribution. \citep{everitt2006cambridge}
+
+\cite{crowder1986consistency} définit l'équation d'estimation sous une
+forme générale, composée d'une matrice d'échelle $S(\theta;Y)$, un
+vecteur de fonctions aléatoires $u(\theta;Y)$ et un vecteur de
+pondération $\mathbf{w}(\theta;Y)$:
+\begin{align}
+  \label{eq:generalEE86}
+  g(\theta;Y) = S^{-1}(\theta;Y) \sum_{t=1}^T u(\theta;Y)
+  \mathbf{w}(\theta;Y).
+\end{align}
+
+En faisant abstraction du vecteur de pondération
+$\mathbf{w}(\theta;Y)$, on retrouve une forme qui rappelle la méthode
+des moments généralisée. La fonction d'estimation $u(\theta;Y)$
+définit, dans ce cas, des conditions de moment.  Toutefois, en faisant
+abstraction de la matrice $S(\theta;Y)$, on obtient une classe
+d'équations d'estimation $g(\theta;Y)$ qui généralise plusieurs
+méthodes connues, comme développé par \cite{crowder1987linear}:
+\begin{align}
+  \label{eq:generalEE87}
+  g(\theta;Y) = \sum_{t=1}^T u(\theta;Y) \mathbf{w}(\theta;Y).
+\end{align}
+
+La propriété fondamentale de toute équation d'estimation est que son
+espérance est nulle. L'équation d'estimation \eqref{eq:generalEE86},
+et donc \eqref{eq:generalEE87}, produit des estimateurs sans biais:
+\begin{align}
+  \label{eq:EEsansbiais}
+  E\left[ g(\theta;Y) \right] = 0.
+\end{align}
+
+Par analogie avec la méthode du maximum de vraisemblance, on pourra
+alors la considérer comme une équation de quasi-score. On peut en
+effet représenter l'équation précédente par celle du score
+\eqref{eq:scoreEMV} donnée par l'espérance de la dérivée de la
+fonction de log-vraisemblance par rapport au vecteur de paramètres
+$\theta$:
+\begin{align}
+  \label{eq:scoreEMV}
+  E\left[g\left(\theta;Y \right)^{EMV}\right] &= E\left[\frac{d \ln
+      L\left(\theta;Y\right)}{d\theta}\right] = 0.
+\end{align}
+
+On désigne la moyenne et la variance de la distribution par les
+notations $\mu\left(\theta\right)$ et $\sigma^2(\theta)$
+respectivement.  On définit aussi les dérivées premières de la moyenne
+et de l'écart-type par rapport au vecteur de paramètres:
+\begin{subequations}\label{eq:derivmom}
+  \begin{align}
+    \mu^{\prime}\left( \theta \right) &= \frac{d \mu\left(\theta\right)}{d\theta} \label{eq:derivmom1}\\
+    \sigma^{\prime}\left( \theta \right) &= \frac{d
+      \sqrt{\sigma^2(\theta)}}{d\theta}.\label{eq:derivmom2}
+  \end{align}
+\end{subequations}
+
+Dans ce chapitre, on considère une équation d'estimation quadratique
+de la forme suivante:
+\begin{equation}
+  \label{eq:generalquad}
+  g\left(\theta;Y \right) = \sum_{t=1}^n \left[ \mathbf{a}(\theta;y_t)(y_t-\mu\left(\theta\right)) + \mathbf{b}(\theta;y_t)\left((y_t-\mu\left(\theta\right))^2-\sigma^2\left(\theta\right) \right)\right].
+\end{equation}
+
+Le vecteur de pondération $\mathbf{w}(\theta;Y)$ de l'équation
+\eqref{eq:generalEE87} est composé de deux fonctions déterministes:
+$\mathbf{a}(\theta;Y)$ et $\mathbf{b}(\theta;Y)$:
+\begin{align}
+  \label{eq:vecteuroptimal.ab}
+  \mathbf{w}(\theta;Y) &= \begin{bmatrix} \mathbf{a}(\theta;Y) \\
+    \mathbf{b}(\theta;Y) \end{bmatrix}.
+\end{align}
+
+On démontre facilement que c'est une équation d'estimation en
+calculant son espérance:
+\begin{align}
+  \label{eq:demogeneralquad-convergent}
+  E\left[g\left(\theta;Y \right)\right] &= E\left[ \sum_{t=1}^n \left[ \mathbf{a}(\theta;y_t)(y_t-\mu\left(\theta\right)) + \mathbf{b}(\theta;y_t)\left((y_t-\mu\left(\theta\right))^2-\sigma^2\left(\theta\right) \right)\right]\right] \nonumber\\
+  &=  \sum_{t=1}^n \left( \mathbf{a}(\theta;y_t)\cdot  E\left[y_t-\mu\left(\theta\right)\right] + \mathbf{b}(\theta;y_t)\cdot E\left[(y_t-\mu\left(\theta\right))^2-\sigma^2\left(\theta\right) \right]\right) \nonumber\\
+  &= 0.
+\end{align}
+
+La forme quadratique regroupe certaines méthodes d'estimation bien
+établies, recensées à la table \ref{tab:methodesquad}.
+\begin{table}[!ht]
+  
+  \centering
+  \begin{tabular}{ccc}
+    \hline
+    \textbf{Méthode} & $\mathbf{a}(\theta;y_t)$ & $\mathbf{b}(\theta;y_t)$ \\
+    \hline
+    Moindres carrés non pondérés & $\mu^{\prime}\left( \theta \right)$ & $0$ \\
+    Maximum de quasi-vraisemblance & $\frac{\mu^{\prime}\left( \theta \right)}{ \sigma^2\left( \theta \right)}$ & $0$ \\
+    Estimation gaussienne de Whittle
+    \citep{fox1986large} & $\frac{\mu^{\prime}\left( \theta \right)}{ \sigma^2\left( \theta \right)}$ & $\frac{\sigma^{\prime}\left( \theta \right)}{ \sigma^2\left( \theta \right)^{3/2}}$ \\
+    \hline
+  \end{tabular}
+  \caption{Méthodes d'estimation représentables par la forme quadratique \eqref{eq:generalquad}
+  }\label{tab:methodesquad}
+\end{table}
+
+La méthode d'estimation gaussienne de Whittle présente un avantage par
+rapport aux modèles linéaires conventionnels (moindres carrés pondérés
+et maximum de quasi-vraisemblance) du fait qu'elle prend en
+considération la variance comme critère d'optimisation et non
+seulement comme pondération.
+
+\cite{crowder1987linear} développe, à partir de cette dernière, 
+une équation d'estimation optimale qui vise à
+remplacer la méthode de quasi-vraisemblance basée sur la moyenne et la
+variance jusqu'alors utilisée.
+
+\section{Équation d'estimation optimale}
+\label{sec:equationsquadopt}
+
+Soit une équation d'estimation de la forme générale
+\eqref{eq:generalEE87}. On a, par définition, que l'espérance de la
+composante stochastique $u(\theta;Y_t)$ de celles-ci sous les vrais
+paramètres $\theta_0$ est nulle. De plus, si l'on considère que les
+données ne sont pas corrélées, l'espérance du produit de deux de ces
+fonctions est nulle, sauf lorsqu'elle est évaluée au même point $Y_t$:
+\begin{align}
+  \label{eq:Crowder86-th4.1-def}
+  E \left[u(\theta_0;Y_t) \right] &= 0 \\
+  E \left[u(\theta_0;Y_s)u(\theta_0;Y_t) \right] &=
+  \delta_{s,t}Var\left[u(\theta_0;Y_t)\right].
+\end{align}
+
+Les matrices non singulières $M(\theta_0) \mbox{ et } V(\theta_0)$
+représentent respectivement, pour l'équation d'estimation, l'espérance
+de sa dérivée par rapport à $\theta$ et l'inverse de sa
+variance-covariance, évaluée à la vraie valeur des paramètres
+$\theta_0$:
+\begin{subequations}\label{eq:Crowder86-th3.3-def}
+  \begin{align}
+    M(\theta_0;Y) &= \sum_{t=1}^{T} \mathbf{w}(\theta_0) E\left[u^{\prime}(\theta_0;Y_t) \right] \label{eq:Crowder86-th3.3-def-1}\\
+    V(\theta_0;Y) &= \sum_{t=1}^{T} \mathbf{w}(\theta_0)
+    Var\left[u(\theta_0;Y_t)\right]
+    \mathbf{w}^{T}(\theta_0)\label{eq:Crowder86-th3.3-def-2}.
+  \end{align}
+\end{subequations}
+
+La variance asymptotique de l'estimateur $\hat\theta$ prend alors la
+forme suivante, en utilisant la méthode delta multivariée:
+\begin{align}
+  \label{eq:VarAsymptEstEE}
+  Var\left[\hat\theta\right] &=
+  M^{-1}(\theta_0)V(\theta_0)\left[M^{-1}(\theta_0)\right]^{T}.
+\end{align}
+
+On désire obtenir des équations d'estimation optimales de telle sorte
+que la variance soit minimale. Le \emph{théorème 4.1} de
+\cite{crowder1986consistency} permet d'établir quel vecteur de
+pondération $\mathbf{w}^{*}(\theta)$ utiliser.
+
+Selon ce théorème, lorsqu'on utilise le vecteur de pondération optimal
+\eqref{eq:Crowdervecteuroptimal}, on obtient que la dérivée de la
+fonction d'estimation $M^{*}(\theta)$ soit égale à l'inverse de la
+matrice de variance-covariance $V^{*}(\theta)$:
+\begin{align}
+  \label{eq:Crowdervecteuroptimal}
+  \mathbf{w}^{*}(\theta) &= \left\{E \left[u^{\prime}(\theta_0;Y_t)
+    \right]\right\}^{T}\left\{Var\left[u(\theta;Y_t)\right]
+  \right\}^{-1}.
+\end{align}
+
+La variance asymptotique \eqref{eq:VarAsymptEstEE} du vecteur de
+paramètres optimal $\hat\theta^{*}$ qui résout l'équation d'estimation
+$g^{*}(\theta)$ se simplifie alors sous la forme:
+$\left[V^{*}(\theta_0;y_t)\right]^{-1}$
+\begin{align}
+  \label{eq:13}
+  M^{*}(\theta_0) &= \sum_{t=1}^{T} \left\{E
+    \left[u^{\prime}(\theta_0;Y_t)
+    \right]\right\}^{T}\left\{Var\left[u(\theta_0;Y_t)\right]
+  \right\}^{-1} E\left[u^{\prime}(\theta_0;Y_t) \right] \\
+  V^{*}(\theta_0) &= \sum_{t=1}^{T} \left\{E
+    \left[u^{\prime}(\theta_0;Y_t)
+    \right]\right\}^{T}\left\{Var\left[u(\theta_0;Y_t)\right]
+  \right\}^{-1} Var\left[u(\theta_0;Y_t)\right] \nonumber\\
+  &\quad \times \left[\left\{E \left[u^{\prime}(\theta_0;Y_t)
+      \right]\right\}^{T}\left\{Var\left[u(\theta_0;Y_t)\right]
+    \right\}^{-1}\right]^{T} \nonumber\\
+  &= \sum_{t=1}^{T} \left\{E \left[u^{\prime}(\theta_0;Y_t)
+    \right]\right\}^{T}\left\{Var\left[u(\theta_0;Y_t)\right]
+  \right\}^{-1} E\left[u^{\prime}(\theta_0;Y_t) \right] \nonumber\\
+  \Leftrightarrow M^{*}(\theta_0) &= V^{*}(\theta_0) \nonumber\\
+  \Leftrightarrow Var(\hat\theta^{*}) &= \left[M^{*}(\theta_0)\right]^{-1} V^{*}(\theta_0) \left[\left[M^{*}(\theta_0)\right]^{-1}\right]^{T} \nonumber\\
+  &= \left[V^{*}(\theta_0)\right]^{-1}.
+\end{align}
+
+On considère la fonction $u(\theta;Y_t)$ de l'équation quadratique
+\eqref{eq:generalquad} , dont on cherche le vecteur de pondération
+optimal correspondant selon la proposition
+\eqref{eq:Crowdervecteuroptimal}:
+\begin{align}
+  \label{eq:15}
+  u(\theta;Y_t) &= \begin{bmatrix}
+    Y_t-\mu(\theta)\\
+    (Y_t-\mu(\theta))^2-\sigma^2(\theta)
+  \end{bmatrix}.
+\end{align}
+
+On évalue l'espérance, sous le vecteur de vrais paramètres $\theta_0$,
+de la dérivée par rapport à $\theta$ de la fonction $u(\theta;Y)$:
+\begin{align}
+  \label{eq:16}
+  E\left[u^{\prime}(\theta;Y_t)\right] &= \begin{bmatrix}
+    E \left[-\mu^{\prime}(\theta)\right] \\
+    E
+    \left[-2(Y-\mu(\theta))\mu^{\prime}(\theta)-2\sqrt{\sigma^2(\theta)}\sigma^{\prime}(\theta)\right]
+  \end{bmatrix} \nonumber\\
+  &= \begin{bmatrix}
+    -\mu^{\prime}(\theta) \\
+    -2 \sqrt{\sigma^2(\theta)}\sigma^{\prime}(\theta).
+  \end{bmatrix}.
+\end{align}
+
+Puis, on évalue la variance-covariance du vecteur $u(\theta)$. Pour ce
+faire, on devra évaluer séparément chaque élément composant cette
+matrice:
+\begin{align}
+  \label{eq:matvcov-u-EE}
+  Var\left[u(\theta;Y_t) \right] &=
+  \begin{bmatrix}
+    Var\left[Y-\mu(\theta)\right] & Cov\left[Y-\mu(\theta),(Y-\mu(\theta))^2-\sigma^2(\theta) \right] \\
+    Cov\left[Y-\mu(\theta),(Y-\mu(\theta))^2-\sigma^2(\theta) \right]
+    & Var\left[(Y-\mu(\theta))^2-\sigma^2(\theta)\right]
+  \end{bmatrix}.
+\end{align}
+
+On définit les coefficients d'asymétrie et d'aplatissement normalisés,
+ainsi qu'une constante $\gamma_3(\theta)$ qui en découle, afin de
+simplifier les expressions qui seront obtenues conséquemment:
+\begin{subequations}\label{eq:momentsupgamma}
+  \begin{align}
+    \gamma_1\left(\theta\right) &= \frac{m_3\left(\theta\right)}{m_2\left(\theta\right)^{3/2}} \nonumber\\
+    &= \frac{E\left[\left(Y-\mu\left(\theta\right)\right)^3\right]}{\sigma^2\left(\theta\right)^{3/2}}  \label{eq:momentsupgamma1}\\
+    \gamma_2\left(\theta\right) &= \frac{m_4\left(\theta\right)}{m_2\left(\theta\right)^{2}} - 3 \nonumber\\
+    &=\frac{E\left[\left(Y-\mu\left(\theta\right)\right)^4\right]}{\sigma^2\left(\theta\right)^2}-3 \label{eq:momentsupgamma2}\\
+    \gamma_3(\theta) &= \gamma_2\left(\theta\right) + 2 -
+    \gamma_1\left(\theta\right)^2. \label{eq:momentsupgamma3}
+  \end{align}
+\end{subequations}
+
+On développe les différentes composantes de la matrice:
+\eqref{eq:matvcov-u-EE}
+\begin{align}
+  \label{eq:18}
+  Var\left[Y-\mu(\theta)\right] &= E\left[(Y-\mu(\theta))^2\right] -
+  E\left[Y-\mu(\theta)\right]^2 \nonumber\\
+  &=\sigma^2(\theta)\\
+  Cov\left[Y-\mu(\theta),(Y-\mu(\theta))^2-\sigma^2(\theta) \right] &=
+  E\left[\left(Y-\mu(\theta)\right)\left((Y-\mu(\theta))^2-\sigma^2(\theta)\right)
+  \right] \nonumber\\ &\quad - E\left[Y-\mu(\theta) \right]
+  E\left[(Y-\mu(\theta))^2-\sigma^2(\theta) \right] \nonumber\\
+  &= E\left[(Y-\mu(\theta))^3 - \sigma^2(\theta)(Y-\mu(\theta))\right] \nonumber\\
+  &= \sigma^2(\theta)^{3/2}\gamma_1(\theta)\\
+  Var\left[(Y-\mu(\theta))^2-\sigma^2(\theta)\right] &=
+  E\left[\left((Y-\mu(\theta))^2-\sigma^2(\theta)
+    \right)\left((Y-\mu(\theta))^2-\sigma^2(\theta) \right) \right]\nonumber\\
+  &= E\left[(Y-\mu(\theta))^4 - 2\sigma^2(\theta)(Y-\mu(\theta))^2 +
+    \sigma^2(\theta)^2 \right] \nonumber\\
+  &= \sigma^2(\theta)^2\left(\gamma_2(\theta)+3\right) - 2\sigma^2(\theta)^2 + \sigma^2(\theta)^2 \nonumber\\
+  &=\sigma^2(\theta)^2\left(\gamma_2(\theta)+2 \right).
+\end{align}
+
+On obtient alors la matrice de variance-covariance de la fonction
+$u(\theta)$, dont on évalue par la suite l'inverse:
+\begin{align}
+  \label{eq:19}
+  Var\left[u(\theta;Y_t) \right] &= \begin{bmatrix}
+    \sigma^2(\theta) & \sigma^2(\theta)^{3/2}\gamma_1(\theta)\\
+    \sigma^2(\theta)^{3/2}\gamma_1(\theta) &
+    \sigma^2(\theta)^2\left(\gamma_2(\theta)+2 \right)
+  \end{bmatrix} \\
+  Var^{-1}\left[u(\theta;Y_t) \right] &=
+  \frac{1}{\sigma^2(\theta)^3\gamma_3(\theta)}\begin{bmatrix}
+    \sigma^2(\theta)^2\left(\gamma_2(\theta)+2 \right) & -\sigma^2(\theta)^{3/2}\gamma_1(\theta)\\
+    -\sigma^2(\theta)^{3/2}\gamma_1(\theta) & \sigma^2(\theta)
+  \end{bmatrix}.
+\end{align}
+
+On peut enfin évaluer l'expression \eqref{eq:Crowdervecteuroptimal} à
+l'aide des résultats précédents:
+\begin{align*}
+  \mathbf{w}^{*}(\theta) &= \begin{bmatrix} -\mu^{\prime}(\theta) & -2
+    \sqrt{\sigma^2(\theta)}\sigma^{\prime}(\theta).
+  \end{bmatrix} \times
+  \frac{1}{\sigma^2(\theta)^3\gamma_3(\theta)} \begin{bmatrix}
+    \sigma^2(\theta)^2\left(\gamma_2(\theta)+2 \right) & -\sigma^2(\theta)^{3/2}\gamma_1(\theta)\\
+    -\sigma^2(\theta)^{3/2}\gamma_1(\theta) & \sigma^2(\theta)
+  \end{bmatrix}.
+\end{align*}
+
+On obtient alors le vecteur de pondération optimal
+\eqref{eq:vecteuroptimal.ab} formé des fonctions
+$\mathbf{a}^{*}(\theta)$ et $\mathbf{b}^{*}(\theta)$:
+\begin{subequations}\label{eq:coefficientscrowder}
+  \begin{align}
+    \mathbf{a}^{*}(\theta) &= \frac{\left\{ -\left( \gamma_2\left(\theta\right)+2 \right) \mu^{\prime}\left( \theta \right) + 2\gamma_1\left(\theta\right) \sigma^{\prime}\left( \theta \right) \right\}}{\sigma^2\left(\theta\right)\gamma_3(\theta)} \label{eq:acrowder}\\
+    \mathbf{b}^{*}(\theta) &=
+    \frac{\gamma_1\left(\theta\right)\mu^{\prime}\left( \theta
+      \right)-2\sigma^{\prime}\left( \theta \right)}{\sigma^2\left(
+        \theta \right)^{3/2}\gamma_3(\theta)}. \label{eq:bcrowder}
+  \end{align}
+\end{subequations}
+
+On obtient aisément les matrices $M^{\star}\left(\theta\right) \mbox{
+  et } V^{\star}\left(\theta\right)$ à partir de leur définition
+\eqref{eq:Crowder86-th3.3-def}:
+\begin{align}
+  M^{\star}\left(\theta\right) &= V^{\star}\left(\theta\right) \nonumber\\
+  &= T \cdot \sigma(\theta)^{-2} \left\{ \left(\mu^{\prime}\left(
+        \theta \right)\right)\left(\mu^{\prime}\left( \theta
+      \right)\right)^T+\gamma_3(\theta)^{-1}\left(\gamma_1\left(\theta\right)\mu^{\prime}\left(
+        \theta \right)-2\sigma^{\prime}\left( \theta
+      \right)\right)\left(\gamma_1\left(\theta\right)\mu^{\prime}\left(
+        \theta \right)-2\sigma^{\prime}\left( \theta \right)\right)^T
+  \right\}. \label{eq:Moptimalestimetheta}
+\end{align}
+
+Afin d'obtenir la solution optimale $\theta^{\star}$, on définit la
+fonction objectif $\Lambda\left(\theta;\mathbf{y}_T\right)$:
+\begin{align}
+  \label{eq:eqnobjectifEE}
+  \Lambda\left(\theta;\mathbf{y}_T\right) &=
+  g\left(\theta;\mathbf{y}_T \right) W\left( \theta;\mathbf{y}_T
+  \right) g\left( \theta;\mathbf{y}_T \right)^T.
+\end{align}
+
+$W\left( \theta ;\mathbf{y}_T \right)$ est une matrice définie
+positive. En premier lieu, on suggère d'utiliser la matrice
+identité. Puis, on peut raffiner l'estimation en lui substituant la
+matrice $V^{\star}(\hat\theta)$ de manière itérative, de la même
+manière qu'avec la méthode des moments généralisée itérative, à la
+section \ref{sec:GMMtwostep}.
+
+\section{Équation d'estimation optimale modifiée}
+\label{sec:eqoptmodif}
+
+Il est possible que, pour certaines distributions, les expressions
+formant le vecteur de pondération optimal $\mathbf{w}^{*}(\theta)$
+soient particulièrement complexes. On pourra toujours les utiliser,
+cependant, il peut être intéressant de développer une approximation de
+celles-ci. Pour ce faire, on substitue les valeurs théoriques des
+coefficients d'asymétrie et d'aplatissement par une valeur estimée à
+partir de l'échantillon:
+\begin{subequations}\label{eq:vecteurcrowdermod}
+  \begin{align}
+    \mathbf{a}_{mod}^{*}(\theta) &= \frac{\left\{ -\left( \hat\gamma_2\left(\mathbf{y}_T\right)+2 \right) \mu^{\prime}\left( \theta \right) + 2\hat\gamma_1\left(\mathbf{y}_T\right) \sigma^{\prime}\left( \theta \right) \right\}}{\sigma^2\left(\theta\right)\hat\gamma_3(\mathbf{y}_T)} \label{eq:acrowdermod}\\
+    \mathbf{b}_{mod}^{*}(\theta) &=
+    \frac{\hat\gamma_1\left(\mathbf{y}_T\right)\mu^{\prime}\left(
+        \theta \right)-2\sigma^{\prime}\left( \theta
+      \right)}{\sigma^2\left( \theta
+      \right)^{3/2}\hat\gamma_3(\mathbf{y}_T)} \label{eq:bcrowdermod}
+  \end{align}
+
+  où
+  \begin{align}
+    \label{eq:coeffemp}
+    \hat\gamma_1\left(\mathbf{y}_T\right) &= \frac{\sum_{t=1}^{T}(y_t-\overline{y})^3}{\left(\sum_{t=1}^{T}(y_t-\overline{y})^2\right)^{3/2}} \\
+    \hat\gamma_2\left(\mathbf{y}_T\right) &=
+    \frac{\sum_{t=1}^{T}(y_t-\overline{y})^4}{\left(\sum_{t=1}^{T}(y_t-\overline{y})^2\right)^{2}} \\
+    \hat\gamma_3\left(\mathbf{y}_T\right) &=
+    \hat\gamma_2\left(\mathbf{y}_T\right) + 2 -
+    \hat\gamma_1\left(\mathbf{y}_T\right)^2.
+  \end{align}
+\end{subequations}
+
+On pourra ainsi réduire considérablement la taille des expressions à
+évaluer tout en conservant les propriétés asymptotiques des
+estimateurs, puisque l'espérance de chacune des statistiques utilisées
+est égale à la valeur que l'on a remplacée.
+
+Au prochain chapitre, nous appliquerons la méthode des moments
+généralisée et la méthode de l'équation d'estimation optimale à la
+distribution de Laplace asymétrique généralisée.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 

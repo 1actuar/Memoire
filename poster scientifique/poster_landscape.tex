@@ -1,0 +1,257 @@
+\documentclass[landscape,final,a0paper,fontscale=0.285]{baposter}
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{bm}
+\usepackage{url}
+\usepackage[francais]{babel}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+
+\newcommand{\captionfont}{\footnotesize}
+
+\graphicspath{{images/}{../images/}}
+\usetikzlibrary{calc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicol Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+
+%\definecolor{lightblue}{cmyk}{0.83,0.24,0,0.12}
+\definecolor{lightblue}{rgb}{0.145,0.6666,1}
+\hyphenation{resolution occlusions}
+%%
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=white,
+  bgColorTwo=white,
+  borderColor=lightblue,
+  headerColorOne=black,
+  headerColorTwo=lightblue,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=lightblue,
+  % Format of textbox
+  textborder=roundedleft,
+  % Format of text header
+  eyecatcher=true,
+  headerborder=closed,
+  headerheight=0.1\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=roundedright,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.5em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+  {\includegraphics[height=5em]{images/ullong.pdf}}
+  % Title
+  {\bf\textsc{Distribution de Laplace asymétrique généralisée}\vspace{0.5em}}
+  % Authors
+  {\textsc{François Pelletier, Andrew Luong} \\ \small{École d'actuariat, Université Laval}}
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+   
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % A coloured circle useful as a bullet with an adjustably strong filling
+    \newcommand{\colouredcircle}{%
+      \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Introduction}{name=problem,column=0,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \small{On définit le prix au temps $t$ d'un titre financier $S(t)$ et le rendement cumulé sur ce titre
+\begin{equation*}L_t = R_1 + \ldots + R_{t} = \log S(t) - \log S(0). \end{equation*}
+On veut modéliser $R_t$ par la distribution de Laplace asymétrique généralisée, aussi appelée variance-gamma. L'estimation paramétrique se fera à partir de la méthode GMM. 
+On pourra ainsi obtenir la distribution de $L_t$ par convolution, afin d'évaluer le prix d'options européennes.}
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Simulation}{name=contribution,column=1,row=0,bottomaligned=problem}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \small{Le processus de Laplace $Y(t)$ peut être représenté comme la différence de deux processus gamma $G(t)$ \cite{kotz2001laplace}.
+   \begin{equation*} Y \stackrel{d}{=} \theta + \frac{\sigma}{\sqrt{2}} \left( \frac{1}{\kappa} G_1 - \kappa G_2 \right)
+    \end{equation*} où $ G_1,G_2 \sim \Gamma\left(\alpha=\tau,\beta=1 \right)$.
+Il suffit donc de simuler deux réalisations de cette variable
+aléatoire pour obtenir une réalisation de la distribution Laplace
+asymétrique généralisée.
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Estimation du modèle}{name=results,column=2,span=1,row=0}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \small{On utilise les conditions de moment basées sur l'espérance et la variance
+    \begin{equation*}
+  g(Y_t,\theta) =
+  \left[\begin{array}[]{c}
+    \bar{Y} - \left(\theta+\mu\tau\right) \\
+    \frac{1}{T}\sum_{t=1}^T \left(Y_t - \bar{Y}  \right)^2 - \tau\left(\sigma^2+\mu^2\right)
+  \end{array}\right]
+\end{equation*}
+La matrice optimale $W$ est estimée en utilisant la méthode du GMM itératif \cite{hall2005generalized}:
+    \begin{align*}
+      \hat{W}_{(1)} &=  \bigg(\frac{1}{T}\sum_{t=1}^T g(Y_t,\hat\theta_{(0)})g(Y_t,\hat\theta_{(0)})^{\prime}\bigg)^{-1} \\
+      \hat{W}_{(i)} &=  \bigg(\frac{1}{T}\sum_{t=1}^T g(Y_t,\hat\theta_{(i-1)})g(Y_t,\hat\theta_{(i-1)})^{\prime}\bigg)^{-1}
+    \end{align*}}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Graphique}{name=references,column=3,span=1,bottomaligned=results}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \includegraphics[width=64mm,height=56mm]{GraphiqueAffiche1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Processus de Laplace}{name=references,column=0,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \small{Le processus de Laplace $Y(t)$ est un processus de Lévy subordonné, c'est-à-dire qu'il est formé de deux processus de Lévy, l'un qui détermine l'amplitude des évènements (sauts) et l'autre qui détermine le temps entre les évènements.
+    Le premier est un processus de Wiener $W(t+\tau)-W(t) \sim N(0,\tau\sigma^2)$ et le second un processus gamma $G(t+\tau)-G(t) \sim \Gamma(\tau,\nu\tau)$.
+    \begin{equation*}Y(t) = W(G(t))\end{equation*}}
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Méthode GMM}{name=questions,column=1,span=1,aligned=references,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  La méthode GMM a pour objectif d'estimer les paramètres $\theta$ d'une distribution en minimisant une norme quadratique
+\begin{equation*}
+  \|\hat{m}\left(\theta\right) \|_W^2 = \hat{m}\left(\theta\right)^{\prime} W \hat{m}\left(\theta\right)
+\end{equation*}
+pondérée par une matrice définie positive $W$ et où $\hat{m}\left(\theta\right) = \left(\frac{1}{T}\sum_{t=1}^T g(Y_t,\theta)\right)$ est la moyenne empirique des conditions de moment $g(Y_t,\theta)$.
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Références}{name=references,column=2,span=2,aligned=references,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \bibliographystyle{plain}	% (uses file "plain.bst")
+  \bibliography{biblio}		% expects file "myrefs.bib"
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Prix d'options}{name=speed,column=2,span=2,row=0,below=results,above=references}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \small{L'évaluation du prix d'un option de vente européenne équivaut à calculer la valeur espérée de la réclamation contingente définie par le contrat
+    \begin{equation}
+      P(Y(t),T-t) = B(t,T) \int_{0}^{K} (K-Y(T)) d\hat{F}_t(Y(T))
+    \end{equation}
+    où $B(t,T)$ est la valeur d'une obligation zéro-coupon au taux sans
+    risque $r$ d'échéance $T$ et $K$ le prix d'exercice. Cette évaluation doit de faire sous une mesure neutre au risque, selon laquelle les investisseurs n'exigent pas une prime de risque. Cette mesure doit répondre à la propriété martingale. Pour la distribution étudiée, ceci se fait par une modification du paramètre de dérive $\theta$ en $\theta^{\star}$
+    \begin{align*}
+      e^{rt} = E\left[exp(L_t) \right] = M_{Y_1+\ldots+Y_t}(1) = (\phi_{Y}(-i))^t = \left(\frac{e^{\theta^{\star}}}{(1-\mu-\sigma^2/2)^{\tau}} \right)^t \Rightarrow \theta^{\star} = r + \tau\log(1-\mu-\frac{\sigma^2}{2})
+    \end{align*}
+    On pourra ensuite évaluer la valeur du prix de l'option de vente avec la formule de Heston (1993) décrite dans \cite{epps2007pricing}
+    \begin{align*}
+      P(Y(t),T-t) &= B(t,T)K \int_{0}^{K} d{F}_t(Y(T)) - B(t,T)\int_{0}^{K} Y(T)\cdot d{F}_t(Y(T)) = B(t,T)K \hat{F}_t(K) - Y(t)\hat{G}_t(K)
+    \end{align*}
+où $\hat{G}_t(K)$ est la fonction de répartition de la transformée d'Esscher (h=1) de la mesure neutre au risque.
+  }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Choix du modèle}{name=method,column=0,below=problem,bottomaligned=speed}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \small{Inspirés par les modèles Mandelbrot, Press et Praetz , Madan et Seneta \cite{madan1990variance} présentent un ensemble de caractéristiques essentielles pour un modèle de rendements financiers:}
+    \small{\begin{enumerate}
+    \item Distribution de $R_t$ ayant une queue longue
+    \item Distribution de $R_t$ ayant des moments finis
+    \item Processus en temps continu ayant des accroissements stationnaires et indépendants. Distribution des accroissement de même famille peu importe la longueur.
+    \item Extension multivariée afin de conserver la validité du modèle CAPM.
+    \end{enumerate}}
+    \small{Ce tableau décrit le respect des conditions pour les différents modèles étudiés par les auteurs}
+\begin{center}
+      \begin{tabular}{|l|cccc|}
+        \hline
+        & \multicolumn{4}{c|}{\scriptsize{Conditions}} \\
+        \hline
+        \scriptsize{Modèle}     & \scriptsize{1} & \scriptsize{2} & \scriptsize{3}  & \scriptsize{4}  \\
+        \hline
+        \scriptsize{Mandelbrot} & \scriptsize{X} &   &   & \scriptsize{X} \\
+        \scriptsize{Press}      & \scriptsize{X} & \scriptsize{X} & \scriptsize{X} & \scriptsize{X} \\
+        \scriptsize{Praetz}     & \scriptsize{X} & \scriptsize{X} &   & \scriptsize{X} \\
+        \scriptsize{Madan et Seneta} & \scriptsize{X} & \scriptsize{X} & \scriptsize{X} & \scriptsize{X} \\
+        \hline
+      \end{tabular}
+\end{center}
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Fonction caractéristique}{name=background model,column=1,below=problem,bottomaligned=speed}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \small{On définit la variable aléatoire $Y$
+    \begin{equation*}
+      \label{eq:defvarY-GAL}
+      Y = \theta + \mu W + \sigma \sqrt{W} Z
+    \end{equation*}
+    La fonction caractéristique de la distribution de $Y$ peut être
+    obtenue en utilisant la formule de l'espérance conditionnelle.
+    \begin{align*}
+      \phi_Y&(t;\theta,\sigma,\mu,\tau) = E\left[e^{ity}\right] \\
+      &= E\left[E\left[e^{ity} | W \right] \right]  \\
+      &= \int_0^{\infty} E \left[ e^{it(\theta + \mu w+\sigma\sqrt{w}Z)} \right] g(w) dw \\
+      &= e^{i\theta t}\int_0^{\infty} e^{ i\mu w t-\frac{\sigma^2t^2w}{2}} \times \frac{1}{\Gamma (\tau)} w^{\tau-1}e^{-w} \\
+      &= \frac{e^{i\theta t}}{\left(1+\frac{1}{2} \sigma^2 t^2 - i\mu t \right)^{\tau}}
+    \end{align*}
+    On retrouve la fonction de répartition par le théorème de Gil-Pelaez
+    \begin{equation*}
+      \label{eq:inversionfncaract}
+      F_Y(y) = \frac{1}{2} - \frac{1}{\pi}\int_{0}^{\infty} \frac{Im\left[e^{-ity}\phi_Y(t)\right]}{t} dt
+    \end{equation*}}
+  }
+\end{poster}
+
+\end{document}
