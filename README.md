@@ -1,2 +1,1 @@
-Memoire
-=======
+Mémoire de maîtrise
