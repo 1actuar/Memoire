@@ -1,0 +1,135 @@
+\BOOKMARK [0][-]{section*.2}{R\351sum\351}{}% 1
+\BOOKMARK [0][-]{section*.4}{Abstract}{}% 2
+\BOOKMARK [0][-]{section*.5}{Table des mati\350res}{}% 3
+\BOOKMARK [0][-]{section*.6}{Liste des tableaux}{}% 4
+\BOOKMARK [0][-]{section*.7}{Liste des figures}{}% 5
+\BOOKMARK [0][-]{section*.9}{Remerciements}{}% 6
+\BOOKMARK [0][-]{section*.11}{Introduction}{}% 7
+\BOOKMARK [0][-]{chapter.1}{Les mod\350les de rendements financiers}{}% 8
+\BOOKMARK [1][-]{section.1.1}{L'utilisation de mod\350les en finance}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.1.1}{Diff\351rents types de mod\350les}{section.1.1}% 10
+\BOOKMARK [2][-]{subsection.1.1.2}{Le risque de mod\351lisation}{section.1.1}% 11
+\BOOKMARK [1][-]{section.1.2}{Les rendements financiers}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.2.1}{D\351finitions et notations}{section.1.2}% 13
+\BOOKMARK [2][-]{subsection.1.2.2}{Rendements cumul\351s}{section.1.2}% 14
+\BOOKMARK [2][-]{subsection.1.2.3}{Donn\351es disponibles}{section.1.2}% 15
+\BOOKMARK [1][-]{section.1.3}{Les premiers mod\350les}{chapter.1}% 16
+\BOOKMARK [2][-]{subsection.1.3.1}{Le mod\350le de Bachelier}{section.1.3}% 17
+\BOOKMARK [2][-]{subsection.1.3.2}{Proposition de Mandelbrot}{section.1.3}% 18
+\BOOKMARK [2][-]{subsection.1.3.3}{Le mod\350le de Press}{section.1.3}% 19
+\BOOKMARK [2][-]{subsection.1.3.4}{Le mod\350le de Praetz}{section.1.3}% 20
+\BOOKMARK [1][-]{section.1.4}{Conditions essentielles de Madan et Seneta}{chapter.1}% 21
+\BOOKMARK [0][-]{chapter.2}{La distribution de Laplace asym\351trique g\351n\351ralis\351e}{}% 22
+\BOOKMARK [1][-]{section.2.1}{Le processus de Laplace}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.1.1}{Le processus gamma}{section.2.1}% 24
+\BOOKMARK [2][-]{subsection.2.1.2}{Le processus de Wiener}{section.2.1}% 25
+\BOOKMARK [2][-]{subsection.2.1.3}{Le processus de Laplace est un processus subordonn\351}{section.2.1}% 26
+\BOOKMARK [1][-]{section.2.2}{Distribution de Laplace asym\351trique g\351n\351ralis\351e}{chapter.2}% 27
+\BOOKMARK [2][-]{subsection.2.2.1}{Fonction caract\351ristique}{section.2.2}% 28
+\BOOKMARK [2][-]{subsection.2.2.2}{Invariance d'\351chelle}{section.2.2}% 29
+\BOOKMARK [2][-]{subsection.2.2.3}{Fonctions g\351n\351ratrices}{section.2.2}% 30
+\BOOKMARK [2][-]{subsection.2.2.4}{Moments et r\364le des param\350tres}{section.2.2}% 31
+\BOOKMARK [2][-]{subsection.2.2.5}{Changement d'\351chelle et de localisation}{section.2.2}% 32
+\BOOKMARK [2][-]{subsection.2.2.6}{Repr\351sentation alternative et simulation}{section.2.2}% 33
+\BOOKMARK [2][-]{subsection.2.2.7}{Fonction de Bessel et densit\351}{section.2.2}% 34
+\BOOKMARK [1][-]{section.2.3}{Cas particuliers}{chapter.2}% 35
+\BOOKMARK [2][-]{subsection.2.3.1}{Distribution de Laplace asym\351trique}{section.2.3}% 36
+\BOOKMARK [1][-]{section.2.4}{Relation avec le mod\350le de madan1990variance}{chapter.2}% 37
+\BOOKMARK [0][-]{chapter.3}{Approximation de la densit\351 et de la fonction de r\351partition}{}% 38
+\BOOKMARK [1][-]{section.3.1}{L'approximation de Laplace}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.2}{L'approximation de Temme}{chapter.3}% 40
+\BOOKMARK [1][-]{section.3.3}{La m\351thode du point de selle}{chapter.3}% 41
+\BOOKMARK [2][-]{subsection.3.3.1}{Approximation de la densit\351}{section.3.3}% 42
+\BOOKMARK [2][-]{subsection.3.3.2}{Unicit\351 du point de selle}{section.3.3}% 43
+\BOOKMARK [2][-]{subsection.3.3.3}{Approximation de la fonction de r\351partition}{section.3.3}% 44
+\BOOKMARK [2][-]{subsection.3.3.4}{Quelques propri\351t\351s des approximations}{section.3.3}% 45
+\BOOKMARK [1][-]{section.3.4}{Application de la m\351thode du point de selle}{chapter.3}% 46
+\BOOKMARK [2][-]{subsection.3.4.1}{Approximation de la densit\351}{section.3.4}% 47
+\BOOKMARK [2][-]{subsection.3.4.2}{Approximation de la fonction de r\351partition}{section.3.4}% 48
+\BOOKMARK [0][-]{chapter.4}{M\351thode des moments g\351n\351ralis\351e}{}% 49
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.1.1}{M\351thode classique des moments}{section.4.1}% 51
+\BOOKMARK [1][-]{section.4.2}{M\351thode des moments g\351n\351ralis\351e}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.2.1}{D\351finition}{section.4.2}% 53
+\BOOKMARK [2][-]{subsection.4.2.2}{Convergence}{section.4.2}% 54
+\BOOKMARK [2][-]{subsection.4.2.3}{Matrice de pond\351ration optimale}{section.4.2}% 55
+\BOOKMARK [2][-]{subsection.4.2.4}{M\351thode des moments g\351n\351ralis\351e it\351rative}{section.4.2}% 56
+\BOOKMARK [2][-]{subsection.4.2.5}{Distribution asymptotique des estimateurs}{section.4.2}% 57
+\BOOKMARK [1][-]{section.4.3}{Estimation sous contraintes}{chapter.4}% 58
+\BOOKMARK [2][-]{subsection.4.3.1}{Distribution asymptotique des estimateurs contraints}{section.4.3}% 59
+\BOOKMARK [1][-]{section.4.4}{Tests d'hypoth\350ses param\351triques}{chapter.4}% 60
+\BOOKMARK [2][-]{subsection.4.4.1}{Test de Wald}{section.4.4}% 61
+\BOOKMARK [2][-]{subsection.4.4.2}{Test du multiplicateur de Lagrange}{section.4.4}% 62
+\BOOKMARK [2][-]{subsection.4.4.3}{Test bas\351 sur la statistique de m\351trique de distance}{section.4.4}% 63
+\BOOKMARK [2][-]{subsection.4.4.4}{En r\351sum\351}{section.4.4}% 64
+\BOOKMARK [0][-]{chapter.5}{M\351thode de l'\351quation d'estimation optimale}{}% 65
+\BOOKMARK [1][-]{section.5.1}{\311quation d'estimation optimale}{chapter.5}% 66
+\BOOKMARK [1][-]{section.5.2}{\311quation d'estimation optimale modifi\351e}{chapter.5}% 67
+\BOOKMARK [0][-]{chapter.6}{Estimation des param\350tres de la distribution de Laplace asym\351trique g\351n\351ralis\351e}{}% 68
+\BOOKMARK [1][-]{section.6.1}{Vecteur de param\350tres initiaux}{chapter.6}% 69
+\BOOKMARK [1][-]{section.6.2}{M\351thode des moments g\351n\351ralis\351e}{chapter.6}% 70
+\BOOKMARK [2][-]{subsection.6.2.1}{Matrice de pond\351ration optimale}{section.6.2}% 71
+\BOOKMARK [2][-]{subsection.6.2.2}{Variance-covariance des param\350tres}{section.6.2}% 72
+\BOOKMARK [2][-]{subsection.6.2.3}{Contraintes lin\351aires}{section.6.2}% 73
+\BOOKMARK [1][-]{section.6.3}{M\351thode de l'\351quation d'estimation optimale}{chapter.6}% 74
+\BOOKMARK [0][-]{chapter.7}{Tests statistiques}{}% 75
+\BOOKMARK [1][-]{section.7.1}{Test de normalit\351}{chapter.7}% 76
+\BOOKMARK [2][-]{subsection.7.1.1}{Test de Shapiro-Wilk}{section.7.1}% 77
+\BOOKMARK [2][-]{subsection.7.1.2}{Test d\220Epps-Pulley}{section.7.1}% 78
+\BOOKMARK [1][-]{section.7.2}{Tests d'ad\351quation}{chapter.7}% 79
+\BOOKMARK [2][-]{subsection.7.2.1}{Test 2 de Pearson}{section.7.2}% 80
+\BOOKMARK [2][-]{subsection.7.2.2}{Test de Kolmogorov-Smirnov}{section.7.2}% 81
+\BOOKMARK [2][-]{subsection.7.2.3}{Test de distance minimale bas\351 sur la fonction g\351n\351ratrice des moments}{section.7.2}% 82
+\BOOKMARK [0][-]{chapter.8}{\311valuation d'options}{}% 83
+\BOOKMARK [1][-]{section.8.1}{D\351finitions}{chapter.8}% 84
+\BOOKMARK [2][-]{subsection.8.1.1}{\311quation martingale}{section.8.1}% 85
+\BOOKMARK [2][-]{subsection.8.1.2}{Param\350tres neutres au risque}{section.8.1}% 86
+\BOOKMARK [1][-]{section.8.2}{Aper\347u du mod\350le de Black-Scholes}{chapter.8}% 87
+\BOOKMARK [1][-]{section.8.3}{M\351thodes d'\351valuation pour options europ\351ennes}{chapter.8}% 88
+\BOOKMARK [2][-]{subsection.8.3.1}{M\351thode de Heston}{section.8.3}% 89
+\BOOKMARK [2][-]{subsection.8.3.2}{M\351thode de Carr et Madan}{section.8.3}% 90
+\BOOKMARK [2][-]{subsection.8.3.3}{Prix d'exercice hors du cours}{section.8.3}% 91
+\BOOKMARK [2][-]{subsection.8.3.4}{Critique de la m\351thode de Carr-Madan}{section.8.3}% 92
+\BOOKMARK [2][-]{subsection.8.3.5}{M\351thode d\220Epps}{section.8.3}% 93
+\BOOKMARK [1][-]{section.8.4}{Particularit\351s}{chapter.8}% 94
+\BOOKMARK [2][-]{subsection.8.4.1}{Option sur actions avec dividendes}{section.8.4}% 95
+\BOOKMARK [2][-]{subsection.8.4.2}{Options sur contrats \340 terme et taux de change}{section.8.4}% 96
+\BOOKMARK [0][-]{chapter.9}{Exemple d'application}{}% 97
+\BOOKMARK [1][-]{section.9.1}{Description des donn\351es}{chapter.9}% 98
+\BOOKMARK [1][-]{section.9.2}{Estimation}{chapter.9}% 99
+\BOOKMARK [1][-]{section.9.3}{Approximation}{chapter.9}% 100
+\BOOKMARK [1][-]{section.9.4}{Graphiques}{chapter.9}% 101
+\BOOKMARK [1][-]{section.9.5}{Tests statistiques}{chapter.9}% 102
+\BOOKMARK [1][-]{section.9.6}{\311valuation d'options}{chapter.9}% 103
+\BOOKMARK [0][-]{section*.52}{Conclusion}{}% 104
+\BOOKMARK [0][-]{appendix.A}{\311l\351ments de th\351orie des probabilit\351s}{}% 105
+\BOOKMARK [1][-]{section.A.1}{D\351finitions de base}{appendix.A}% 106
+\BOOKMARK [1][-]{section.A.2}{Transform\351es d'une variable al\351atoire}{appendix.A}% 107
+\BOOKMARK [2][-]{subsection.A.2.1}{La fonction caract\351ristique}{section.A.2}% 108
+\BOOKMARK [3][-]{section*.53}{Transform\351e de Fourier}{subsection.A.2.1}% 109
+\BOOKMARK [3][-]{section*.54}{D\351finition}{subsection.A.2.1}% 110
+\BOOKMARK [3][-]{section*.55}{Les moments}{subsection.A.2.1}% 111
+\BOOKMARK [2][-]{subsection.A.2.2}{Inversion de la fonction caract\351ristique}{section.A.2}% 112
+\BOOKMARK [3][-]{section*.56}{La densit\351}{subsection.A.2.2}% 113
+\BOOKMARK [3][-]{section*.57}{La fonction de r\351partition}{subsection.A.2.2}% 114
+\BOOKMARK [2][-]{subsection.A.2.3}{La fonction g\351n\351ratrice des moments}{section.A.2}% 115
+\BOOKMARK [2][-]{subsection.A.2.4}{La fonction g\351n\351ratrice des cumulants}{section.A.2}% 116
+\BOOKMARK [2][-]{subsection.A.2.5}{La transform\351e d'Esscher}{section.A.2}% 117
+\BOOKMARK [1][-]{section.A.3}{La transform\351e de Fourier rapide}{appendix.A}% 118
+\BOOKMARK [1][-]{section.A.4}{Processus de L\351vy}{appendix.A}% 119
+\BOOKMARK [2][-]{subsection.A.4.1}{D\351finition et propri\351t\351s}{section.A.4}% 120
+\BOOKMARK [3][-]{section*.58}{Repr\351sentation de L\351vy-Khintchine}{subsection.A.4.1}% 121
+\BOOKMARK [3][-]{section*.59}{Repr\351sentation de L\351vy-It\364}{subsection.A.4.1}% 122
+\BOOKMARK [2][-]{subsection.A.4.2}{Processus subordonn\351}{section.A.4}% 123
+\BOOKMARK [1][-]{section.A.5}{Th\351or\350mes d'int\351gration}{appendix.A}% 124
+\BOOKMARK [2][-]{subsection.A.5.1}{Th\351or\350me de convergence domin\351e de Lebesgue}{section.A.5}% 125
+\BOOKMARK [2][-]{subsection.A.5.2}{Th\351or\350me de Fubini}{section.A.5}% 126
+\BOOKMARK [0][-]{appendix.B}{\311l\351ments de statistique math\351matique}{}% 127
+\BOOKMARK [1][-]{section.B.1}{Loi faible des grands nombres}{appendix.B}% 128
+\BOOKMARK [1][-]{section.B.2}{Th\351or\350me central limite}{appendix.B}% 129
+\BOOKMARK [2][-]{subsection.B.2.1}{Cas univari\351}{section.B.2}% 130
+\BOOKMARK [2][-]{subsection.B.2.2}{Cas multivari\351}{section.B.2}% 131
+\BOOKMARK [1][-]{section.B.3}{M\351thode delta multivari\351e}{appendix.B}% 132
+\BOOKMARK [0][-]{appendix.C}{Donn\351es}{}% 133
+\BOOKMARK [0][-]{section*.62}{Bibliographie}{}% 134
+\BOOKMARK [0][-]{section*.64}{Contrat de partage}{}% 135

@@ -1,0 +1,137 @@
+\select@language {french}
+\select@language {french}
+\contentsline {chapter}{R\IeC {\'e}sum\IeC {\'e}}{iii}{section*.2}
+\contentsline {chapter}{Abstract}{v}{section*.4}
+\contentsline {chapter}{Table des mati{\`e}res}{vii}{section*.5}
+\contentsline {chapter}{Liste des tableaux}{xi}{section*.6}
+\contentsline {chapter}{Liste des figures}{xiii}{section*.7}
+\contentsline {chapter}{Remerciements}{xvii}{section*.9}
+\contentsline {chapter}{Introduction}{1}{section*.11}
+\contentsline {chapter}{\chapternumberline {1}Les mod\IeC {\`e}les de rendements financiers}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}L'utilisation de mod\IeC {\`e}les en finance}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Diff\IeC {\'e}rents types de mod\IeC {\`e}les}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Le risque de mod\IeC {\'e}lisation}{4}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Les rendements financiers}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}D\IeC {\'e}finitions et notations}{5}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Rendements cumul\IeC {\'e}s}{7}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Donn\IeC {\'e}es disponibles}{8}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Les premiers mod\IeC {\`e}les}{8}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Le mod\IeC {\`e}le de Bachelier}{8}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Proposition de Mandelbrot}{11}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Le mod\IeC {\`e}le de Press}{12}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Le mod\IeC {\`e}le de Praetz}{15}{subsection.1.3.4}
+\contentsline {section}{\numberline {1.4}Conditions essentielles de Madan et Seneta}{16}{section.1.4}
+\contentsline {chapter}{\chapternumberline {2}La distribution de Laplace asym\IeC {\'e}trique g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e}{19}{chapter.2}
+\contentsline {section}{\numberline {2.1}Le processus de Laplace}{19}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Le processus gamma}{20}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Le processus de Wiener}{21}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Le processus de Laplace est un processus subordonn\IeC {\'e}}{22}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Distribution de Laplace asym\IeC {\'e}trique g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e}{25}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Fonction caract\IeC {\'e}ristique}{25}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Invariance d'\IeC {\'e}chelle}{26}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Fonctions g\IeC {\'e}n\IeC {\'e}ratrices}{28}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Moments et r\IeC {\^o}le des param\IeC {\`e}tres}{28}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Changement d'\IeC {\'e}chelle et de localisation}{30}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Repr\IeC {\'e}sentation alternative et simulation}{32}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Fonction de Bessel et densit\IeC {\'e}}{33}{subsection.2.2.7}
+\contentsline {section}{\numberline {2.3}Cas particuliers}{35}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Distribution de Laplace asym\IeC {\'e}trique}{35}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Relation avec le mod\IeC {\`e}le de \cite {madan1990variance}}{37}{section.2.4}
+\contentsline {chapter}{\chapternumberline {3}Approximation de la densit\IeC {\'e} et de la fonction de r\IeC {\'e}partition}{39}{chapter.3}
+\contentsline {section}{\numberline {3.1}L'approximation de Laplace}{39}{section.3.1}
+\contentsline {section}{\numberline {3.2}L'approximation de Temme}{41}{section.3.2}
+\contentsline {section}{\numberline {3.3}La m\IeC {\'e}thode du point de selle}{42}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Approximation de la densit\IeC {\'e}}{42}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Unicit\IeC {\'e} du point de selle}{44}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Approximation de la fonction de r\IeC {\'e}partition}{44}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Quelques propri\IeC {\'e}t\IeC {\'e}s des approximations}{45}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Application de la m\IeC {\'e}thode du point de selle}{46}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Approximation de la densit\IeC {\'e}}{46}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Approximation de la fonction de r\IeC {\'e}partition}{47}{subsection.3.4.2}
+\contentsline {chapter}{\chapternumberline {4}M\IeC {\'e}thode des moments g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e}{49}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{49}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}M\IeC {\'e}thode classique des moments}{50}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}M\IeC {\'e}thode des moments g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e}{50}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}D\IeC {\'e}finition}{51}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Convergence}{52}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Matrice de pond\IeC {\'e}ration optimale}{53}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}M\IeC {\'e}thode des moments g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e it\IeC {\'e}rative}{55}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Distribution asymptotique des estimateurs}{55}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Estimation sous contraintes}{58}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Distribution asymptotique des estimateurs contraints}{59}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}Tests d'hypoth\IeC {\`e}ses param\IeC {\'e}triques}{61}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Test de Wald}{61}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Test du multiplicateur de Lagrange}{62}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Test bas\IeC {\'e} sur la statistique de m\IeC {\'e}trique de distance}{63}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}En r\IeC {\'e}sum\IeC {\'e}}{63}{subsection.4.4.4}
+\contentsline {chapter}{\chapternumberline {5}M\IeC {\'e}thode de l'\IeC {\'e}quation d'estimation optimale}{65}{chapter.5}
+\contentsline {section}{\numberline {5.1}\IeC {\'E}quation d'estimation optimale}{67}{section.5.1}
+\contentsline {section}{\numberline {5.2}\IeC {\'E}quation d'estimation optimale modifi\IeC {\'e}e}{70}{section.5.2}
+\contentsline {chapter}{\chapternumberline {6}Estimation des param\IeC {\`e}tres de la distribution de Laplace asym\IeC {\'e}trique g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e}{73}{chapter.6}
+\contentsline {section}{\numberline {6.1}Vecteur de param\IeC {\`e}tres initiaux}{73}{section.6.1}
+\contentsline {section}{\numberline {6.2}M\IeC {\'e}thode des moments g\IeC {\'e}n\IeC {\'e}ralis\IeC {\'e}e}{74}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Matrice de pond\IeC {\'e}ration optimale}{75}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Variance-covariance des param\IeC {\`e}tres}{76}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Contraintes lin\IeC {\'e}aires}{77}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}M\IeC {\'e}thode de l'\IeC {\'e}quation d'estimation optimale}{78}{section.6.3}
+\contentsline {chapter}{\chapternumberline {7}Tests statistiques}{81}{chapter.7}
+\contentsline {section}{\numberline {7.1}Test de normalit\IeC {\'e}}{81}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Test de Shapiro-Wilk}{81}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Test d\IeC {\textquoteright }Epps-Pulley}{82}{subsection.7.1.2}
+\contentsline {section}{\numberline {7.2}Tests d'ad\IeC {\'e}quation}{82}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Test $\chi ^2$ de Pearson}{83}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Test de Kolmogorov-Smirnov}{84}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Test de distance minimale bas\IeC {\'e} sur la fonction g\IeC {\'e}n\IeC {\'e}ratrice des moments}{85}{subsection.7.2.3}
+\contentsline {chapter}{\chapternumberline {8}\IeC {\'E}valuation d'options}{87}{chapter.8}
+\contentsline {section}{\numberline {8.1}D\IeC {\'e}finitions}{87}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}\IeC {\'E}quation martingale}{88}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Param\IeC {\`e}tres neutres au risque}{89}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Aper\IeC {\c c}u du mod\IeC {\`e}le de Black-Scholes}{90}{section.8.2}
+\contentsline {section}{\numberline {8.3}M\IeC {\'e}thodes d'\IeC {\'e}valuation pour options europ\IeC {\'e}ennes}{90}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}M\IeC {\'e}thode de Heston}{91}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}M\IeC {\'e}thode de Carr et Madan}{91}{subsection.8.3.2}
+\contentsline {subsection}{\numberline {8.3.3}Prix d'exercice hors du cours}{93}{subsection.8.3.3}
+\contentsline {subsection}{\numberline {8.3.4}Critique de la m\IeC {\'e}thode de Carr-Madan}{93}{subsection.8.3.4}
+\contentsline {subsection}{\numberline {8.3.5}M\IeC {\'e}thode d\IeC {\textquoteright }Epps}{93}{subsection.8.3.5}
+\contentsline {section}{\numberline {8.4}Particularit\IeC {\'e}s}{95}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Option sur actions avec dividendes}{95}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Options sur contrats \IeC {\`a} terme et taux de change}{95}{subsection.8.4.2}
+\contentsline {chapter}{\chapternumberline {9}Exemple d'application}{97}{chapter.9}
+\contentsline {section}{\numberline {9.1}Description des donn\IeC {\'e}es}{97}{section.9.1}
+\contentsline {section}{\numberline {9.2}Estimation}{99}{section.9.2}
+\contentsline {section}{\numberline {9.3}Approximation}{104}{section.9.3}
+\contentsline {section}{\numberline {9.4}Graphiques}{105}{section.9.4}
+\contentsline {section}{\numberline {9.5}Tests statistiques}{108}{section.9.5}
+\contentsline {section}{\numberline {9.6}\IeC {\'E}valuation d'options}{109}{section.9.6}
+\contentsline {chapter}{Conclusion}{113}{section*.52}
+\contentsline {appendix}{\chapternumberline {A}\IeC {\'E}l\IeC {\'e}ments de th\IeC {\'e}orie des probabilit\IeC {\'e}s}{115}{appendix.A}
+\contentsline {section}{\numberline {A.1}D\IeC {\'e}finitions de base}{115}{section.A.1}
+\contentsline {section}{\numberline {A.2}Transform\IeC {\'e}es d'une variable al\IeC {\'e}atoire}{116}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}La fonction caract\IeC {\'e}ristique}{116}{subsection.A.2.1}
+\contentsline {subsubsection}{Transform\IeC {\'e}e de Fourier}{116}{section*.53}
+\contentsline {subsubsection}{D\IeC {\'e}finition}{116}{section*.54}
+\contentsline {subsubsection}{Les moments}{117}{section*.55}
+\contentsline {subsection}{\numberline {A.2.2}Inversion de la fonction caract\IeC {\'e}ristique}{117}{subsection.A.2.2}
+\contentsline {subsubsection}{La densit\IeC {\'e}}{117}{section*.56}
+\contentsline {subsubsection}{La fonction de r\IeC {\'e}partition}{117}{section*.57}
+\contentsline {subsection}{\numberline {A.2.3}La fonction g\IeC {\'e}n\IeC {\'e}ratrice des moments}{118}{subsection.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}La fonction g\IeC {\'e}n\IeC {\'e}ratrice des cumulants}{119}{subsection.A.2.4}
+\contentsline {subsection}{\numberline {A.2.5}La transform\IeC {\'e}e d'Esscher}{120}{subsection.A.2.5}
+\contentsline {section}{\numberline {A.3}La transform\IeC {\'e}e de Fourier rapide}{120}{section.A.3}
+\contentsline {section}{\numberline {A.4}Processus de L\IeC {\'e}vy}{121}{section.A.4}
+\contentsline {subsection}{\numberline {A.4.1}D\IeC {\'e}finition et propri\IeC {\'e}t\IeC {\'e}s}{121}{subsection.A.4.1}
+\contentsline {subsubsection}{Repr\IeC {\'e}sentation de L\IeC {\'e}vy-Khintchine}{122}{section*.58}
+\contentsline {subsubsection}{Repr\IeC {\'e}sentation de L\IeC {\'e}vy-It\IeC {\^o}}{122}{section*.59}
+\contentsline {subsection}{\numberline {A.4.2}Processus subordonn\IeC {\'e}}{123}{subsection.A.4.2}
+\contentsline {section}{\numberline {A.5}Th\IeC {\'e}or\IeC {\`e}mes d'int\IeC {\'e}gration}{123}{section.A.5}
+\contentsline {subsection}{\numberline {A.5.1}Th\IeC {\'e}or\IeC {\`e}me de convergence domin\IeC {\'e}e de Lebesgue}{124}{subsection.A.5.1}
+\contentsline {subsection}{\numberline {A.5.2}Th\IeC {\'e}or\IeC {\`e}me de Fubini}{124}{subsection.A.5.2}
+\contentsline {appendix}{\chapternumberline {B}\IeC {\'E}l\IeC {\'e}ments de statistique math\IeC {\'e}matique}{125}{appendix.B}
+\contentsline {section}{\numberline {B.1}Loi faible des grands nombres}{125}{section.B.1}
+\contentsline {section}{\numberline {B.2}Th\IeC {\'e}or\IeC {\`e}me central limite}{125}{section.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Cas univari\IeC {\'e}}{126}{subsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}Cas multivari\IeC {\'e}}{126}{subsection.B.2.2}
+\contentsline {section}{\numberline {B.3}M\IeC {\'e}thode delta multivari\IeC {\'e}e}{127}{section.B.3}
+\contentsline {appendix}{\chapternumberline {C}Donn\IeC {\'e}es}{129}{appendix.C}
+\contentsline {chapter}{Bibliographie}{131}{section*.62}
+\contentsline {chapter}{Contrat de partage}{137}{section*.64}
