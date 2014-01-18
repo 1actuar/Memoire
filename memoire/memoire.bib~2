@@ -2,6 +2,7 @@
 
 @Article{KOUTROUVELIS01011980,
 	Author = "Ioannis A. Koutrouvelis",
+	Doi = "10.1093/biomet/67.1.238",
 	Journal = "{B}iometrika",
 	Number = 1,
 	Pages = "238--240",
@@ -21,6 +22,7 @@
 @Manual{Rsoftware,
 	Address = "Vienna, Austria",
 	Author = "{R Core Team}",
+	Isbn = "3-900051-07-0",
 	Organization = "R Foundation for Statistical Computing",
 	Title = "{{R}: A {L}anguage and {E}nvironment for {S}tatistical {C}omputing}",
 	Url = "http://www.R-project.org",
@@ -29,6 +31,7 @@
 
 @Article{Singer:2009,
 	Author = "Sa\v{s}a Singer and John Nelder",
+	Doi = "10.4249/scholarpedia.2928",
 	Journal = "Scholarpedia",
 	Number = 7,
 	Pages = 2928,
@@ -64,6 +67,7 @@
 
 @Book{barndorff2001levy,
 	Author = "Thomas Mikosch and Sidney I. Resnick and Ole E. Barndorff-Nielsen",
+	Isbn = 9780817641672,
 	Publisher = "Birkh{\"a}user",
 	Title = "{L}{\'e}vy {P}rocesses: {T}heory and {A}pplications",
 	Year = 2001
@@ -71,7 +75,7 @@
 
 @Article{berkson1980minimum,
 	Author = "Joseph Berkson",
-	Journal = "The Annals of Statistics",
+	Journal = "the Annals of Statistics",
 	Pages = "457--487",
 	Publisher = "JSTOR",
 	Title = "{M}inimum {C}hi-Square, not {M}aximum {L}ikelihood!",
@@ -87,7 +91,7 @@
 
 @Article{black1973pricing,
 	Author = "Fischer Black and Myron Scholes",
-	Journal = "The Journal of Political Economy",
+	Journal = "the Journal of Political Economy",
 	Pages = "637--654",
 	Publisher = "JSTOR",
 	Title = "{T}he {P}ricing of {O}ptions and {C}orporate {L}iabilities",
@@ -136,7 +140,7 @@
 
 @Article{crowder1986consistency,
 	Author = "Martin Crowder",
-	Journal = "Econometric Theory",
+	Journal = "Econometric theory",
 	Pages = "305--330",
 	Publisher = "JSTOR",
 	Title = "{O}n {C}onsistency and {I}nconsistency of {E}stimating {E}quations",
@@ -156,7 +160,7 @@
 
 @Article{daniels1954saddlepoint,
 	Author = "Henry E. Daniels",
-	Journal = "The Annals of Mathematical Statistics",
+	Journal = "the Annals of Mathematical Statistics",
 	Pages = "631--650",
 	Publisher = "JSTOR",
 	Title = "{S}addlepoint {A}pproximations in {S}tatistics",
@@ -234,7 +238,7 @@
 
 @Article{fox1986large,
 	Author = "Robert Fox and Murad S. Taqqu",
-	Journal = "The Annals of Statistics",
+	Journal = "the Annals of Statistics",
 	Number = 2,
 	Pages = "517--532",
 	Publisher = "institute of Mathematical Statistics",
@@ -321,6 +325,7 @@
 
 @Book{hogg1978introduction,
 	Author = "Robert V. Hogg and Allen Craig",
+	Isbn = 9780029789902,
 	Publisher = "Macmillan",
 	Title = "{I}ntroduction to {M}athematical {S}tatistics",
 	Year = 1978
@@ -342,6 +347,7 @@
 
 @Book{kotz2001laplace,
 	Author = "Samuel Kotz and Tomasz J. Kozubowski and Krzystof Podg{\'o}rski",
+	Isbn = 9780817641665,
 	Publisher = "Birkh{\"a}user",
 	Series = "Progress in Mathematics Series",
 	Title = "{T}he {L}aplace {D}istribution and {G}eneralizations: {A} {R}evisit with {A}pplications to {C}ommunications, {E}conomics, {E}ngineering, and {F}inance",
@@ -513,6 +519,7 @@
 
 @Book{sato1999levy,
 	Author = "Ken-iti Sato",
+	Isbn = 9780521553025,
 	Publisher = "Cambridge University Press",
 	Series = "Cambridge Studies in Advanced Mathematics",
 	Title = "{L}{\'e}vy {P}rocesses and {I}nfinitely {D}ivisible {D}istributions",

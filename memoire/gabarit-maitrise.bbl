@@ -7,355 +7,365 @@
 
 \bibitem[Abramowitz et Stegun(1965)]{abramowitz1965handbook}
 Milton Abramowitz et Irene~A. Stegun.
-\newblock \emph{Handbook Of Mathematical Functions: With Formulas, Graphs, And
-  Mathematical Tables}, volume~55.
+\newblock \emph{{H}andbook of {M}athematical {F}unctions: with {F}ormulas,
+  {G}raphs, and {M}athematical {T}ables}, volume~55.
 \newblock Dover Publications, 1965.
 
 \bibitem[Applebaum(2004)]{applebaum2004levy}
 David Applebaum.
-\newblock Lévy processes: From probability to finance and quantum groups.
-\newblock \emph{Notices Of The American Mathematical Society}, 51\penalty0
+\newblock {L}{\'e}vy {P}rocesses: {F}rom {P}robability to {F}inance and
+  {Q}uantum {G}roups.
+\newblock \emph{Notices of the American Mathematical Society}, 51\penalty0
   (11):\penalty0 1336--1347, 2004.
 
 \bibitem[Bachelier(1900)]{bachelier1900theorie}
 Louis Bachelier.
-\newblock \emph{Th{\'e}orie De La Sp{\'e}culation}.
+\newblock \emph{{T}h{\'e}orie de la sp{\'e}culation}.
 \newblock Gauthier-Villars, 1900.
 
 \bibitem[Berkson(1980)]{berkson1980minimum}
 Joseph Berkson.
-\newblock Minimum chi-square, not maximum likelihood!
+\newblock {M}inimum {C}hi-square, not {M}aximum {L}ikelihood!
 \newblock \emph{The Annals of Statistics}, pages 457--487, 1980.
 
 \bibitem[Bingham et Kiesel(2004)]{bingham2004risk}
 Nicholas~H. Bingham et R{\"u}diger Kiesel.
-\newblock \emph{Risk-Neutral Valuation: Pricing And Hedging Of Financial
-  Derivatives}.
+\newblock \emph{{R}isk-Neutral {V}aluation: {P}ricing and {H}edging of
+  {F}inancial {D}erivatives}.
 \newblock Springer, 2004.
 
 \bibitem[Black(1976)]{black1976pricing}
 Fischer Black.
-\newblock The pricing of commodity contracts.
-\newblock \emph{Journal Of Financial Economics}, 3\penalty0 (1):\penalty0
+\newblock {T}he {P}ricing of {C}ommodity {C}ontracts.
+\newblock \emph{Journal of Financial Economics}, 3\penalty0 (1):\penalty0
   167--179, 1976.
 
 \bibitem[Black et Scholes(1973)]{black1973pricing}
 Fischer Black et Myron Scholes.
-\newblock The pricing of options and corporate liabilities.
-\newblock \emph{The Journal Of Political Economy}, pages 637--654, 1973.
+\newblock {T}he {P}ricing of {O}ptions and {C}orporate {L}iabilities.
+\newblock \emph{The Journal of Political Economy}, pages 637--654, 1973.
 
 \bibitem[Buckle(1995)]{buckle1995bayesian}
 D.~J. Buckle.
-\newblock Bayesian inference for stable distributions.
+\newblock {B}ayesian {I}nference for {S}table {D}istributions.
 \newblock \emph{Journal of the American Statistical Association}, 90\penalty0
   (430):\penalty0 605--613, 1995.
 
 \bibitem[Butler(2007)]{butler2007saddlepoint}
 Ronald~W. Butler.
-\newblock \emph{Saddlepoint Approximations With Applications}, volume~22.
+\newblock \emph{{S}addlepoint {A}pproximations with {A}pplications}, volume~22.
 \newblock Cambridge University Press, 2007.
 
 \bibitem[Carr et Madan(1999)]{carr1999option}
-Peter Carr et Dilip Madan.
-\newblock Option valuation using the fast fourier transform.
-\newblock \emph{Journal Of Computational Finance}, 2\penalty0 (4):\penalty0
+Peter~P. Carr et Dilip~B. Madan.
+\newblock {O}ption {V}aluation {U}sing the {F}ast {F}ourier {T}ransform.
+\newblock \emph{Journal of Computational Finance}, 2\penalty0 (4):\penalty0
   61--73, 1999.
+
+\bibitem[Carr et~al.(1998)Carr, Chang, et Madan]{madan1998variance}
+Peter~P. Carr, Eric~C. Chang, et Dilip~B. Madan.
+\newblock {T}he {V}ariance {G}amma {P}rocess and {O}ption {P}ricing.
+\newblock \emph{European Finance Review}, 2\penalty0 (1):\penalty0 79--105,
+  1998.
 
 \bibitem[Crowder(1986)]{crowder1986consistency}
 Martin Crowder.
-\newblock On consistency and inconsistency of estimating equations.
+\newblock {O}n {C}onsistency and {I}nconsistency of {E}stimating {E}quations.
 \newblock \emph{Econometric Theory}, pages 305--330, 1986.
 
 \bibitem[Crowder(1987)]{crowder1987linear}
 Martin Crowder.
-\newblock On linear and quadratic estimating functions.
+\newblock {O}n {L}inear and {Q}uadratic {E}stimating {F}unctions.
 \newblock \emph{Biometrika}, 74\penalty0 (3):\penalty0 591--597, 1987.
 
 \bibitem[Daniels(1954)]{daniels1954saddlepoint}
-Henry~E Daniels.
-\newblock Saddlepoint approximations in statistics.
+Henry~E. Daniels.
+\newblock {S}addlepoint {A}pproximations in {S}tatistics.
 \newblock \emph{The Annals of Mathematical Statistics}, pages 631--650, 1954.
 
 \bibitem[Derman(1996)]{derman1996modelrisk}
 Emanuel Derman.
-\newblock Model risk.
+\newblock {M}odel {R}isk.
 \newblock Technical report, Goldman Sachs, 1996.
-
-\bibitem[Dilip B~Madan et Chang(1998)]{madan1998variance}
-Peter P~Carr Dilip B~Madan et Eric~C Chang.
-\newblock The variance gamma process and option pricing.
-\newblock \emph{European Finance Review}, 2\penalty0 (1):\penalty0 79--105,
-  1998.
 
 \bibitem[Dodge(2004)]{dodge2004statistique}
 Yadolah Dodge.
-\newblock \emph{Statistique: Dictionnaire Encyclop{\'e}dique}.
+\newblock \emph{{S}tatistique: {D}ictionnaire Encyclop{\'e}dique}.
 \newblock Springer Verlag France, 2004.
 
 \bibitem[Epps(2007)]{epps2007pricing}
-Thomas~W Epps.
-\newblock \emph{Pricing Derivative Securities}.
-\newblock World Scientific Publishing Company Incorporated, 2007.
+Thomas~W. Epps.
+\newblock \emph{{P}ricing {D}erivative {S}ecurities}.
+\newblock World Scientific Publishing Company incorporated, 2007.
 
 \bibitem[Epps et Pulley(1983)]{epps1983test}
-Thomas~W Epps et Lawrence~B Pulley.
-\newblock A test for normality based on the empirical characteristic function.
+Thomas~W. Epps et Lawrence~B. Pulley.
+\newblock {A} {T}est for {N}ormality {B}ased on the {E}mpirical
+  {C}haracteristic {F}unction.
 \newblock \emph{Biometrika}, 70\penalty0 (3):\penalty0 723--726, 1983.
 
 \bibitem[Everitt et Skrondal(2006)]{everitt2006cambridge}
 Brian Everitt et Anders Skrondal.
-\newblock \emph{The Cambridge Dictionary Of Statistics}, volume~4.
-\newblock Cambridge University Press Cambridge, 2006.
+\newblock \emph{{T}he {C}ambridge {D}ictionary of {S}tatistics}, volume~4.
+\newblock Cambridge University Press, 2006.
 
 \bibitem[Fama et French(1993)]{fama1993common}
-Eugene~F Fama et Kenneth~R French.
-\newblock Common risk factors in the returns on stocks and bonds.
-\newblock \emph{Journal Of Financial Economics}, 33\penalty0 (1):\penalty0
+Eugene~F. Fama et Kenneth~R. French.
+\newblock {C}ommon {R}isk {F}actors in the {R}eturns on {S}tocks and {B}onds.
+\newblock \emph{Journal of Financial Economics}, 33\penalty0 (1):\penalty0
   3--56, 1993.
 
 \bibitem[Feuerverger et McDunnough(1981)]{feuerverger1981efficiency}
 Andrey Feuerverger et Philip McDunnough.
-\newblock On the efficiency of empirical characteristic function procedures.
-\newblock \emph{Journal Of The Royal Statistical Society. Series B
+\newblock {O}n the {E}fficiency of {E}mpirical {C}haracteristic {F}unction
+  {P}rocedures.
+\newblock \emph{Journal of the Royal Statistical Society. Series B
   (methodological)}, pages 20--27, 1981.
 
 \bibitem[Fox et Taqqu(1986)]{fox1986large}
-Robert Fox et Murad~S Taqqu.
-\newblock Large-sample properties of parameter estimates for strongly dependent
-  stationary gaussian time series.
+Robert Fox et Murad~S. Taqqu.
+\newblock {L}arge-sample {P}roperties of {P}arameter {E}stimates for {S}trongly
+  {D}ependent {S}tationary {G}aussian {T}ime {S}eries.
 \newblock \emph{The Annals of Statistics}, 14\penalty0 (2):\penalty0 517--532,
   1986.
 
 \bibitem[Gil-Pelaez(1951)]{gil1951note}
-J~Gil-Pelaez.
-\newblock Note on the inversion theorem.
+J.~Gil-Pelaez.
+\newblock {N}ote on the {I}nversion {T}heorem.
 \newblock \emph{Biometrika}, 38\penalty0 (3-4):\penalty0 481--482, 1951.
 
 \bibitem[Gourieroux et Monfort(1989)]{gourieroux1989statistique}
 Christian Gourieroux et Alain Monfort.
-\newblock \emph{Statistique Et Mod{\`e}les {\'E}conom{\'e}triques: Notions
+\newblock \emph{{S}tatistique et Mod{\`e}les {\'E}conom{\'e}triques: Notions
   G{\'e}n{\'e}rales, Estimation, Pr{\'e}vision, Algorithmes}, volume~1.
 \newblock Economica, 1989.
 
 \bibitem[Hall(2005)]{hall2005generalized}
-Alastair~R Hall.
-\newblock \emph{Generalized Method Of Moments}.
-\newblock Oxford University Press Oxford, 2005.
+Alastair~R. Hall.
+\newblock \emph{{G}eneralized {M}ethod of {M}oments}.
+\newblock Oxford University Press, 2005.
 
 \bibitem[Hamilton(1994)]{hamilton1994time}
 James~Douglas Hamilton.
-\newblock \emph{Time Series Analysis}, volume~2.
+\newblock \emph{{T}ime {S}eries {A}nalysis}, volume~2.
 \newblock Cambridge University Press, 1994.
 
 \bibitem[Hansen(1982)]{hansen1982large}
 Lars~Peter Hansen.
-\newblock Large sample properties of generalized method of moments estimators.
-\newblock \emph{Econometrica: Journal Of The Econometric Society}, pages
-  1029--1054, 1982.
+\newblock {L}arge {S}ample {P}roperties of {G}eneralized {M}ethod of {M}oments
+  {E}stimators.
+\newblock \emph{Econometrica}, pages 1029--1054, 1982.
 
 \bibitem[Henze(1990)]{henze1990approximation}
-N~Henze.
-\newblock An approximation to the limit distribution of the epps-pulley test
-  statistic for normality.
+Norbert Henze.
+\newblock {A}n {A}pproximation to the {L}imit {D}istribution of the
+  {E}pps-{P}ulley {T}est {S}tatistic for {N}ormality.
 \newblock \emph{Metrika}, 37\penalty0 (1):\penalty0 7--18, 1990.
 
 \bibitem[Heston(1993)]{heston1993closed}
-Steven~L Heston.
-\newblock A closed-form solution for options with stochastic volatility with
-  applications to bond and currency options.
-\newblock \emph{Review Of Financial Studies}, 6\penalty0 (2):\penalty0
+Steven~L. Heston.
+\newblock {A} {C}losed-{F}orm {S}olution for {O}ptions with {S}tochastic
+  {V}olatility with {A}pplications to {B}ond and {C}urrency {O}ptions.
+\newblock \emph{Review of Financial Studies}, 6\penalty0 (2):\penalty0
   327--343, 1993.
 
 \bibitem[Hinkley et Revankar(1977)]{hinkley1977estimation}
-David~V Hinkley et Nagesh~S Revankar.
-\newblock Estimation of the pareto law from underreported data: A further
-  analysis.
-\newblock \emph{Journal Of Econometrics}, 5\penalty0 (1):\penalty0 1--11, 1977.
+David~V. Hinkley et Nagesh~S. Revankar.
+\newblock {E}stimation of the {P}areto {L}aw from {U}nderreported {D}ata: {A}
+  {F}urther {A}nalysis.
+\newblock \emph{Journal of Econometrics}, 5\penalty0 (1):\penalty0 1--11, 1977.
 
 \bibitem[Hogg et Craig(1978)]{hogg1978introduction}
-R.V. Hogg et A.T. Craig.
-\newblock \emph{Introduction To Mathematical Statistics}.
+Robert~V. Hogg et Allen Craig.
+\newblock \emph{{I}ntroduction to {M}athematical {S}tatistics}.
 \newblock Macmillan, 1978.
-\newblock ISBN 9780029789902.
+
+\bibitem[iti Sato(1999)]{sato1999levy}
+Ken iti Sato.
+\newblock \emph{{L}{\'e}vy {P}rocesses and {I}nfinitely {D}ivisible
+  {D}istributions}.
+\newblock Cambridge Studies in Advanced Mathematics. Cambridge University
+  Press, 1999.
 
 \bibitem[Itkin(2005)]{itkin2005pricing}
 Andrey Itkin.
-\newblock Pricing options with vg model using fft.
+\newblock {P}ricing {O}ptions with {VG} {M}odel {U}sing {FFT}.
 \newblock \emph{arXiv preprint physics/0503137}, 2005.
 
-\bibitem[Jingbo~Wang et Marsaglia(2003)]{wang2003evaluating}
-Wai Wan~Tsang Jingbo~Wang et George Marsaglia.
-\newblock Evaluating kolmogorov's distribution.
+\bibitem[{Jingbo Wang} et Marsaglia(2003)]{wang2003evaluating}
+Wai Wan~Tsang {Jingbo Wang} et George Marsaglia.
+\newblock {E}valuating {K}olmogorov's {D}istribution.
 \newblock \emph{Journal of Statistical Software}, 8\penalty0 (18):\penalty0
   1--4, 2003.
 
 \bibitem[Kotz et~al.(2001)Kotz, Kozubowski, et Podg{\'o}rski]{kotz2001laplace}
-S.~Kotz, T.J. Kozubowski, et K.~Podg{\'o}rski.
-\newblock \emph{The Laplace Distribution And Generalizations: A Revisit With
-  Applications To Communications, Exonomics, Engineering, And Finance}.
+Samuel Kotz, Tomasz~J. Kozubowski, et Krzystof Podg{\'o}rski.
+\newblock \emph{{T}he {L}aplace {D}istribution and {G}eneralizations: {A}
+  {R}evisit with {A}pplications to {C}ommunications, {E}conomics,
+  {E}ngineering, and {F}inance}.
 \newblock Progress in Mathematics Series. Birkh{\"a}user, 2001.
-\newblock ISBN 9780817641665.
 
 \bibitem[Koutrouvelis(1980)]{KOUTROUVELIS01011980}
-I.~A. Koutrouvelis.
-\newblock {A Goodness-Of-Fit Test Of Simple Hypotheses Based On The Empirical
-  Characteristic Function}.
-\newblock \emph{Biometrika}, 67\penalty0 (1):\penalty0 238--240, 1980.
-\newblock \doi{10.1093/biomet/67.1.238}.
+Ioannis~A. Koutrouvelis.
+\newblock {{A} {G}oodness-{O}f-{F}it {T}est of {S}imple {H}ypotheses {B}ased on
+  the {E}mpirical {C}haracteristic {F}unction}.
+\newblock \emph{{B}iometrika}, 67\penalty0 (1):\penalty0 238--240, 1980.
 
 \bibitem[Kozubowski et Podg{\'o}rski(1999)]{kozubowski1999class}
-Tomasz~J Kozubowski et Krzysztof Podg{\'o}rski.
-\newblock A class of asymmetric distributions.
+Tomasz~J. Kozubowski et Krzysztof Podg{\'o}rski.
+\newblock {A} {C}lass of {A}symmetric {D}istributions.
 \newblock \emph{Actuarial Research Clearing House}, 1:\penalty0 113--134, 1999.
 
 \bibitem[Kozubowski et Podg{\'o}rski(2001)]{kozubowski2001asymmetric}
-Tomasz~J Kozubowski et Krzysztof Podg{\'o}rski.
-\newblock Asymmetric laplace laws and modeling financial data.
-\newblock \emph{Mathematical And Computer Modeling}, 34\penalty0 (9):\penalty0
-  1003--1021, 2001.
+Tomasz~J. Kozubowski et Krzysztof Podg{\'o}rski.
+\newblock {A}symmetric {L}aplace {L}aws and {M}odeling {F}inancial {D}ata.
+\newblock \emph{{M}athematical and {C}omputer {M}odeling}, 34\penalty0
+  (9):\penalty0 1003--1021, 2001.
 
 \bibitem[Kyprianou(2007)]{kyprianou2007introductory}
-Andreas~E Kyprianou.
-\newblock \emph{Introductory Lectures On Fluctuations Of L{\'e}Vy Processes
-  With Applications}.
+Andreas~E. Kyprianou.
+\newblock \emph{{I}ntroductory {L}ectures on {F}luctuations of {L}{\'e}vy
+  {P}rocesses with {A}pplications}.
 \newblock Springer, 2007.
 
 \bibitem[Lugannani et Rice(1980)]{lugannani1980saddle}
 Robert Lugannani et Stephen Rice.
-\newblock Saddle point approximation for the distribution of the sum of
-  independent random variables.
-\newblock \emph{Advances In Applied Probability}, pages 475--490, 1980.
+\newblock {S}addle {P}oint {A}pproximation for the {D}istribution of the {S}um
+  of {I}ndependent {R}andom {V}ariables.
+\newblock \emph{Advances in Applied Probability}, pages 475--490, 1980.
 
 \bibitem[Lukacs(1960)]{lukacs1960characteristic}
 Eugene Lukacs.
-\newblock \emph{Characteristic Functions}, volume~4.
+\newblock \emph{{C}haracteristic {F}unctions}, volume~4.
 \newblock Griffin London, 1960.
 
 \bibitem[Luong et Thompson(1987)]{luong1987minimum}
 Andrew Luong et Mary~E. Thompson.
-\newblock Minimum-distance methods based on quadratic distances for transforms.
+\newblock {M}inimum-{D}istance {M}ethods {B}ased on {Q}uadratic {D}istances for
+  {T}ransforms.
 \newblock \emph{Canadian Journal of Statistics}, 15\penalty0 (3):\penalty0
   239--251, 1987.
 
 \bibitem[Madan et Seneta(1990)]{madan1990variance}
-Dilip~B Madan et Eugene Seneta.
-\newblock The variance gamma model for share market returns.
-\newblock \emph{Journal Of Business}, pages 511--524, 1990.
+Dilip~B. Madan et Eugene Seneta.
+\newblock {T}he {V}ariance {G}amma {M}odel for {S}hare {M}arket {R}eturns.
+\newblock \emph{Journal of Business}, pages 511--524, 1990.
 
 \bibitem[Mandelbrot(1963)]{mandelbrot1963variation}
 Benoit Mandelbrot.
-\newblock The variation of certain speculative prices.
-\newblock \emph{Journal Of Business}, pages 394--419, 1963.
+\newblock {T}he {V}ariation of {C}ertain {S}peculative {P}rices.
+\newblock \emph{Journal of Business}, pages 394--419, 1963.
 
 \bibitem[Merton(1976)]{merton1976option}
-Robert~C Merton.
-\newblock Option pricing when underlying stock returns are discontinuous.
-\newblock \emph{Journal Of Financial Economics}, 3\penalty0 (1):\penalty0
+Robert~C. Merton.
+\newblock {O}ption {P}ricing when {U}nderlying {S}tock {R}eturns {A}re
+  {D}iscontinuous.
+\newblock \emph{Journal of Financial Economics}, 3\penalty0 (1):\penalty0
   125--144, 1976.
 
+\bibitem[Mikosch et~al.(2001)Mikosch, Resnick, et
+  Barndorff-Nielsen]{barndorff2001levy}
+Thomas Mikosch, Sidney~I. Resnick, et Ole~E. Barndorff-Nielsen.
+\newblock \emph{{L}{\'e}vy {P}rocesses: {T}heory and {A}pplications}.
+\newblock Birkh{\"a}user, 2001.
+
 \bibitem[Mitchell(1916)]{mitchell1916critique}
-Wesley~C Mitchell.
-\newblock A critique of index numbers of the prices of stocks.
-\newblock \emph{The Journal Of Political Economy}, pages 625--693, 1916.
+Wesley~C. Mitchell.
+\newblock {A} {C}ritique of {I}ndex {N}umbers of the {P}rices of {S}tocks.
+\newblock \emph{The Journal of Political Economy}, pages 625--693, 1916.
 
 \bibitem[Newey et McFadden(1994)]{newey1994large}
-Whitney~K Newey et Daniel McFadden.
-\newblock Large sample estimation and hypothesis testing.
-\newblock \emph{Handbook Of Econometrics}, 4:\penalty0 2111--2245, 1994.
+Whitney~K. Newey et Daniel McFadden.
+\newblock {L}arge {S}ample {E}stimation and {H}ypothesis {T}esting.
+\newblock \emph{Handbook of Econometrics}, 4:\penalty0 2111--2245, 1994.
 
 \bibitem[Newey et West(1987)]{newey1987hypothesis}
-Whitney~K Newey et Kenneth~D West.
-\newblock Hypothesis testing with efficient method of moments estimation.
+Whitney~K. Newey et Kenneth~D. West.
+\newblock {H}ypothesis {T}esting with {E}fficient {M}ethod of {M}oments
+  {E}stimation.
 \newblock \emph{International Economic Review}, 28\penalty0 (3):\penalty0
   777--787, 1987.
 
-\bibitem[O.E.E. Barndorff-Nielsen et Resnick(2001)]{barndorff2001levy}
-T.E.~Mikosch O.E.E. Barndorff-Nielsen et S.I.E. Resnick.
-\newblock \emph{L{\'e}vy Processes: Theory and Applications}.
-\newblock Birkh{\"a}user, 2001.
-\newblock ISBN 9780817641672.
-
 \bibitem[Praetz(1972)]{praetz1972distribution}
-Peter~D Praetz.
-\newblock The distribution of share price changes.
-\newblock \emph{Journal Of Business}, pages 49--55, 1972.
+Peter~D. Praetz.
+\newblock {T}he {D}istribution of {S}hare {P}rice {C}hanges.
+\newblock \emph{Journal of Business}, pages 49--55, 1972.
 
 \bibitem[Press(1967)]{press1967compound}
-S~James Press.
-\newblock A compound events model for security prices.
-\newblock \emph{Journal Of Business}, pages 317--335, 1967.
-
-\bibitem[Sato(1999)]{sato1999levy}
-K.~Sato.
-\newblock \emph{L{\'e}vy Processes And Infinitely Divisible Distributions}.
-\newblock Cambridge Studies in Advanced Mathematics. Cambridge University
-  Press, 1999.
-\newblock ISBN 9780521553025.
+S.~James Press.
+\newblock {A} {C}ompound {E}vents {M}odel for {S}ecurity {P}rices.
+\newblock \emph{Journal of Business}, pages 317--335, 1967.
 
 \bibitem[Schoutens(2003)]{schoutens2003levy}
 Wim Schoutens.
-\newblock \emph{L{\'e}vy Processes In Finance}.
+\newblock \emph{{L}{\'e}vy {P}rocesses in {F}inance}.
 \newblock Wiley, 2003.
 
 \bibitem[Scott et Dong(2012)]{RpackageVarianceGamma}
 David Scott et Christine~Yang Dong.
-\newblock \emph{{Variancegamma: The Variance Gamma Distribution}}, 2012.
+\newblock \emph{{{v}ariancegamma: {T}he {V}ariance {G}amma {D}istribution}},
+  2012.
 \newblock URL \url{http://CRAN.R-project.org/package=VarianceGamma}.
 \newblock R package version 0.3-1.
 
 \bibitem[Seneta(2004)]{seneta2004fitting}
 Eugene Seneta.
-\newblock Fitting the variance-gamma model to financial data.
-\newblock \emph{Journal Of Applied Probability}, pages 177--187, 2004.
+\newblock {F}itting the {V}ariance {G}amma {M}odel to {F}inancial {D}ata.
+\newblock \emph{Journal of Applied Probability}, pages 177--187, 2004.
 
 \bibitem[Shapiro et Wilk(1965)]{shapiro1965analysis}
-Samuel~Sanford Shapiro et Martin~B Wilk.
-\newblock An analysis of variance test for normality (complete samples).
+Samuel~Sanford Shapiro et Martin~B. Wilk.
+\newblock {A}n {A}nalysis of {V}ariance {T}est for {N}ormality ({C}omplete
+  {S}amples).
 \newblock \emph{Biometrika}, 52\penalty0 (3/4):\penalty0 591--611, 1965.
 
 \bibitem[Shephard(1991)]{shephard1991characteristic}
-Neil~G Shephard.
-\newblock From characteristic function to distribution function: A simple
-  framework for the theory.
+Neil~G. Shephard.
+\newblock {F}rom {C}haracteristic {F}unction to {D}istribution {F}unction: {A}
+  {S}imple {F}ramework for the {T}heory.
 \newblock \emph{Econometric Theory}, 7\penalty0 (04):\penalty0 519--529, 1991.
 
 \bibitem[Spiegel et Liu(1999)]{spiegel1999schaum}
-Murray~R Spiegel et John Liu.
-\newblock \emph{Schaum's Mathematical Handbook Of Formulas And Tables}, volume
-  1000.
+Murray~R. Spiegel et John Liu.
+\newblock \emph{{S}chaum's {M}athematical {H}andbook of {F}ormulas and
+  {T}ables}, volume 1000.
 \newblock McGraw-Hill, 1999.
 
 \bibitem[Stuart et Ord(1987)]{stuart1987kendall}
-Alan Stuart et J~Keith Ord.
-\newblock \emph{Kendall{\rq}s Advanced Theory Of Statistics, Vol. 1}.
-\newblock Oxford University Press, New York, 1987.
+Alan Stuart et J.~Keith Ord.
+\newblock \emph{{K}endall{\rq}s {A}dvanced {T}heory of {S}tatistics, {V}ol. 1}.
+\newblock Oxford University Press, 1987.
 
 \bibitem[Teschl(2004)]{teschl2004topics}
 Gerald Teschl.
-\newblock Topics in real and functional analysis.
+\newblock {T}opics in {R}eal and {F}unctional {A}nalysis.
 \newblock 2004.
+\newblock URL \url{http://www.mat.univie.ac.at/~gerald/ftp/book-fa/index.html}.
 
 \bibitem[Walter(1995)]{walterlevy}
 Christian Walter.
-\newblock "levy-stability under addition and fractal structure of markets:
-  Implications for the actuaries and emphasized examination of matif national
-  contract".
-\newblock In \emph{Proceedings of the 5th AFIR colloquium}, 1995.
+\newblock {L}{\'e}vy-{S}tability {U}nder {A}ddition and {F}ractal {S}tructure
+  of {M}arkets: {I}mplications for the {A}ctuaries and {E}mphasized
+  {E}xamination of {MATIF} {N}ational {C}ontract.
+\newblock In \emph{Proceedings of the 5th AFIR colloquium}. International
+  Actuarial Association, 1995.
 
 \bibitem[Wendel(1961)]{wendel1961non}
-JG~Wendel.
-\newblock The non-absolute convergence of gil-pelaez' inversion integral.
+J.~G. Wendel.
+\newblock {T}he {N}on-{A}bsolute {C}onvergence of {G}il-{P}elaez' {I}nversion
+  {I}ntegral.
 \newblock \emph{The Annals of Mathematical Statistics}, 32\penalty0
   (1):\penalty0 338--339, 1961.
 
 \bibitem[Wolfowitz(1957)]{wolfowitz1957minimum}
 Jacob Wolfowitz.
-\newblock The minimum distance method.
-\newblock \emph{The Annals Of Mathematical Statistics}, pages 75--88, 1957.
+\newblock {T}he {M}inimum {D}istance {M}ethod.
+\newblock \emph{The Annals of Mathematical Statistics}, pages 75--88, 1957.
 
 \bibitem[Wooldridge(2001)]{wooldridge2001econometric}
-Jeffrey~M Wooldridge.
-\newblock \emph{Econometric Analysis Of Cross Section And Panel Data}.
+Jeffrey~M. Wooldridge.
+\newblock \emph{{E}conometric {A}nalysis of {C}ross {S}ection and {P}anel
+  {D}ata}.
 \newblock MIT press, 2001.
 
 \end{thebibliography}
