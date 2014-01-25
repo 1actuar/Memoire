@@ -19,13 +19,13 @@ En se référant à \cite{bingham2004risk}, on définit:
 \item Une \textbf{option d'achat (de vente) européenne} donne le
   \textbf{droit} d'acheter (de vendre) un actif au \textbf{prix
     d'exercice} $K$ au temps $T$.
-\item Lorsque la valeur actuelle du titre est, par rapport au prix
+\item Lorsque sa valeur actuelle est, par rapport au prix
   d'exercice:
   \begin{itemize}
-  \item supérieure $(S(t)>K)$, l'option est dite \textbf{dans le
+  \item supérieure $(S(t)>K)$, l'option d'achat est dite \textbf{dans le
       cours};
-  \item égale $(S(t)=K)$, l'option est dite \textbf{au cours};
-  \item inférieure $(S(t)<K)$, l'option est dite \textbf{hors du
+  \item égale $(S(t)=K)$, l'option d'achat est dite \textbf{au cours};
+  \item inférieure $(S(t)<K)$, l'option d'achat est dite \textbf{hors du
       cours}.
   \end{itemize}
 \end{itemize}
@@ -116,7 +116,7 @@ Afin de pouvoir utiliser les résultats de l'estimation paramétrique
 des chapitres précédents pour évaluer le prix de produits dérivés, on
 doit tout d'abord identifier les paramètres neutres au risque de la
 distribution de Laplace asymétrique généralisée associant le
-rendements cumulé $L_t$ au taux d'intérêt sans risque $r$. Pour ce
+rendement cumulé $L_t$ au taux d'intérêt sans risque $r$. Pour ce
 faire, on utilise l'équation martingale \eqref{eq:equationmartingale}
 ainsi que la fonction génératrice des moments \eqref{eq:fgmGAL}. On
 obtient alors une expression pour le paramètre de dérive neutre au
@@ -341,7 +341,7 @@ par exemple).
 
 L'intégration numérique de \eqref{eq:prixoptionCarr} pose problème
 quand l'échéance $T-t$ est petite, ou encore le prix d'exercice $K$
-est hors du cours ($k > \ln(S(0))$). Dans ce contexte particulier,
+est hors du cours ($k > \ln(S(t))$). Dans ce contexte particulier,
 \cite{carr1999option} développent une formule alternative à l'équation
 \eqref{eq:prixoptionCarr} pour évaluer le prix de l'option d'achat :
 \begin{align}
@@ -436,7 +436,7 @@ $\left[-K,K\right]$, le théorème de Fubini (section
 
 En remplaçant le résultat \eqref{eq:fubini-integrale-a-EPPS} dans
 l'équation de départ \eqref{eq:putepps-1}, on obtient ainsi une
-expression particulièrement simple pour le prix de l'option d'achat:
+expression particulièrement simple pour le prix de l'option de vente:
 \begin{align}
   P(S(t),K,T) &= B(t,T)K\left[\frac{1}{2}-\frac{1}{2\pi} \int_{-c}^c
     K^{-i\nu} \frac{\phi(\nu)}{\nu(i+\nu)}

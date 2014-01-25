@@ -180,13 +180,6 @@ Robert~V. Hogg et Allen Craig.
 \newblock \emph{{I}ntroduction to {M}athematical {S}tatistics}.
 \newblock Macmillan, 1978.
 
-\bibitem[iti Sato(1999)]{sato1999levy}
-Ken iti Sato.
-\newblock \emph{{L}{\'e}vy {P}rocesses and {I}nfinitely {D}ivisible
-  {D}istributions}.
-\newblock Cambridge Studies in Advanced Mathematics. Cambridge University
-  Press, 1999.
-
 \bibitem[Itkin(2005)]{itkin2005pricing}
 Andrey Itkin.
 \newblock {P}ricing {O}ptions with {VG} {M}odel {U}sing {FFT}.
@@ -296,6 +289,13 @@ S.~James Press.
 \newblock {A} {C}ompound {E}vents {M}odel for {S}ecurity {P}rices.
 \newblock \emph{Journal of Business}, pages 317--335, 1967.
 
+\bibitem[{Sato}(1999)]{sato1999levy}
+{Ken-Iti} {Sato}.
+\newblock \emph{{L}{\'e}vy {P}rocesses and {I}nfinitely {D}ivisible
+  {D}istributions}.
+\newblock Cambridge Studies in Advanced Mathematics. Cambridge University
+  Press, 1999.
+
 \bibitem[Schoutens(2003)]{schoutens2003levy}
 Wim Schoutens.
 \newblock \emph{{L}{\'e}vy {P}rocesses in {F}inance}.
@@ -306,7 +306,7 @@ David Scott et Christine~Yang Dong.
 \newblock \emph{{{v}ariancegamma: {T}he {V}ariance {G}amma {D}istribution}},
   2012.
 \newblock URL \url{http://CRAN.R-project.org/package=VarianceGamma}.
-\newblock R package version 0.3-1.
+\newblock Consulté le 24 janvier 2014.
 
 \bibitem[Seneta(2004)]{seneta2004fitting}
 Eugene Seneta.
@@ -339,7 +339,7 @@ Alan Stuart et J.~Keith Ord.
 \bibitem[Teschl(2004)]{teschl2004topics}
 Gerald Teschl.
 \newblock {T}opics in {R}eal and {F}unctional {A}nalysis.
-\newblock 2004.
+\newblock Consulté le 24 janvier 2014, 2004.
 \newblock URL \url{http://www.mat.univie.ac.at/~gerald/ftp/book-fa/index.html}.
 
 \bibitem[Walter(1995)]{walterlevy}

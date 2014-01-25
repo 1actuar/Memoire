@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.30)  18 JAN 2014 11:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.30)  24 JAN 2014 20:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1969,7 +1969,7 @@ it/10.95 ; ^^[; ^^V; ^^\\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n/10.95 .
 
 
 ]
-<../graphiques/ABBEYN-chronologie.pdf, id=2152, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-chronologie.pdf, id=2153, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-chronologie.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-chronologie.pdf>
@@ -1977,7 +1977,7 @@ Package pdftex.def Info: ../graphiques/ABBEYN-chronologie.pdf used on input lin
 e 21.
 (pdftex.def)             Requested size: 289.09473pt x 289.09473pt.
 
-<../graphiques/ABBEYN-histogramme.pdf, id=2156, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-histogramme.pdf, id=2157, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-histogramme.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-histogramme.pdf>
@@ -1985,7 +1985,7 @@ Package pdftex.def Info: ../graphiques/ABBEYN-histogramme.pdf used on input lin
 e 72.
 (pdftex.def)             Requested size: 289.09473pt x 289.09473pt.
  [97]
-<../graphiques/ABBEYN-qq.pdf, id=2169, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-qq.pdf, id=2170, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-qq.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-qq.pdf>
@@ -2067,7 +2067,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 351--362
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
  [103]
-<../graphiques/pointdeselleGMM.png, id=2240, 501.875pt x 301.125pt>
+<../graphiques/pointdeselleGMM.png, id=2241, 501.875pt x 301.125pt>
 File: ../graphiques/pointdeselleGMM.png Graphic file (type png)
 
 <use ../graphiques/pointdeselleGMM.png>
@@ -2078,7 +2078,7 @@ Package pdftex.def Info: ../graphiques/pointdeselleGMM.png used on input line 3
 Underfull \vbox (badness 1642) has occurred while \output is active []
 
  [104 <../graphiques/pointdeselleGMM.png>]
-<../graphiques/ABBEYN-densiteGALmu-7.pdf, id=2256, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-densiteGALmu-7.pdf, id=2257, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-densiteGALmu-7.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-densiteGALmu-7.pdf>
@@ -2086,7 +2086,7 @@ Package pdftex.def Info: ../graphiques/ABBEYN-densiteGALmu-7.pdf used on input
 line 516.
 (pdftex.def)             Requested size: 433.63878pt x 433.63878pt.
 
-<../graphiques/ABBEYN-densiteGALmu-5.pdf, id=2257, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-densiteGALmu-5.pdf, id=2258, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-densiteGALmu-5.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-densiteGALmu-5.pdf>
@@ -2097,7 +2097,7 @@ line 525.
 YN-densiteGALmu-5.pdf>] [108
 
 ]
-<../graphiques/ABBEYN-callGAL-7.pdf, id=2302, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-callGAL-7.pdf, id=2303, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-callGAL-7.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-callGAL-7.pdf>
@@ -2105,7 +2105,7 @@ Package pdftex.def Info: ../graphiques/ABBEYN-callGAL-7.pdf used on input line
 684.
 (pdftex.def)             Requested size: 433.63878pt x 433.63878pt.
  [109]
-<../graphiques/ABBEYN-callGAL-5.pdf, id=2308, 433.62pt x 433.62pt>
+<../graphiques/ABBEYN-callGAL-5.pdf, id=2309, 433.62pt x 433.62pt>
 File: ../graphiques/ABBEYN-callGAL-5.pdf Graphic file (type pdf)
 
 <use ../graphiques/ABBEYN-callGAL-5.pdf>
@@ -2180,8 +2180,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<by.pdf, id=2552, 56.21pt x 56.21pt> <use by.pdf>
-<sa.pdf, id=2553, 56.21pt x 56.21pt> <use sa.pdf> <use by.pdf> <use sa.pdf>
+<by.pdf, id=2553, 56.21pt x 56.21pt> <use by.pdf>
+<sa.pdf, id=2554, 56.21pt x 56.21pt> <use sa.pdf> <use by.pdf> <use sa.pdf>
 File: by.pdf Graphic file (type pdf)
 
 <use by.pdf>
@@ -2196,7 +2196,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--38
 
  []
 
-<by-sa.pdf, id=2554, 121.45375pt x 43.16125pt>
+<by-sa.pdf, id=2555, 121.45375pt x 43.16125pt>
 File: by-sa.pdf Graphic file (type pdf)
  <use by-sa.pdf>
 Package pdftex.def Info: by-sa.pdf used on input line 40.
@@ -2226,11 +2226,11 @@ Package rerunfilecheck Info: File `gabarit-maitrise.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 27777 strings out of 493307
- 473304 string characters out of 6139904
- 657498 words of memory out of 5000000
- 29741 multiletter control sequences out of 15000+600000
- 39980 words of font info for 83 fonts, out of 8000000 for 9000
+ 27789 strings out of 493307
+ 473434 string characters out of 6139904
+ 657494 words of memory out of 5000000
+ 29747 multiletter control sequences out of 15000+600000
+ 41821 words of font info for 89 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  65i,23n,77p,597b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
@@ -2242,28 +2242,29 @@ msfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on gabarit-maitrise.pdf (155 pages, 997001 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+fbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf/fonts/type
+1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
+rm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/sha
+re/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sft
+t1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on gabarit-maitrise.pdf (155 pages, 1004198 bytes).
 PDF statistics:
- 2846 PDF objects out of 2984 (max. 8388607)
- 2594 compressed objects within 26 object streams
+ 2850 PDF objects out of 2984 (max. 8388607)
+ 2597 compressed objects within 26 object streams
  830 named destinations out of 1000 (max. 500000)
  1161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

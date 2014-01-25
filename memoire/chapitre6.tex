@@ -180,9 +180,12 @@ où
 \subsection{Variance-covariance des paramètres}
 
 On obtient la variance-covariance asymptotique des paramètres à partir
-de la variance-covariance associée aux conditions de moment, en
-utilisant la méthode delta multivariée. Pour ce faire, on évalue
-d'abord la valeur théorique du gradient $D(\theta)$.
+de la variance-covariance associée aux conditions de moment en
+utilisant la méthode delta multivariée (Annexe
+\ref{sec:deltamethod}). 
+
+Pour ce faire, on évalue d'abord la valeur
+théorique du gradient $D(\theta)$:
 \begin{align}
   D(\theta) &= E \left[ \begin{array}{cc}
       -1 & -2\,\left( Y-\theta-\mu\,\tau\right) \\

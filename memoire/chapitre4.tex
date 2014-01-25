@@ -17,11 +17,11 @@ suivant une distribution particulière. Le vecteur de paramètres de
 celle-ci, $\theta$, de longueur $a$, appartenant à l'espace $\Omega
 \subset \mathbb{R}^a$, doit être estimé à partir de l'échantillon. Une
 première approche consiste à maximiser la fonction de vraisemblance
-$LL(\theta;\mathbf{y})$, qui équivaut au produit de la densité
+$L(\theta;\mathbf{y})$, qui équivaut au produit de la densité
 $f(y;\theta)$ évaluée à chacune des réalisations $y(t)$:
 \begin{align}
   \label{eq:vraisemblance}
-  LL(\theta;\mathbf{y}) = \prod_{t=1}^T
+  L(\theta;\mathbf{y}) = \prod_{t=1}^T
   f(y(t);\theta),\quad\theta\in\Omega.
 \end{align}
 
@@ -872,12 +872,12 @@ que la somme de deux variables aléatoires normales l'est aussi:
   E\left[\sqrt{T}\left(\hat\theta - \tilde\theta\right) \right] &=
   E\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] -
   E\left[\sqrt{T}\left(\tilde\theta - \theta_0\right) \right]\nonumber\\
-  &= \theta_0 - \theta_0 \nonumber\\
+  &= 0 - 0 \nonumber\\
   &= 0 \\
   V\left[\sqrt{T}\left(\hat\theta - \tilde\theta\right) \right] &=
-  V\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] -
-  V\left[\sqrt{T}\left(\tilde\theta - \theta_0\right) \right]\nonumber\\
-  &= \left(I-(I-P)\right)\mathcal{J}_0^{-1}\nonumber\\
+  V\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] +
+  V\left[\sqrt{T}\left(\theta_0 - \tilde\theta\right) \right]\nonumber\\
+  &= \left(I+(P-I)\right)\mathcal{J}_0^{-1}\nonumber\\
   &= P\mathcal{J}_0^{-1}.
 \end{align}
 
