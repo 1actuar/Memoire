@@ -338,9 +338,9 @@ Alan Stuart et J.~Keith Ord.
 
 \bibitem[Teschl(2004)]{teschl2004topics}
 Gerald Teschl.
-\newblock {T}opics in {R}eal and {F}unctional {A}nalysis.
-\newblock Consulté le 24 janvier 2014, 2004.
+\newblock \emph{{T}opics in {R}eal and {F}unctional {A}nalysis}, 2004.
 \newblock URL \url{http://www.mat.univie.ac.at/~gerald/ftp/book-fa/index.html}.
+\newblock Consulté le 24 janvier 2014.
 
 \bibitem[Walter(1995)]{walterlevy}
 Christian Walter.

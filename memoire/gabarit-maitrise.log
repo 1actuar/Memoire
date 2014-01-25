@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.30)  24 JAN 2014 20:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.23)  25 JAN 2014 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2180,8 +2180,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<by.pdf, id=2553, 56.21pt x 56.21pt> <use by.pdf>
-<sa.pdf, id=2554, 56.21pt x 56.21pt> <use sa.pdf> <use by.pdf> <use sa.pdf>
+<by.pdf, id=2554, 56.21pt x 56.21pt> <use by.pdf>
+<sa.pdf, id=2555, 56.21pt x 56.21pt> <use sa.pdf> <use by.pdf> <use sa.pdf>
 File: by.pdf Graphic file (type pdf)
 
 <use by.pdf>
@@ -2196,7 +2196,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--38
 
  []
 
-<by-sa.pdf, id=2555, 121.45375pt x 43.16125pt>
+<by-sa.pdf, id=2556, 121.45375pt x 43.16125pt>
 File: by-sa.pdf Graphic file (type pdf)
  <use by-sa.pdf>
 Package pdftex.def Info: by-sa.pdf used on input line 40.
@@ -2261,10 +2261,10 @@ re/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1
 /public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sft
 t1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on gabarit-maitrise.pdf (155 pages, 1004198 bytes).
+Output written on gabarit-maitrise.pdf (155 pages, 1004092 bytes).
 PDF statistics:
- 2850 PDF objects out of 2984 (max. 8388607)
- 2597 compressed objects within 26 object streams
+ 2851 PDF objects out of 2984 (max. 8388607)
+ 2598 compressed objects within 26 object streams
  830 named destinations out of 1000 (max. 500000)
  1161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

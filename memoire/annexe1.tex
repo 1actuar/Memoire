@@ -304,16 +304,16 @@ répartition avec la méthode du point de selle:
 \subsection{La transformée d'Esscher}
 \label{sec:transesscher}
 
-La transformée d'Esscher transforme la densité en une autre en
-utilisant un coefficient exponentiel:
+La transformée d'Esscher est utilisée pour transformer une fonction de
+densité en une autre à l'aide d'un coefficient exponentiel $h$:
 \begin{equation}
   \label{eq:esschertransform}
   f(x;h)=\frac{e^{hx}f(x)}{\int_{-\infty}^\infty e^{hx} f(x) dx}.
 \end{equation}
 
 Lorsque l'on ne dispose pas d'une forme analytique de la densité, on
-peut exprimer la transformée d'Esscher sous la forme de sa fonction
-génératrice des moments:
+peut exprimer la transformée d'Esscher par sa fonction génératrice des
+moments:
 \begin{equation}
   \label{eq:esscherMx}
   M_X(s;h) = \frac{M_X(s+h)}{M_X(h)}.
