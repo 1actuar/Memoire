@@ -870,15 +870,15 @@ que la somme de deux variables aléatoires normales l'est aussi:
 \begin{align}
   \label{eq:moyennevariancesomme}
   E\left[\sqrt{T}\left(\hat\theta - \tilde\theta\right) \right] &=
-  E\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] -
-  E\left[\sqrt{T}\left(\tilde\theta - \theta_0\right) \right]\nonumber\\
+  E\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] +
+  E\left[\sqrt{T}\left(\theta_0 - \tilde\theta\right) \right]\nonumber\\
   &= 0 - 0 \nonumber\\
   &= 0 \\
   V\left[\sqrt{T}\left(\hat\theta - \tilde\theta\right) \right] &=
   V\left[\sqrt{T}\left(\hat\theta - \theta_0\right) \right] +
   V\left[\sqrt{T}\left(\theta_0 - \tilde\theta\right) \right]\nonumber\\
-  &= \left(I+(P-I)\right)\mathcal{J}_0^{-1}\nonumber\\
-  &= P\mathcal{J}_0^{-1}.
+  &= T\left(I+(P-I)\right)\mathcal{J}_0^{-1}\nonumber\\
+  &= TP\mathcal{J}_0^{-1}.
 \end{align}
 
 On définit la statistique $\chi^{WALD,1}$, qui a asymptotiquement une
