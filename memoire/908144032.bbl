@@ -1,0 +1,412 @@
+\begin{thebibliography}{63}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname fonteauteurs\endcsname\relax
+\def\fonteauteurs{\scshape}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}%
+    \message{You should include the url package}\fi
+
+\bibitem[Abramowitz et Stegun(1965)]{abramowitz1965handbook}
+Milton \bgroup\fonteauteurs\bgroup Abramowitz\egroup\egroup{} et Irene~A.
+  \bgroup\fonteauteurs\bgroup Stegun\egroup\egroup{} :
+\newblock {\em {H}andbook of {M}athematical {F}unctions: with {F}ormulas,
+  {G}raphs, and {M}athematical {T}ables}, volume~55.
+\newblock Dover Publications, 1965.
+
+\bibitem[Applebaum(2004)]{applebaum2004levy}
+David \bgroup\fonteauteurs\bgroup Applebaum\egroup\egroup{} :
+\newblock {L}{\'e}vy {P}rocesses: {F}rom {P}robability to {F}inance and
+  {Q}uantum {G}roups.
+\newblock {\em Notices of the American Mathematical Society}, 51\penalty0
+  (11)\string:\penalty500\relax 1336--1347, 2004.
+
+\bibitem[Bachelier(1900)]{bachelier1900theorie}
+Louis \bgroup\fonteauteurs\bgroup Bachelier\egroup\egroup{} :
+\newblock {\em {T}h{\'e}orie de la sp{\'e}culation}.
+\newblock Gauthier-Villars, 1900.
+
+\bibitem[Berkson(1980)]{berkson1980minimum}
+Joseph \bgroup\fonteauteurs\bgroup Berkson\egroup\egroup{} :
+\newblock {M}inimum {C}hi-square, not {M}aximum {L}ikelihood!
+\newblock {\em The Annals of Statistics}, pages 457--487, 1980.
+
+\bibitem[Bingham et Kiesel(2004)]{bingham2004risk}
+Nicholas~H. \bgroup\fonteauteurs\bgroup Bingham\egroup\egroup{} et R{\"u}diger
+  \bgroup\fonteauteurs\bgroup Kiesel\egroup\egroup{} :
+\newblock {\em {R}isk-Neutral {V}aluation: {P}ricing and {H}edging of
+  {F}inancial {D}erivatives}.
+\newblock Springer, 2004.
+
+\bibitem[Black(1976)]{black1976pricing}
+Fischer \bgroup\fonteauteurs\bgroup Black\egroup\egroup{} :
+\newblock {T}he {P}ricing of {C}ommodity {C}ontracts.
+\newblock {\em Journal of Financial Economics}, 3\penalty0
+  (1)\string:\penalty500\relax 167--179, 1976.
+
+\bibitem[Black et Scholes(1973)]{black1973pricing}
+Fischer \bgroup\fonteauteurs\bgroup Black\egroup\egroup{} et Myron
+  \bgroup\fonteauteurs\bgroup Scholes\egroup\egroup{} :
+\newblock {T}he {P}ricing of {O}ptions and {C}orporate {L}iabilities.
+\newblock {\em The Journal of Political Economy}, pages 637--654, 1973.
+
+\bibitem[Buckle(1995)]{buckle1995bayesian}
+D.~J. \bgroup\fonteauteurs\bgroup Buckle\egroup\egroup{} :
+\newblock {B}ayesian {I}nference for {S}table {D}istributions.
+\newblock {\em Journal of the American Statistical Association}, 90\penalty0
+  (430)\string:\penalty500\relax 605--613, 1995.
+
+\bibitem[Butler(2007)]{butler2007saddlepoint}
+Ronald~W. \bgroup\fonteauteurs\bgroup Butler\egroup\egroup{} :
+\newblock {\em {S}addlepoint {A}pproximations with {A}pplications}, volume~22.
+\newblock Cambridge University Press, 2007.
+
+\bibitem[Carr \emph{et~al.}(1998)Carr, Chang, et Madan]{madan1998variance}
+Peter~P. \bgroup\fonteauteurs\bgroup Carr\egroup\egroup{}, Eric~C.
+  \bgroup\fonteauteurs\bgroup Chang\egroup\egroup{} et Dilip~B.
+  \bgroup\fonteauteurs\bgroup Madan\egroup\egroup{} :
+\newblock {T}he {V}ariance {G}amma {P}rocess and {O}ption {P}ricing.
+\newblock {\em European Finance Review}, 2\penalty0
+  (1)\string:\penalty500\relax 79--105, 1998.
+
+\bibitem[Carr et Madan(1999)]{carr1999option}
+Peter~P. \bgroup\fonteauteurs\bgroup Carr\egroup\egroup{} et Dilip~B.
+  \bgroup\fonteauteurs\bgroup Madan\egroup\egroup{} :
+\newblock {O}ption {V}aluation {U}sing the {F}ast {F}ourier {T}ransform.
+\newblock {\em Journal of Computational Finance}, 2\penalty0
+  (4)\string:\penalty500\relax 61--73, 1999.
+
+\bibitem[Crowder(1986)]{crowder1986consistency}
+Martin \bgroup\fonteauteurs\bgroup Crowder\egroup\egroup{} :
+\newblock {O}n {C}onsistency and {I}nconsistency of {E}stimating {E}quations.
+\newblock {\em Econometric Theory}, pages 305--330, 1986.
+
+\bibitem[Crowder(1987)]{crowder1987linear}
+Martin \bgroup\fonteauteurs\bgroup Crowder\egroup\egroup{} :
+\newblock {O}n {L}inear and {Q}uadratic {E}stimating {F}unctions.
+\newblock {\em Biometrika}, 74\penalty0 (3)\string:\penalty500\relax 591--597,
+  1987.
+
+\bibitem[Daniels(1954)]{daniels1954saddlepoint}
+Henry~E. \bgroup\fonteauteurs\bgroup Daniels\egroup\egroup{} :
+\newblock {S}addlepoint {A}pproximations in {S}tatistics.
+\newblock {\em The Annals of Mathematical Statistics}, pages 631--650, 1954.
+
+\bibitem[Derman(1996)]{derman1996modelrisk}
+Emanuel \bgroup\fonteauteurs\bgroup Derman\egroup\egroup{} :
+\newblock {M}odel {R}isk.
+\newblock Rapport technique, Goldman Sachs, 1996.
+
+\bibitem[Dodge(2004)]{dodge2004statistique}
+Yadolah \bgroup\fonteauteurs\bgroup Dodge\egroup\egroup{} :
+\newblock {\em {S}tatistique: {D}ictionnaire Encyclop{\'e}dique}.
+\newblock Springer Verlag France, 2004.
+
+\bibitem[Epps(2007)]{epps2007pricing}
+Thomas~W. \bgroup\fonteauteurs\bgroup Epps\egroup\egroup{} :
+\newblock {\em {P}ricing {D}erivative {S}ecurities}.
+\newblock World Scientific Publishing Company incorporated, 2007.
+
+\bibitem[Epps et Pulley(1983)]{epps1983test}
+Thomas~W. \bgroup\fonteauteurs\bgroup Epps\egroup\egroup{} et Lawrence~B.
+  \bgroup\fonteauteurs\bgroup Pulley\egroup\egroup{} :
+\newblock {A} {T}est for {N}ormality {B}ased on the {E}mpirical
+  {C}haracteristic {F}unction.
+\newblock {\em Biometrika}, 70\penalty0 (3)\string:\penalty500\relax 723--726,
+  1983.
+
+\bibitem[Everitt et Skrondal(2006)]{everitt2006cambridge}
+Brian \bgroup\fonteauteurs\bgroup Everitt\egroup\egroup{} et Anders
+  \bgroup\fonteauteurs\bgroup Skrondal\egroup\egroup{} :
+\newblock {\em {T}he {C}ambridge {D}ictionary of {S}tatistics}, volume~4.
+\newblock Cambridge University Press, 2006.
+
+\bibitem[Fama et French(1993)]{fama1993common}
+Eugene~F. \bgroup\fonteauteurs\bgroup Fama\egroup\egroup{} et Kenneth~R.
+  \bgroup\fonteauteurs\bgroup French\egroup\egroup{} :
+\newblock {C}ommon {R}isk {F}actors in the {R}eturns on {S}tocks and {B}onds.
+\newblock {\em Journal of Financial Economics}, 33\penalty0
+  (1)\string:\penalty500\relax 3--56, 1993.
+
+\bibitem[Feuerverger et McDunnough(1981)]{feuerverger1981efficiency}
+Andrey \bgroup\fonteauteurs\bgroup Feuerverger\egroup\egroup{} et Philip
+  \bgroup\fonteauteurs\bgroup McDunnough\egroup\egroup{} :
+\newblock {O}n the {E}fficiency of {E}mpirical {C}haracteristic {F}unction
+  {P}rocedures.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (methodological)}, pages 20--27, 1981.
+
+\bibitem[Fox et Taqqu(1986)]{fox1986large}
+Robert \bgroup\fonteauteurs\bgroup Fox\egroup\egroup{} et Murad~S.
+  \bgroup\fonteauteurs\bgroup Taqqu\egroup\egroup{} :
+\newblock {L}arge-sample {P}roperties of {P}arameter {E}stimates for {S}trongly
+  {D}ependent {S}tationary {G}aussian {T}ime {S}eries.
+\newblock {\em The Annals of Statistics}, 14\penalty0
+  (2)\string:\penalty500\relax 517--532, 1986.
+
+\bibitem[Gil-Pelaez(1951)]{gil1951note}
+J.~\bgroup\fonteauteurs\bgroup Gil-Pelaez\egroup\egroup{} :
+\newblock {N}ote on the {I}nversion {T}heorem.
+\newblock {\em Biometrika}, 38\penalty0 (3-4)\string:\penalty500\relax
+  481--482, 1951.
+
+\bibitem[Gourieroux et Monfort(1989)]{gourieroux1989statistique}
+Christian \bgroup\fonteauteurs\bgroup Gourieroux\egroup\egroup{} et Alain
+  \bgroup\fonteauteurs\bgroup Monfort\egroup\egroup{} :
+\newblock {\em {S}tatistique et Mod{\`e}les {\'E}conom{\'e}triques: Notions
+  G{\'e}n{\'e}rales, Estimation, Pr{\'e}vision, Algorithmes}, volume~1.
+\newblock Economica, 1989.
+
+\bibitem[Hall(2005)]{hall2005generalized}
+Alastair~R. \bgroup\fonteauteurs\bgroup Hall\egroup\egroup{} :
+\newblock {\em {G}eneralized {M}ethod of {M}oments}.
+\newblock Oxford University Press, 2005.
+
+\bibitem[Hamilton(1994)]{hamilton1994time}
+James~Douglas \bgroup\fonteauteurs\bgroup Hamilton\egroup\egroup{} :
+\newblock {\em {T}ime {S}eries {A}nalysis}, volume~2.
+\newblock Cambridge University Press, 1994.
+
+\bibitem[Hansen(1982)]{hansen1982large}
+Lars~Peter \bgroup\fonteauteurs\bgroup Hansen\egroup\egroup{} :
+\newblock {L}arge {S}ample {P}roperties of {G}eneralized {M}ethod of {M}oments
+  {E}stimators.
+\newblock {\em Econometrica}, pages 1029--1054, 1982.
+
+\bibitem[Henze(1990)]{henze1990approximation}
+Norbert \bgroup\fonteauteurs\bgroup Henze\egroup\egroup{} :
+\newblock {A}n {A}pproximation to the {L}imit {D}istribution of the
+  {E}pps-{P}ulley {T}est {S}tatistic for {N}ormality.
+\newblock {\em Metrika}, 37\penalty0 (1)\string:\penalty500\relax 7--18, 1990.
+
+\bibitem[Heston(1993)]{heston1993closed}
+Steven~L. \bgroup\fonteauteurs\bgroup Heston\egroup\egroup{} :
+\newblock {A} {C}losed-{F}orm {S}olution for {O}ptions with {S}tochastic
+  {V}olatility with {A}pplications to {B}ond and {C}urrency {O}ptions.
+\newblock {\em Review of Financial Studies}, 6\penalty0
+  (2)\string:\penalty500\relax 327--343, 1993.
+
+\bibitem[Hinkley et Revankar(1977)]{hinkley1977estimation}
+David~V. \bgroup\fonteauteurs\bgroup Hinkley\egroup\egroup{} et Nagesh~S.
+  \bgroup\fonteauteurs\bgroup Revankar\egroup\egroup{} :
+\newblock {E}stimation of the {P}areto {L}aw from {U}nderreported {D}ata: {A}
+  {F}urther {A}nalysis.
+\newblock {\em Journal of Econometrics}, 5\penalty0
+  (1)\string:\penalty500\relax 1--11, 1977.
+
+\bibitem[Hogg et Craig(1978)]{hogg1978introduction}
+Robert~V. \bgroup\fonteauteurs\bgroup Hogg\egroup\egroup{} et Allen
+  \bgroup\fonteauteurs\bgroup Craig\egroup\egroup{} :
+\newblock {\em {I}ntroduction to {M}athematical {S}tatistics}.
+\newblock Macmillan, 1978.
+
+\bibitem[Itkin(2005)]{itkin2005pricing}
+Andrey \bgroup\fonteauteurs\bgroup Itkin\egroup\egroup{} :
+\newblock {P}ricing {O}ptions with {VG} {M}odel {U}sing {FFT}.
+\newblock {\em arXiv preprint physics/0503137}, 2005.
+
+\bibitem[{Jingbo Wang} et Marsaglia(2003)]{wang2003evaluating}
+Wai Wan~Tsang \bgroup\fonteauteurs\bgroup {Jingbo Wang}\egroup\egroup{} et
+  George \bgroup\fonteauteurs\bgroup Marsaglia\egroup\egroup{} :
+\newblock {E}valuating {K}olmogorov's {D}istribution.
+\newblock {\em Journal of Statistical Software}, 8\penalty0
+  (18)\string:\penalty500\relax 1--4, 2003.
+
+\bibitem[Kotz \emph{et~al.}(2001)Kotz, Kozubowski, et
+  Podg{\'o}rski]{kotz2001laplace}
+Samuel \bgroup\fonteauteurs\bgroup Kotz\egroup\egroup{}, Tomasz~J.
+  \bgroup\fonteauteurs\bgroup Kozubowski\egroup\egroup{} et Krzystof
+  \bgroup\fonteauteurs\bgroup Podg{\'o}rski\egroup\egroup{} :
+\newblock {\em {T}he {L}aplace {D}istribution and {G}eneralizations: {A}
+  {R}evisit with {A}pplications to {C}ommunications, {E}conomics,
+  {E}ngineering, and {F}inance}.
+\newblock Progress in Mathematics Series. Birkh{\"a}user, 2001.
+
+\bibitem[Koutrouvelis(1980)]{KOUTROUVELIS01011980}
+Ioannis~A. \bgroup\fonteauteurs\bgroup Koutrouvelis\egroup\egroup{} :
+\newblock {{A} {G}oodness-{O}f-{F}it {T}est of {S}imple {H}ypotheses {B}ased on
+  the {E}mpirical {C}haracteristic {F}unction}.
+\newblock {\em {B}iometrika}, 67\penalty0 (1)\string:\penalty500\relax
+  238--240, 1980.
+
+\bibitem[Kozubowski et Podg{\'o}rski(1999)]{kozubowski1999class}
+Tomasz~J. \bgroup\fonteauteurs\bgroup Kozubowski\egroup\egroup{} et Krzysztof
+  \bgroup\fonteauteurs\bgroup Podg{\'o}rski\egroup\egroup{} :
+\newblock {A} {C}lass of {A}symmetric {D}istributions.
+\newblock {\em Actuarial Research Clearing House}, 1\string:\penalty500\relax
+  113--134, 1999.
+
+\bibitem[Kozubowski et Podg{\'o}rski(2001)]{kozubowski2001asymmetric}
+Tomasz~J. \bgroup\fonteauteurs\bgroup Kozubowski\egroup\egroup{} et Krzysztof
+  \bgroup\fonteauteurs\bgroup Podg{\'o}rski\egroup\egroup{} :
+\newblock {A}symmetric {L}aplace {L}aws and {M}odeling {F}inancial {D}ata.
+\newblock {\em {M}athematical and {C}omputer {M}odeling}, 34\penalty0
+  (9)\string:\penalty500\relax 1003--1021, 2001.
+
+\bibitem[Kyprianou(2007)]{kyprianou2007introductory}
+Andreas~E. \bgroup\fonteauteurs\bgroup Kyprianou\egroup\egroup{} :
+\newblock {\em {I}ntroductory {L}ectures on {F}luctuations of {L}{\'e}vy
+  {P}rocesses with {A}pplications}.
+\newblock Springer, 2007.
+
+\bibitem[Lugannani et Rice(1980)]{lugannani1980saddle}
+Robert \bgroup\fonteauteurs\bgroup Lugannani\egroup\egroup{} et Stephen
+  \bgroup\fonteauteurs\bgroup Rice\egroup\egroup{} :
+\newblock {S}addle {P}oint {A}pproximation for the {D}istribution of the {S}um
+  of {I}ndependent {R}andom {V}ariables.
+\newblock {\em Advances in Applied Probability}, pages 475--490, 1980.
+
+\bibitem[Lukacs(1960)]{lukacs1960characteristic}
+Eugene \bgroup\fonteauteurs\bgroup Lukacs\egroup\egroup{} :
+\newblock {\em {C}haracteristic {F}unctions}, volume~4.
+\newblock Griffin London, 1960.
+
+\bibitem[Luong et Thompson(1987)]{luong1987minimum}
+Andrew \bgroup\fonteauteurs\bgroup Luong\egroup\egroup{} et Mary~E.
+  \bgroup\fonteauteurs\bgroup Thompson\egroup\egroup{} :
+\newblock {M}inimum-{D}istance {M}ethods {B}ased on {Q}uadratic {D}istances for
+  {T}ransforms.
+\newblock {\em Canadian Journal of Statistics}, 15\penalty0
+  (3)\string:\penalty500\relax 239--251, 1987.
+
+\bibitem[Madan et Seneta(1990)]{madan1990variance}
+Dilip~B. \bgroup\fonteauteurs\bgroup Madan\egroup\egroup{} et Eugene
+  \bgroup\fonteauteurs\bgroup Seneta\egroup\egroup{} :
+\newblock {T}he {V}ariance {G}amma {M}odel for {S}hare {M}arket {R}eturns.
+\newblock {\em Journal of Business}, pages 511--524, 1990.
+
+\bibitem[Mandelbrot(1963)]{mandelbrot1963variation}
+Benoit \bgroup\fonteauteurs\bgroup Mandelbrot\egroup\egroup{} :
+\newblock {T}he {V}ariation of {C}ertain {S}peculative {P}rices.
+\newblock {\em Journal of Business}, pages 394--419, 1963.
+
+\bibitem[Merton(1976)]{merton1976option}
+Robert~C. \bgroup\fonteauteurs\bgroup Merton\egroup\egroup{} :
+\newblock {O}ption {P}ricing when {U}nderlying {S}tock {R}eturns {A}re
+  {D}iscontinuous.
+\newblock {\em Journal of Financial Economics}, 3\penalty0
+  (1)\string:\penalty500\relax 125--144, 1976.
+
+\bibitem[Mikosch \emph{et~al.}(2001)Mikosch, Resnick, et
+  Barndorff-Nielsen]{barndorff2001levy}
+Thomas \bgroup\fonteauteurs\bgroup Mikosch\egroup\egroup{}, Sidney~I.
+  \bgroup\fonteauteurs\bgroup Resnick\egroup\egroup{} et Ole~E.
+  \bgroup\fonteauteurs\bgroup Barndorff-Nielsen\egroup\egroup{} :
+\newblock {\em {L}{\'e}vy {P}rocesses: {T}heory and {A}pplications}.
+\newblock Birkh{\"a}user, 2001.
+
+\bibitem[Mitchell(1916)]{mitchell1916critique}
+Wesley~C. \bgroup\fonteauteurs\bgroup Mitchell\egroup\egroup{} :
+\newblock {A} {C}ritique of {I}ndex {N}umbers of the {P}rices of {S}tocks.
+\newblock {\em The Journal of Political Economy}, pages 625--693, 1916.
+
+\bibitem[Newey et McFadden(1994)]{newey1994large}
+Whitney~K. \bgroup\fonteauteurs\bgroup Newey\egroup\egroup{} et Daniel
+  \bgroup\fonteauteurs\bgroup McFadden\egroup\egroup{} :
+\newblock {L}arge {S}ample {E}stimation and {H}ypothesis {T}esting.
+\newblock {\em Handbook of Econometrics}, 4\string:\penalty500\relax
+  2111--2245, 1994.
+
+\bibitem[Newey et West(1987)]{newey1987hypothesis}
+Whitney~K. \bgroup\fonteauteurs\bgroup Newey\egroup\egroup{} et Kenneth~D.
+  \bgroup\fonteauteurs\bgroup West\egroup\egroup{} :
+\newblock {H}ypothesis {T}esting with {E}fficient {M}ethod of {M}oments
+  {E}stimation.
+\newblock {\em International Economic Review}, 28\penalty0
+  (3)\string:\penalty500\relax 777--787, 1987.
+
+\bibitem[Praetz(1972)]{praetz1972distribution}
+Peter~D. \bgroup\fonteauteurs\bgroup Praetz\egroup\egroup{} :
+\newblock {T}he {D}istribution of {S}hare {P}rice {C}hanges.
+\newblock {\em Journal of Business}, pages 49--55, 1972.
+
+\bibitem[Press(1967)]{press1967compound}
+S.~James \bgroup\fonteauteurs\bgroup Press\egroup\egroup{} :
+\newblock {A} {C}ompound {E}vents {M}odel for {S}ecurity {P}rices.
+\newblock {\em Journal of Business}, pages 317--335, 1967.
+
+\bibitem[{Sato}(1999)]{sato1999levy}
+{Ken-Iti} \bgroup\fonteauteurs\bgroup {Sato}\egroup\egroup{} :
+\newblock {\em {L}{\'e}vy {P}rocesses and {I}nfinitely {D}ivisible
+  {D}istributions}.
+\newblock Cambridge Studies in Advanced Mathematics. Cambridge University
+  Press, 1999.
+
+\bibitem[Schoutens(2003)]{schoutens2003levy}
+Wim \bgroup\fonteauteurs\bgroup Schoutens\egroup\egroup{} :
+\newblock {\em {L}{\'e}vy {P}rocesses in {F}inance}.
+\newblock Wiley, 2003.
+
+\bibitem[Scott et Dong(2012)]{RpackageVarianceGamma}
+David \bgroup\fonteauteurs\bgroup Scott\egroup\egroup{} et Christine~Yang
+  \bgroup\fonteauteurs\bgroup Dong\egroup\egroup{} :
+\newblock {\em {{v}ariancegamma: {T}he {V}ariance {G}amma {D}istribution}},
+  2012.
+\newblock URL \url{http://CRAN.R-project.org/package=VarianceGamma}.
+\newblock Consulté le 24 janvier 2014.
+
+\bibitem[Seneta(2004)]{seneta2004fitting}
+Eugene \bgroup\fonteauteurs\bgroup Seneta\egroup\egroup{} :
+\newblock {F}itting the {V}ariance {G}amma {M}odel to {F}inancial {D}ata.
+\newblock {\em Journal of Applied Probability}, pages 177--187, 2004.
+
+\bibitem[Shapiro et Wilk(1965)]{shapiro1965analysis}
+Samuel~Sanford \bgroup\fonteauteurs\bgroup Shapiro\egroup\egroup{} et Martin~B.
+  \bgroup\fonteauteurs\bgroup Wilk\egroup\egroup{} :
+\newblock {A}n {A}nalysis of {V}ariance {T}est for {N}ormality ({C}omplete
+  {S}amples).
+\newblock {\em Biometrika}, 52\penalty0 (3/4)\string:\penalty500\relax
+  591--611, 1965.
+
+\bibitem[Shephard(1991)]{shephard1991characteristic}
+Neil~G. \bgroup\fonteauteurs\bgroup Shephard\egroup\egroup{} :
+\newblock {F}rom {C}haracteristic {F}unction to {D}istribution {F}unction: {A}
+  {S}imple {F}ramework for the {T}heory.
+\newblock {\em Econometric Theory}, 7\penalty0 (04)\string:\penalty500\relax
+  519--529, 1991.
+
+\bibitem[Spiegel et Liu(1999)]{spiegel1999schaum}
+Murray~R. \bgroup\fonteauteurs\bgroup Spiegel\egroup\egroup{} et John
+  \bgroup\fonteauteurs\bgroup Liu\egroup\egroup{} :
+\newblock {\em {S}chaum's {M}athematical {H}andbook of {F}ormulas and
+  {T}ables}, volume 1000.
+\newblock McGraw-Hill, 1999.
+
+\bibitem[Stuart et Ord(1987)]{stuart1987kendall}
+Alan \bgroup\fonteauteurs\bgroup Stuart\egroup\egroup{} et J.~Keith
+  \bgroup\fonteauteurs\bgroup Ord\egroup\egroup{} :
+\newblock {\em {K}endall{\rq}s {A}dvanced {T}heory of {S}tatistics, {V}ol. 1}.
+\newblock Oxford University Press, 1987.
+
+\bibitem[Teschl(2004)]{teschl2004topics}
+Gerald \bgroup\fonteauteurs\bgroup Teschl\egroup\egroup{} :
+\newblock {\em {T}opics in {R}eal and {F}unctional {A}nalysis}, 2004.
+\newblock URL \url{http://www.mat.univie.ac.at/~gerald/ftp/book-fa/index.html}.
+\newblock Consulté le 24 janvier 2014.
+
+\bibitem[Walter(1995)]{walterlevy}
+Christian \bgroup\fonteauteurs\bgroup Walter\egroup\egroup{} :
+\newblock {L}{\'e}vy-{S}tability {U}nder {A}ddition and {F}ractal {S}tructure
+  of {M}arkets: {I}mplications for the {A}ctuaries and {E}mphasized
+  {E}xamination of {MATIF} {N}ational {C}ontract.
+\newblock \emph{In} {\em Proceedings of the 5th AFIR colloquium}. International
+  Actuarial Association, 1995.
+
+\bibitem[Wendel(1961)]{wendel1961non}
+J.~G. \bgroup\fonteauteurs\bgroup Wendel\egroup\egroup{} :
+\newblock {T}he {N}on-{A}bsolute {C}onvergence of {G}il-{P}elaez' {I}nversion
+  {I}ntegral.
+\newblock {\em The Annals of Mathematical Statistics}, 32\penalty0
+  (1)\string:\penalty500\relax 338--339, 1961.
+
+\bibitem[Wolfowitz(1957)]{wolfowitz1957minimum}
+Jacob \bgroup\fonteauteurs\bgroup Wolfowitz\egroup\egroup{} :
+\newblock {T}he {M}inimum {D}istance {M}ethod.
+\newblock {\em The Annals of Mathematical Statistics}, pages 75--88, 1957.
+
+\bibitem[Wooldridge(2001)]{wooldridge2001econometric}
+Jeffrey~M. \bgroup\fonteauteurs\bgroup Wooldridge\egroup\egroup{} :
+\newblock {\em {E}conometric {A}nalysis of {C}ross {S}ection and {P}anel
+  {D}ata}.
+\newblock MIT press, 2001.
+
+\end{thebibliography}

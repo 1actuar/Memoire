@@ -1,0 +1,336 @@
+\chapter{Tests statistiques}
+
+\section{Test de normalité}
+\label{sec:testnormalite}
+
+On utilise un test de normalité afin de vérifier si l'on peut rejeter
+l'hypothèse de normalité de la distribution des rendements. Comme
+présenté au premier chapitre, c'est cette observation qui est à la
+base de la recherche de modèles alternatifs, étant donné que cette
+hypothèse est rejetée pour la plupart des séries financières. Il
+existe plusieurs tests disponibles pour ce faire, dont ceux de
+Shapiro-Wilk et d’Epps-Pulley.
+
+\subsection{Test de Shapiro-Wilk}
+\label{sec:test-de-shapiro}
+
+Le test de Shapiro-Wilk \citep{shapiro1965analysis} est basé sur les
+statistiques d'ordre de la distribution normale. Ce test est
+particulièrement efficace même pour de petits échantillons $(T<20)$,
+selon les auteurs.
+
+On considère l'échantillon ordonné
+$y_{(1)},y_{(2)},\ldots,y_{(T)},$. On évalue la variance $S^2$ de
+l'échantillon puis la statistique $b$, où les valeurs $a_{T-i+1}$
+proviennent de la \emph{Table 5} de \cite{shapiro1965analysis}:
+\begin{enumerate}
+\item Si la taille de l'échantillon $T$ est paire, alors
+  $k=\frac{T}{2}$ et
+  \begin{align}
+    \label{eq:shapirowilkb1}
+    b &= \sum_{i=1}^{k}a_{T-i+1}(y_{(T-i+1)}-y_{(i)}).
+  \end{align}
+\item Si la taille de l'échantillon $T$ est impaire, alors
+  $k=\frac{T-1}{2}$ et
+  \begin{align}
+    \label{eq:shapirowilkb2}
+    b &= a_{T}(y_{(T)}-y_{(1)}) + \ldots + a_{k+2}(y_{(k+2)}-y_{(k)}).
+  \end{align}
+\end{enumerate}
+
+La statistique de Shapiro-Wilk $W = \frac{b}{S^2}$ suit une
+distribution particulière dont on retrouve différents quantiles à la
+\emph{Table 6} de \cite{shapiro1965analysis}. On rejette l'hypothèse
+de la normalité lorsque la statistique $W$ est inférieure au seuil
+critique déterminé à partir de cette dernière table.
+
+\subsection{Test d’Epps-Pulley}
+\label{sec:test-de-epps}
+
+Le test d’Epps-Pulley \citep{epps1983test} est basé sur le carré de la
+différence entre les fonctions caractéristiques empirique et théorique
+de la distribution normale. Ce test est considéré comme un des plus
+puissants pour un seuil de tolérance donné, pour de larges
+échantillons. La statistique de test prend la forme suivante, où
+$\overline{X}$ et $S$ sont respectivement la moyenne et l'écart-type
+échantillonnal:
+\begin{align}
+  \label{eq:statistiqueEppsPulley}
+  EP_T &= T\int_{-\infty}^{\infty} \left\vert\frac{1}{T}\sum_{j=1}^T
+    \exp\left[it\frac{\left(X_j-\bar{X} \right)}{S} \right] - \exp
+    \left[-\frac{t^2}{2} \right]\right\vert^2w(t)dt.
+\end{align}
+
+\cite{henze1990approximation} propose une procédure simple à
+implémenter pour effectuer un test basé sur la statistique
+d’Epps-Pulley $EP_T$, où la pondération de la différence quadratique
+$w(\cdot)$ est remplacée par la densité de la loi normale centrée
+réduite, ce qui permet d'accorder davantage d'importance aux
+observations près de l'origine et aussi d'obtenir une forme
+intégrable:
+\begin{align}
+  \label{eq:EppsPulley}
+  EP_T &= \frac{2}{T} \sum_{1\leq\,j<k\leq\,T}
+  \exp\left[-\frac{\left(X_j-X_k \right)^2}{2S^2}\right] - \sqrt{2}
+  \sum_{j=1}^T \exp\left[-\frac{\left(X_j-\bar{X} \right)^2}{4S^2}
+  \right]+\frac{T}{\sqrt{3}}+1.
+\end{align}
+
+Lorsque $T>10$, on calcule une version modifiée de la statistique:
+\begin{equation}
+  \label{eq:EppsPulleyMod}
+  EP_T^{*} = \left(EP_T-\frac{0.365}{T}+\frac{1.34}{T^2}\right)\left(1+\frac{1.3}{T}\right).
+\end{equation}
+
+On obtient ensuite une approximation d'un quantile de la loi normale
+centrée réduite:
+\begin{align}
+  \label{eq:ZEppsPulley}
+  Z_T &= \gamma + \delta\ln\left(\left(EP_T^{*}-\xi
+    \right)\left(\xi+\lambda-EP_T^{*} \right) \right).
+\end{align}
+
+Les constantes sont dérivées à l'équation \emph{4.1} de
+\cite{henze1990approximation}:
+\begin{align*}
+  \gamma &\approx 3.55295 \\
+  \delta &\approx 1.23062 \\
+  \lambda &\approx 2.26664 \\
+  \xi &\approx -0.020682.
+\end{align*}
+
+Puis, on compare cette statistique au quantile $Z_{1-\alpha}$ correspondant
+au seuil de tolérance $\alpha$. Si $Z_n>Z_{1-\alpha}$
+alors on rejette la normalité des données.
+
+\section{Tests d'adéquation}
+\label{sec:testnonparam}
+
+Les tests d'adéquation vérifient l'ajustement à l'échantillon de la
+fonction de répartition estimée soit:
+\begin{itemize}
+\item à partir de l'échantillon ayant servi à l'estimation du vecteur
+  de paramètres
+\item à partir d'un échantillon séparé, afin de vérifier, par exemple,
+  si un modèle estimé à partir d'anciennes données s'applique toujours
+  à de nouvelles informations.
+\end{itemize}
+
+On cherche à rejeter ou non une hypothèse concernant l'échantillon $Y$
+et le vecteur de paramètres estimés:
+\begin{itemize}
+\item Si on considère le vecteur de paramètres comme étant estimé à
+  partir du même échantillon sur lequel on effectue le test, alors on
+  pose l'hypothèse composée suivante:
+  \begin{equation}
+    \label{eq:hypotheseadeqcomp}
+    H_0: Y \sim F_Y(\hat\theta).
+  \end{equation}
+\item Si on considère le vecteur de paramètres comme étant connu ou
+  estimé à partir d'un autre échantillon, alors on pose l'hypothèse
+  simple suivante:
+  \begin{equation}
+    \label{eq:hypotheseadeq}
+    H_0: Y \sim F_Y(\theta_0).
+  \end{equation}
+\end{itemize}
+
+La différence entre ces deux hypothèses est le nombre de degrés de
+liberté de la statistique de test. Les deux premiers tests présentés
+sont des classiques, largement utilisés, mais dont l'application est
+basée sur la fonction de répartition. Étant donné qu'on ne dispose que
+d'une approximation de celle-ci, on utilisera alors un test basé sur
+la fonction génératrice des moments, qui a une forme analytique.
+
+\subsection{Test $\chi^2$ de Pearson}
+\label{sec:testchi2}
+
+Le test $\chi^2$ de Pearson \citep[ch. 8]{hogg1978introduction} est
+basé sur une approximation multinomiale de la fonction de répartition
+$F_X(x;\theta)$ pour laquelle on veut vérifier l'ajustement des
+données échantillonnales $X_1,\ldots,X_n$. Pour ce faire, on divise le
+domaine de la variable aléatoire $X$ en $k$ intervalles, appelés
+classes. On associe la probabilité $p_i(\theta)$ que $X$ prend une
+valeur dans l'intervalle $\left[c_{i-1},c_{i}\right]$. Cette
+probabilité est évaluée à l'aide de la fonction de répartition
+$F_X(x;\theta)$ de la variable aléatoire $X$:
+\begin{equation}
+  \label{eq:pmultinomiale}
+  p_i(\theta) = F_X(c_{i};\theta) - F_X(c_{i-1};\theta),\qquad i = 1,\ldots,k.
+\end{equation}
+
+Soit $N_i$, le nombre de données de l'échantillon observées dans
+l'intervalle défini précédemment. On définit alors la statistique $Q$
+comme étant la somme, pour chaque intervalle, du carré de la
+différence entre le nombre d'observations obtenues et espérées,
+pondérée par cette dernière valeur. Cette quantité a approximativement
+une distribution asymptotique $\chi^2(k-1)$ avec $k-1$ degrés de
+liberté:
+\begin{equation}
+  \label{eq:statchi2}
+  Q_{k-1} = \sum_{i=1}^{k} \frac{\left(N_i-np_i(\theta_0)\right)^2}{np_i(\theta_0)} \sim \chi^2(k-1).
+\end{equation}
+
+La statistique $Q_{k-1}$ peut être utilisée pour vérifier une
+hypothèse simple, c'est-à-dire lorsque les paramètres sont connus:
+\begin{align}
+  \label{eq:hyp0-1}
+  \mathcal{H}_0: \theta = \theta_0.
+\end{align}
+
+Cependant, comme les $q$ paramètres de la distribution $f_X$ doivent
+être estimés pour évaluer les probabilités $p_i(\theta)$, on retrouve
+alors une hypothèse composée:
+\begin{align}
+  \label{eq:hyp0-2}
+  \mathcal{H}_0: F \in \lbrace F_{\theta} \rbrace, \theta \in \Omega.
+\end{align}
+
+On doit retrancher le même nombre de degrés de liberté à la
+distribution asymptotique approximative de la statistique $Q$ qui
+devient:
+\begin{equation}
+  \label{eq:statchi2param}
+  Q_{k-q-1} = \sum_{i=1}^{k} \frac{\left(N_i-n{p}_i(\hat\theta)\right)^2}{n{p}_i(\hat\theta)} \sim \chi^2(k-q-1).
+\end{equation}
+
+Il est important de noter que ce test est approximatif, car pour
+obtenir asymptotiquement la distribution $\chi^2$, les paramètres
+doivent être estimés en minimisant la statistique $Q_{k-q-1}$
+\eqref{eq:statchi2param}, qui devient alors une fonction objectif.
+
+On rejette l'hypothèse composée $\mathcal{H}_0$ lorsque la condition
+$Q_{k-q-1} > \chi^2_{1-\alpha}(k-q-1)$ est respectée. On effectue le
+même test pour l'hypothèse simple, en posant $q=0$. Le point critique
+de la distribution $\chi^2(k-q-1)$ est sélectionné selon le critère
+\begin{equation}
+  \label{eq:quantilechisq}
+  \operatorname{Pr}\left(Q_{k-q-1}\leq \chi^2_{1-\alpha}(k-q-1)\right)=1-\alpha.
+\end{equation}
+
+\subsection{Test de Kolmogorov-Smirnov}
+\label{sec:kolmogorovsmirnov}
+
+Le test de Kolmogorov-Smirnov vérifie l'hypothèse simple
+\eqref{eq:hypotheseadeq}. On définit la statistique $D_n$ comme étant
+la valeur maximale de la distance entre les fonctions de répartition
+empiriques $F_n(x)$ et celle $F_X(x)$ de la distribution exacte
+spécifiée par l'hypothèse nulle $H_0$:
+\begin{equation}
+  \label{eq:statks}
+  D_n=\sup_x |F_n(x)-F_X(x)|
+\end{equation}
+où
+\begin{equation}
+  \label{eq:repartemp}
+  F_n(x)={1 \over n}\sum_{i=1}^n I_{X_i\leq x}.
+\end{equation}
+
+La statistique $\sqrt{n}D_n$ suit asymptotiquement une distribution de
+Kolmogorov, selon \cite{wang2003evaluating}, dont la fonction de
+répartition est définie comme suit:
+\begin{align}
+  \label{eq:repartkolmogorov}
+  \operatorname{Pr}(\sqrt{n}D_n\leq x)&=1-2\sum_{k=1}^\infty (-1)^{k-1} e^{-2k^2 x^2}\\
+  &=\frac{\sqrt{2\pi}}{x}\sum_{k=1}^\infty e^{-(2k-1)^2\pi^2/(8x^2)}.
+\end{align}
+
+On rejette l'hypothèse nulle $H_0$ lorsque la condition
+$\sqrt{n}D_n>K_{1-\alpha}$ est respectée. On sélectionne le quantile
+de cette distribution selon le critère suivant:
+\begin{equation}
+  \label{eq:quantilekolmogorov}
+  \operatorname{Pr}(\sqrt{n}D_n \leq K_{1-\alpha})=1-\alpha.
+\end{equation}
+
+\subsection{Test de distance minimale basé sur la fonction génératrice
+  des moments}
+\label{sec:test-de-distance}
+
+\cite{luong1987minimum} développent un ensemble de tests d'ajustement
+pour l'hypothèse simple \eqref{eq:hypotheseadeq} basée sur une
+transformation de la fonction de densité ou de répartition. Parmi
+cette classe de tests, on retrouve celui d’Epps-Pulley, développé pour
+vérifier l'hypothèse de normalité des données, tel que présenté à la
+section \ref{sec:test-de-epps}. On retrouve aussi le test K-L de
+\cite{feuerverger1981efficiency} basé sur les parties réelles et
+imaginaires de la fonction caractéristique. Cependant, pour la
+distribution de Laplace asymétrique généralisée, on ne peut effectuer
+cette séparation. On préfèrera donc utiliser la fonction génératrice
+des moments $M_Y(\xi)$ afin de construire la statistique de test
+$D(F_T;f_{\theta_0})$. Comme on a déjà estimé les paramètres, on veut donc
+vérifier une hypothèse simple. On se réfère à
+\cite{KOUTROUVELIS01011980}, qui a développé le test K-L pour cette
+situation. Cependant, on remplacera la fonction caractéristique par la
+fonction génératrice des moments.
+
+On considère un ensemble de fonctions $h_j(y), j=1,\ldots,K$. La
+transformée de la fonction de répartition $F_Y(y)$ est donnée par le
+vecteur $\mathbf{z}(F)=[z_1(F),\ldots,z_K(F)]$ :
+\begin{align}
+  \label{eq:4}
+  z_j(F) &= \int_{-\infty}^{\infty} h_j(y) dF_Y(y)\nonumber\\
+  &= E[h_j(y)]\nonumber\\
+  &= M_Y(t_j),\quad j=1,\ldots,K.
+\end{align}
+
+En posant $h_j(y)=e^{t_j y}$, on définit $z_j(F)$ comme étant la
+fonction génératrice des moments. On définit aussi la transformée de
+la fonction de répartition empirique $F_T(y)$ par le vecteur
+$\mathbf{z}(F_T)=[z_1(F_T),\ldots,z_K(F_T)]$, où
+\begin{align}
+  \label{eq:5}
+  z_j(F_T) = \frac{1}{T} \sum_{t=1}^T e^{t_j y_t}.
+\end{align}
+
+La statistique de distance quadratique prend alors la forme suivante:
+\begin{align}
+  \label{eq:9}
+  Td(F_n,F_\theta) &= T\left\{\mathbf{z}(F_n)-\mathbf{z}(F_\theta)
+  \right\}^{\prime} \mathbf{Q}(F_\theta)
+  \left\{\mathbf{z}(F_n)-\mathbf{z}(F_\theta) \right\} \nonumber\\
+  &= \mathbf{v}_n^{\prime }\mathbf{Q}(F_\theta)\mathbf{v}_n.
+\end{align}
+
+On doit maintenant sélectionner une matrice $\mathbf{Q}(F_\theta)$ de
+sorte que la distribution de la statistique $Td(F_n,F_\theta)$ soit
+$\chi^2$. Comme $\mathbf{v}_n =
+\sqrt{T}\left\{\mathbf{z}(F_n)-\mathbf{z}(F_\theta) \right\}$ suit
+asymptotiquement une distribution normale multivariée de moyenne 0 et
+de variance-covariance $\mathbf{\Sigma}$, on a, si la matrice
+$\mathbf{\Sigma}$ est inversible et que l'on pose
+$\mathbf{Q}=\mathbf{\Sigma}^{-1}$, que $\mathbf{v}_n^{\prime
+}\mathbf{Q}(F_\theta)\mathbf{v}_n$ suit une distribution $\chi^2$ avec
+$K$ degrés de liberté, dans le cadre d'une hypothèse simple.  Afin
+d'évaluer la variance-covariance $\mathbf{\Sigma}$, on définit
+l'espérance du produit des deux fonctions $h_j(y)$ et $h_k(y)$
+:$z_{j,k}(F) = E[h_j(y)h_k(y)]$.
+
+On décrit la matrice de variance-covariance $\mathbf{\Sigma}$ comme
+suit:
+\begin{align}
+  \label{eq:14}
+  \mathbf{\Sigma} &= \begin{bmatrix}
+    \sigma_{1,1} & \cdots & \sigma_{1,k} \\
+    \vdots & \ddots & \vdots \\
+    \sigma_{j,1} & \cdots & \sigma_{j,k}
+  \end{bmatrix}
+\end{align}
+où
+\begin{align}
+  \label{eq:10}
+  \sigma_{j,k} &= z_{j,k}(F) - z_j(F)z_k(F)\nonumber\\
+  &= M_Y(t_j+t_k) - M_Y(t_j)M_Y(t_k),\quad j,k=1,\ldots,K.
+\end{align}
+
+On peut maintenant évaluer la statistique $Td(F_n,F_\theta)$ et
+effectuer le test. On rejette l'hypothèse $H_0$ lorsque la valeur de
+celle-ci est supérieure au quantile correspondant au seuil $\alpha$ de
+la distribution $\chi^2$ avec $K$ degrés de liberté:
+$Td(F_n,F_\theta)>\chi^2_{1-\alpha}(K)$.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 

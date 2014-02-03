@@ -1,0 +1,571 @@
+\chapter{Éléments de théorie des probabilités}
+
+\section{Définitions de base}
+\label{sec:introvariablealeatoire}
+
+Une \textbf{variable aléatoire} est une variable dont la valeur est
+déterminée par une expérience aléatoire. On associe une probabilité à
+chacune des valeurs possibles. On appelle \textbf{évènement} tout
+ensemble de réalisations possible de l'expérience
+aléatoire. L'entièreté de tous les évènements se nomme
+l'\textbf{ensemble fondamental} et est notée $\Omega$.
+
+Une \textbf{probabilité} associée à un évènement $A$ doit satisfaire
+un ensemble de trois axiomes \citep{dodge2004statistique}.
+\begin{enumerate}
+\item Une probabilité est une valeur comprise entre 0 et 1:
+  \begin{equation}
+    \label{eq:condition1probabilite}
+    0 \leq P(A) \leq 1.
+  \end{equation}
+
+\item La probabilité de l'évènement correspondant à l'ensemble
+  fondamental est 1:
+  \begin{equation}
+    \label{eq:condition2probabilite}
+    P(\Omega) = 1.
+  \end{equation}
+
+\item Pour chaque séquence d'évènements mutuellement exclusifs
+  $A_1,A_2,\ldots$:
+  \begin{equation}
+    \label{eq:condition3probabilite}
+    P \left[ \bigcup_{i=1}^{\infty} A_i \right] = \sum_{i=1}^{\infty} P(A_i).
+  \end{equation}
+\end{enumerate}
+
+Le respect de ces conditions devra notamment être vérifié lors de
+l'utilisation de méthodes numériques.
+
+Toujours selon \cite{dodge2004statistique}, on définit:
+\begin{enumerate}
+\item La \textbf{densité}, notée $f_X(x)$, permet de déterminer la
+  probabilité qu'une variable aléatoire $X$ prenne une valeur dans un
+  intervalle fixé $\left[ a,b \right]$. En intégrant cette fonction
+  sur l'intervalle $\left[ a,b \right]$, on obtient cette probabilité:
+  \begin{equation}
+    \label{eq:densitedefinition}
+    P(a \leq X \leq b) = \int_{a}^{b} f_X(x) dx.
+  \end{equation}
+\item La \textbf{fonction de répartition}, notée $F_X(x)$, d’une
+  variable aléatoire est définie comme la probabilité que celle-ci
+  prenne une valeur inférieure ou égale à un certain nombre $b \in
+  \mathbb{R}$:
+  \begin{equation}
+    \label{eq:repartitiondefinition}
+    F_X(b) = P(X \leq b) = \int_{-\infty}^{b} f_X(x) dx.
+  \end{equation}
+\end{enumerate}
+
+
+\section{Transformées d'une variable aléatoire}
+\label{sec:transformees}
+
+Les transformées d'une variable aléatoire résultent de l'application
+d'un opérateur intégral, ou à noyau, sur la fonction de densité.
+
+Certaines d'entre elles permettent de déterminer entièrement leur
+distribution. Parmi celles-ci, on retrouve la fonction caractéristique
+et les fonctions génératrices des moments et des cumulants, qui sont
+les plus couramment utilisées.
+
+Certaines transformées permettent de modifier la distribution d'une
+variable aléatoire. Parmi celles-ci, la transformée d'Esscher, qui est
+employée en actuariat et en finance, est aussi étroitement liée au
+concept d'utilité en sciences économiques.
+
+\subsection{La fonction caractéristique}
+\label{sec:fonctioncaract}
+
+\subsubsection{Transformée de Fourier}
+\label{sec:transfourier}
+
+La transformée de Fourier est une opération qui transforme une
+fonction $g(\xi)$ en une autre $f(x)$ par l'intégration, sur son
+domaine, du produit $\mathrm{e}^{-i x\xi}\,g(\xi)$:
+\begin{equation}
+  \label{eq:transfourier}
+  \mathcal{F}(g):x\mapsto f(x) = \int_{-\infty}^{\infty} \mathrm{e}^{-ix\xi}\,g(\xi)\,\mathrm{d}\xi.
+\end{equation}
+
+On définit aussi la transformée de Fourier inverse
+\index{Transformée!de Fourier!inverse}, qui permet de retrouver la
+fonction initiale $g(\xi)$ à partir de la transformée $f(x)$:
+\begin{equation}
+  \label{eq:transinvfourier}
+  g(\xi)=\mathcal{F}^{-1}(f(x)) = {1 \over 2\pi}\, \int_{-\infty}^{\infty} \mathrm{e}^{ix \xi}\,f(x)\, \mathrm{d}x.
+\end{equation}
+
+\subsubsection{Définition}
+\label{sec:deffncaract}
+
+La fonction caractéristique \index{Fonction!caractéristique} est
+définie comme étant la transformée de Fourier inverse de la densité
+\index{Fonction!de densité}, dans le cas continu, ou de masse de
+probabilité \index{Fonction!de masse de probabilité}, dans le cas
+discret. C'est donc une application directe de
+\eqref{eq:transinvfourier} qui s'exprime par l'intégrale de
+Riemann-Stieltjes:
+\begin{equation}
+  \label{eq:deffncaract}
+  \phi_X(s) = \int_{-\infty}^{\infty} e^{isx} dF_X(x).
+\end{equation}
+
+Cette intégrale est toujours convergente, comme le démontre
+\cite{stuart1987kendall}.
+
+\subsubsection{Les moments}
+\label{sec:momentsfncaract}
+On définit le moment d'ordre $r$ d'une distribution de probabilités
+comme étant la quantité représentée par l'espérance de la puissance
+$r$ d'une variable aléatoire:
+\begin{equation}
+  \label{eq:defmoments}
+  E[X^r] = \int_{-\infty}^{\infty} x^r dF_X(x).
+\end{equation}
+
+La fonction caractéristique\index{Fonction!caractéristique},
+lorsqu'elle est différenciable, permettra de générer les moments de la
+distribution en utilisant la propriété suivante
+\citep{lukacs1960characteristic}:
+\begin{equation*}
+  \frac{d^r\phi_X(s)}{ds^r} = i^r \int_{-\infty}^{\infty} e^{isx} x^r dF_X(x).
+\end{equation*}
+
+En posant $s=0$ par la suite, on obtient, pour les différentes
+dérivées, l'équation suivante:
+\begin{equation*}
+  \left[ \frac{d^r\phi_X(s)}{ds^r} \right]_{s=0} = i^r\,E[X^r].
+\end{equation*}
+
+Ce qui nous permet de définir les différents moments de la
+distribution à partir de la fonction caractéristique:
+\begin{equation}
+  \label{eq:fncaractmoments}
+  E[X^r] = (-i)^r\,\left[ \frac{d^r\phi_X(s)}{ds^r} \right]_{s=0}. 
+\end{equation}
+
+\subsection{Inversion de la fonction caractéristique}
+\label{sec:inversioncaract}
+
+\subsubsection{La densité}
+\label{sec:densitefncaract}
+
+On obtient la densité de la variable aléatoire $X$ en calculant la
+transformée de Fourier \eqref{eq:transfourier} de la fonction
+caractéristique suivante:
+\begin{equation}
+  \label{eq:caractdensite}
+  f_X(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{-isx} \phi_X(s) ds.
+\end{equation}
+
+On peut utiliser l'intégration numérique si l'intégrale n'a pas de
+solution analytique, la méthode de la transformée de Fourier rapide
+(section \ref{sec:methodeFFT}) ou encore la méthode du point de selle.
+
+\subsubsection{La fonction de répartition}
+\label{sec:repartitionfncaract}
+
+On peut obtenir directement l'expression de la fonction de
+répartition, sans passer par l'intégration de la densité de
+probabilité, en utilisant le théorème de \cite{gil1951note}:
+\begin{equation}
+  \label{eq:gilpelaez}
+  F_X(x) = \frac{1}{2} + \frac{1}{2\pi} \int_{0}^{\infty} \frac{e^{isx}\phi_X(-s)-e^{-isx}\phi_X(s)}{is} ds.
+\end{equation}
+
+On peut exprimer cette intégrale sous la forme suivante lorsque la
+densité $f(x)$ est strictement continue \citep[p.66]{epps2007pricing}:
+\begin{equation}
+  \label{eq:gilpelaez2}
+  F_X(x) = \frac{1}{2} - \frac{1}{2\pi} \int_{-\infty}^{\infty} \frac{e^{-isx}}{is} \phi(s) ds.
+\end{equation}
+Cette forme est moins appropriée pour l'intégration numérique, mais
+sera utile dans plusieurs calculs.  On préfèrera la ramener à la forme
+suivante avec le théorème 2 de \cite{wendel1961non}:
+\begin{equation}
+  \label{eq:inversionfncaract}
+  F_X(x) = \frac{1}{2} - \frac{1}{\pi}\int_{0}^{\infty} \frac{Im\left[e^{-isx}\phi_X(s)\right]}{s} ds.
+\end{equation}
+
+Cette fonction peut être difficile à intégrer de manière efficace
+numériquement, surtout lorsqu'on l'évalue en des points situés aux
+extrémités de la distribution. On peut alors privilégier l'égalité
+donnée par le théorème 4 de \cite{shephard1991characteristic}, qui
+utilise le noyau de Fejér afin de réduire l'erreur d'intégration, pour
+obtenir le résultat suivant:
+\begin{equation}
+  \label{eq:shepherd}
+  F_X(x) = \frac{1}{2} - \frac{1}{2\pi} \lim_{n\rightarrow\infty} \int_{0}^{n} \underbrace{\left[ 1-\frac{s}{n} \right]}_{\text{Noyau de Fejér}} \left[ \frac{e^{isx}\phi_X(-s)-e^{-isx}\phi_X(s)}{is} \right] ds.
+\end{equation}
+
+De même, en utilisant le raisonnement qui permet de passer de la
+définition de la transformée \eqref{eq:gilpelaez} à celle de son
+inverse \eqref{eq:inversionfncaract}, on obtient, pour le résultat
+\eqref{eq:shepherd}, l'expression suivante:
+\begin{equation}
+  \label{eq:approxinvfncaract}
+  F_X(x) = \frac{1}{2} - \frac{1}{\pi} \lim_{n\rightarrow\infty} \int_{0}^{n} \left[ 1-\frac{s}{n} \right] \frac{Im\left[e^{-isx}\phi_X(s)\right]}{s}ds.
+\end{equation}
+
+On peut alors obtenir une approximation en fixant la borne
+d'intégration supérieure $n$ qui définit la précision
+désirée. Certains logiciels d'intégration numérique prennent en charge
+les bornes infinies.
+
+La fonction caractéristique permet d'identifier la distribution d'une
+somme de variables aléatoires indépendantes $Z = X_1, \ldots, X_n$,
+appelée produit de convolution et noté $Z = X_1 * \ldots * X_n$:
+\begin{equation}
+  \label{eq:convocaract}
+  \phi_{Z}(s) = \phi_{X_1+\ldots+X_n}(s) = \prod_{i=1}^n \phi_{X_i}(s).
+\end{equation}
+
+Lorsque les variables aléatoires sommées sont aussi identiquement
+distribuées, la fonction caractéristique de $Z$ est la $n^e$ puissance
+de celle de $X$:
+\begin{equation}
+  \label{eq:convocaractIID}
+  \phi_{Z}(s) = \phi_{X_1+\ldots+X_n}(s) = \left[\phi_{X}(s)\right]^n.
+\end{equation}
+
+Cette fonction est donc une solution de rechange intéressante à
+utiliser lorsque aucune forme analytique pour la densité ou la
+fonction de répartition pour une distribution donnée n'existe.
+
+\subsection{La fonction génératrice des moments}
+\label{sec:fgm}
+La fonction génératrice des moments $M_X(s)$
+\index{Fonction!génératrice des moments} est définie comme étant la
+transformée de Laplace inverse \index{Transformée!de Laplace!inverse}
+de la densité:
+\begin{equation}
+  \label{eq:deffngenmom}
+  M_X(s) = \int_{-\infty}^{\infty} e^{sx} dF_X(x).
+\end{equation}
+
+Cette intégrale, contrairement à \eqref{eq:deffncaract}, ne converge
+pas toujours, ce qui signifie que certaines distributions n'ont pas de
+fonction génératrice des moments. Comme son nom l'indique, cette
+fonction permet de générer les moments de la distribution de la
+variable $X$, ce qui se fait essentiellement de la même manière
+qu'avec la définition \eqref{eq:fncaractmoments}. Par contre, on n'a
+pas à éliminer le terme complexe, ce qui a pour avantage de simplifier
+les calculs:
+\begin{equation}
+  \label{eq:fgmmoments}
+  E[X^r] = \left[ \frac{d^r M_X(s)}{ds^r} \right]_{s=0}.
+\end{equation}
+
+La fonction génératrice des moments peut aussi être obtenue à partir
+de la fonction caractéristique :
+\begin{equation}
+  \label{eq:fncaractfgm}
+  M_X(s) = \phi(-is).
+\end{equation}
+
+Ceci permet d'en déduire qu'elles possèdent des caractéristiques
+communes, notamment le produit de convolution.
+
+\subsection{La fonction génératrice des cumulants}
+\label{sec:fgc}
+La fonction génératrice des cumulants $K_X(s)$ est définie comme le
+logarithme de la fonction génératrice des moments:
+\begin{equation}
+  \label{eq:fgc}
+  K_X(s) = \ln{M_X(s)}.
+\end{equation}
+
+Cette fonction est utilisée pour générer les cumulants, des quantités
+étroitement liées aux moments, qui peuvent à leur tour être utilisés
+dans le cadre de méthodes d'estimation paramétrique. Parmi celles-ci,
+on retrouve la méthode des cumulants, dont l'objectif est de former un
+système d'équations où les valeurs empiriques et théoriques de ces
+quantités sont égales. Les valeurs empiriques peuvent être obtenues à
+partir des moments échantillonnaux \citep{stuart1987kendall}:
+\begin{subequations}\label{eq:cumulantsempiriques}
+  \begin{align}
+    \hat{K}_1 &= \hat{m}_1 \label{eq:cumulantsempiriques1}\\
+    \hat{K}_2 &= \hat{m}_2' - \hat{m}_1^2 \label{eq:cumulantsempiriques2}\\
+    \hat{K}_3 &= \hat{m}_3' - 3\hat{m}_1\hat{m}_2' + 2\hat{m}_1^2 \label{eq:cumulantsempiriques3}\\
+    \hat{K}_4 &= \hat{m}_4' - 3\hat{m}_2'^2 - 4\hat{m}_1\hat{m}_3' + 12\hat{m}_1^2\hat{m}_2' -
+    6\hat{m}_1^4 \label{eq:cumulantsempiriques4}.
+  \end{align}
+\end{subequations}
+
+On remarquera aussi la forme de la première dérivée de cette dernière,
+qui sera utilisée pour estimer la densité et la fonction de
+répartition avec la méthode du point de selle:
+\begin{equation}
+  \label{eq:derivfgc}
+  \frac{dK_X(s)}{ds} = K^{\prime}_X(s) = \frac{M^{\prime}_X(s)}{M_X(s)}.
+\end{equation}
+
+\subsection{La transformée d'Esscher}
+\label{sec:transesscher}
+
+La transformée d'Esscher est utilisée pour transformer une fonction de
+densité en une autre à l'aide d'un coefficient exponentiel $h$:
+\begin{equation}
+  \label{eq:esschertransform}
+  f(x;h)=\frac{e^{hx}f(x)}{\int_{-\infty}^\infty e^{hx} f(x) dx}.
+\end{equation}
+
+Lorsque l'on ne dispose pas d'une forme analytique de la densité, on
+peut exprimer la transformée d'Esscher par sa fonction génératrice des
+moments:
+\begin{equation}
+  \label{eq:esscherMx}
+  M_X(s;h) = \frac{M_X(s+h)}{M_X(h)}.
+\end{equation}
+
+\section{La transformée de Fourier rapide}
+\label{sec:methodeFFT}
+
+Étant donné l'importance de la transformée de Fourier et de son
+inverse en sciences physiques, plusieurs algorithmes ont été
+développés afin d'en effectuer l'intégration numérique. Ces
+algorithmes se regroupent sous l'appellation de transformée de Fourier
+rapide.
+
+L'existence de ces algorithmes favorise l'utilisation de la fonction
+caractéristique et de ses propriétés, notamment pour l'agrégation de
+risques en actuariat, ou encore le calcul de probabilités pour des
+distributions n'ayant pas de forme explicite pour la fonction de
+répartition.
+
+Ces algorithmes numériques sont utilisés respectivement pour calculer
+de manière optimisée des sommes de la forme
+\begin{align}
+  \hat{f}(x_u) &= \sum_{j=1}^{N} \phi(\zeta_j)\,e^{-{2\pi i \over N} (j-1)(u-1) } \qquad u = 1,\dots,n. \label{eq:sommefft} \\
+  \hat{\phi}(\zeta_j) &= \sum_{u=1}^{N} f(x_u)\,e^{{2\pi i \over N}
+    (j-1)(u-1) } \qquad j = 1,\dots,n. \label{eq:sommeifft}
+\end{align}
+
+Par exemple, pour évaluer l'intégrale \eqref{eq:caractdensite} afin
+d'obtenir la valeur de la densité sur un certain domaine
+$\left[a,b\right]$, on devra discrétiser celle-ci sur nombre $N$ de
+points de discrétisation.On définit alors les différents paramètres de
+ces deux algorithmes:
+\begin{itemize}
+\item $\eta = \frac{b-a}{N}$, le pas de discrétisation pour la
+  variable aléatoire $u$
+\item $\zeta = \eta(j-1)$, la variable de transformation
+\item $\lambda = \frac{2\pi}{N\eta}$, le pas de discrétisation pour la
+  variable de transformation $\zeta$
+\item $c=\frac{N\lambda}{2}$, la borne supérieure d'intégration
+\end{itemize}
+
+On obtient alors une sommation de la forme \eqref{eq:sommefft}:
+\begin{subequations}\label{eq:sommefftdensite}
+  \begin{align}
+    f_{FFT}(x_u) &\approx \frac{1}{2\pi} \sum_{j=1}^N e^{-i\lambda\zeta_j(u-1)} e^{-ic\zeta_j} \phi(-c+\lambda\,(j-1)) \eta, \label{eq:sommefftdensite1}\\
+    &\approx \frac{1}{2\pi} \sum_{j=1}^N
+    e^{-i\frac{2\pi}{N}(j-1)(u-1)} e^{-ic\zeta_j}
+    \phi(-c+\lambda\,(j-1)) \eta.\label{eq:sommefftdensite2}
+  \end{align}
+\end{subequations}
+
+Plusieurs logiciels d'analyse numérique possèdent une implémentation
+de la méthode de la transformée de Fourier rapide. Essentiellement,
+c'est une fonction $f_{FFT}(X_u)$ qui prend comme argument un vecteur
+de valeurs, appelé signal, et qui en retourne un autre, de même
+longueur, le spectre de fréquences. En statistique, la fonction
+caractéristique empirique constitue le signal et la densité, le
+spectre de fréquences. Le signal $X_u$ est défini comme suit, à partir
+des constantes définies précédemment:
+\begin{align}
+  \label{eq:signalfftfonction}
+  X_u &= e^{-i\lambda\zeta_j(u-1)} \phi\left(-c+(j-1)\lambda\right)
+  \eta.
+\end{align}
+
+La somme \eqref{eq:sommefftdensite1} devient alors
+\begin{align}
+  \label{eq:fftfonction}
+  f_{FFT}(X_u) &\approx \frac{1}{2\pi} \sum_{j=1}^N X_u e^{-ic\zeta_j}.
+\end{align}
+
+On recouvre la densité aux points $x_u=a+(j-1)\eta, j=1,\ldots,N$ en
+appliquant la transformation suivante au vecteur $f_{FFT}(X_u)$:
+\begin{align}
+  \label{eq:densitefftfonction}
+  f(x_u) = \frac{1}{N} e^{icx_u} f_{FFT}(X_u).
+\end{align}
+
+\section{Processus de Lévy}
+\label{sec:processuslevy}
+
+\subsection{Définition et propriétés}
+\label{sec:defproplevy}
+
+Le processus de Lévy, tel que présenté par \cite{barndorff2001levy},
+est une classe générale de processus stochastiques regroupant entre
+autres les processus de Poisson composés et les processus de Wiener.
+Il est défini comme continu à droite, limité à gauche (càdlàg), ayant
+pour point de départ l'origine et ayant des incréments indépendants et
+homogènes. Il est infiniment divisible, tout processus de Lévy peut
+ainsi être considéré comme une convolution de plusieurs autres. Cette
+propriété est très intéressante dans un contexte de rendements
+financiers, car la même distribution pourra être utilisée avec
+n'importe quel intervalle d'échantillonnage des prix.
+
+\subsubsection{Représentation de Lévy-Khintchine}
+\label{sec:levykhintchine}
+
+Le processus de Lévy est généralement représenté par sa fonction
+caractéristique sous la forme de Lévy-Khintchine:
+\begin{align}
+  \mathbb{E}\Big[e^{i\theta X(t)} \Big] &= \exp \Bigg(
+  \underbrace{ait\theta}_{\text{composante de dérive}} \nonumber\\
+  &\qquad -
+  \underbrace{\frac{1}{2}\sigma^2t\theta^2}_{\text{composante de
+      diffusion}} \nonumber\\ &\qquad + \underbrace{t
+    \int_{\mathbb{R}\backslash\{0\}} \big( e^{i\theta x}-1 -i\theta x \mathbf{I}_{|x|<1}\big)\,\nu(dx)}_{\text{composante de saut}} \Bigg)\label{eq:levykhintchine}\\
+  &= \exp \bigg(-t\Psi(\theta) \bigg).
+\end{align}
+
+$\Psi(\theta)$ est appelé l'exposant caractéristique de l'incrément de
+longueur 1 $(X(t+1)-X(t))$. Un processus de Lévy est souvent décrit
+par son triplet générateur $(a,\sigma^2,\nu)$. Cette description
+permettra de classer certains processus de Lévy selon deux catégories:
+\begin{itemize}
+\item Si $\sigma^2=0$, $\lbrace X(t) \rbrace$ est un processus de
+  sauts
+\item Si $a=0 \mbox{ et } \sigma^2=0$, alors le processus $\lbrace
+  X(t) \rbrace$ est un processus de sauts purs
+\end{itemize}
+
+L'élément $\nu(dx)$ de la composante de saut est appelé la mesure de
+Lévy.  Un exemple de processus de Lévy représenté sous la forme de
+Lévy-Khintchine qui ne fait pas partie de ces deux catégories est
+défini par le modèle de Press \eqref{eq:fncaractpress}.
+
+\subsubsection{Représentation de Lévy-Itô}
+\label{sec:levyito}
+La décomposition de Lévy-Itô est une représentation alternative
+décrivant la trajectoire d'une réalisation du processus. Cette
+dernière a une interprétation intéressante en finance décrite par
+\cite{applebaum2004levy}:
+\begin{align}
+  \label{eq:levyitodecomposition}
+  X(t) &= \underbrace{at + B_{\sigma^2}(t)}_{\text{mouvement brownien}} \nonumber\\ &\quad+ \underbrace{\int_{|x|<1}x N(t,dx)-t\nu(dx)}_{\text{martingale de sauts purs  de carré intégrable}} \nonumber\\ &\quad+ \underbrace{\int_{|x|>1}x N(t,dx)}_{\text{processus de Poisson composé}} \\
+  &= X_1(t) + X_2(t) + X_3(t).
+\end{align}
+
+La portion mouvement brownien ($X_1(t)$) décrit le comportement
+général du processus, en spécifiant le rendement espéré $a$ et la
+volatilité du titre $\sigma^2$. La première intégrale ($X_2(t)$)
+décrit le bruit causé par les transactions financières quotidiennes
+qui font varier un peu le prix, alors que la seconde ($X_3(t)$)
+introduit les sauts occasionnés par des évènements plus rares, comme
+les catastrophes naturelles et les crises politiques. Dans les deux
+cas, $N(t,dx)$ est une mesure aléatoire de Poisson.
+
+\subsection{Processus subordonné}
+\label{sec:procsubordonne}
+
+On considère les processus de Lévy $\lbrace X(t) \rbrace$ et $\lbrace
+Z(t) \rbrace$. Celui qui suit est défini comme étant un processus
+subordonné et aussi un processus de Lévy, comme le démontrent
+\cite{sato1999levy} et \cite{schoutens2003levy}:
+\begin{equation}
+  \label{eq:processussubordonne}
+  \lbrace Y(t) \rbrace = \lbrace X\left(Z(t)\right) \rbrace.
+\end{equation}
+
+Les processus de Lévy les plus couramment utilisés en finance sont des
+mouvements browniens subordonnés. Ils sont plus faciles à manipuler et
+permettent néanmoins de représenter les phénomènes de queues longues
+présents dans les distributions de rendements. Une bonne introduction
+à ce sujet est faite par \cite{kyprianou2007introductory}.
+
+Si $\Lambda(\theta)$ est l'exposant caractéristique du processus
+$\lbrace X(t)\rbrace$ et $\Xi(\theta)$, celui du processus subordonné
+$\lbrace Z(t)\rbrace$, alors celui du processus $\lbrace Y(t)\rbrace$
+prend la forme suivante:
+\begin{align}
+  \label{eq:exposantcaractYt}
+  \Psi(\theta) &= \Xi(\theta)\circ i\Lambda(\theta) \nonumber\\
+  &= \Xi(i\Lambda(\theta)).
+\end{align}
+
+La fonction caractéristique du processus $\lbrace Y(t) \rbrace$ est
+alors
+\begin{equation}
+  \label{eq:fncaractYt}
+  \phi_{Y(t)}(\xi) = e^{-t\Xi(i\Lambda(\xi))}.
+\end{equation}
+
+La densité de la variable aléatoire $Y(t)$ s'obtient à l'aide de la
+formule de l'espérance conditionnelle:
+\begin{align}
+  f_{Y(t)}(y) &= E\left[ f_{X(t)}(y|Z(t)=z) \right] \nonumber\\
+  &= \int_{-\infty}^{\infty} f_{X(t)}(y|Z(t)=z) \cdot f_{Z(t)}(z)
+  dz \label{eq:densiteprocessusyt}.
+\end{align}
+
+\section{Théorèmes d'intégration}
+\label{sec:integration}
+
+Ces deux théorèmes sont présentés sans démonstration afin de
+complémenter la démonstration de la méthode d'Epps de la section
+\ref{sec:epps2007}. La démonstration de ceux-ci nécessite des
+connaissances en théorie de l'intégration. On peut retrouver davantage
+d'explications sur ceux-ci dans \cite{teschl2004topics}.
+
+\subsection{Théorème de convergence dominée de Lebesgue}
+\label{sec:theor-de-conv}
+
+Le théorème de convergence dominée de Lebesgue est un des principaux
+éléments de la théorie de l'intégration. Il sert à démontrer qu'une
+fonction est intégrable, sachant qu'une autre l'est aussi et qu'elle
+répond à certaines conditions.
+
+Soit $(f_n)_{n\in \mathbb{N}}$, une suite de fonctions réelles ou
+complexes intégrables dans un intervalle $\mathit{I}$ qui convergent
+vers une fonction $f$:
+\begin{align}
+  \label{eq:sequencetheoremconvdom}
+  f(x) = \lim_{n \to \infty} f_n(x).
+\end{align}
+
+On suppose qu'une fonction $g$ intégrable dans l'intervalle
+$\mathit{I}$ existe telle que pour toute valeur de $n$ et pour tout
+point $x\in I$ où elle est définie, la valeur absolue de $f_n(x)$ est
+inférieure ou égale à $g(x)$:
+\begin{align}
+  \label{eq:theoremeconvdom}
+  \forall n \in \mathbb{N}, \forall x \in \mathit{I}, |f_n(x)| \leq
+  g(x).
+\end{align}
+
+Alors, la fonction $f$ est intégrable dans l'intervalle
+$\mathit{I}$.
+
+\subsection{Théorème de Fubini}
+\label{sec:theoreme-de-fubini}
+
+Le théorème de Fubini permet, entre autres, d'inverser l'ordre
+d'intégration lorsque certaines conditions sont remplies.
+
+Soit une fonction $f$ continue sur le rectangle $\mathit{R}$ suivant:
+\begin{align}
+  \label{eq:rectanglefubini}
+  \mathit{R} &= \left\{(x,y) | a \leq x \leq b, c \leq y \leq d \right\}.
+\end{align}
+
+on peut inverser l'ordre d'intégration:
+\begin{align}
+  \label{eq:thfubini2}
+  \int_{X\times Y}f(x,y)~ d(\mu\times\nu)(x,y)=\int_X\left[\int_Y
+    f(x,y)~ d\nu(y)\right]~ d\mu(x)=\int_Y\left[\int_X f(x,y)~
+    d\mu(x)\right]~ d\nu(y).
+\end{align}
+
+Il est possible de généraliser cet énoncé en utilisant la théorie de
+la mesure.
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 

@@ -1,0 +1,506 @@
+\chapter{Évaluation d'options}
+\label{chap:options}
+Un des principaux intérêts de connaître la distribution des rendements
+d'un actif est de pouvoir évaluer la valeur de différents produits
+dérivés.
+
+\section{Définitions}
+\label{sec:options}
+En se référant à \cite{bingham2004risk}, on définit:
+
+\begin{itemize}
+\item Un \textbf{produit dérivé} est un contrat financier dont la
+  valeur à la date d'échéance $T$ est déterminée par le prix de
+  l'actif sous-jacent au temps $T$ ou par celles prises au cours de
+  l'intervalle $\left[0,T \right]$.
+\item Une \textbf{option} est un instrument financier qui donne le
+  droit (et non l'obligation) d'effectuer une transaction avant ou à
+  une date et pour un prix spécifiés.
+\item Une \textbf{option d'achat (de vente) européenne} donne le
+  \textbf{droit} d'acheter (de vendre) un actif au \textbf{prix
+    d'exercice} $K$ au temps $T$.
+\item Lorsque sa valeur actuelle est, par rapport au prix
+  d'exercice:
+  \begin{itemize}
+  \item supérieure $(S(t)>K)$, l'option d'achat est dite \textbf{dans le
+      cours};
+  \item égale $(S(t)=K)$, l'option d'achat est dite \textbf{au cours};
+  \item inférieure $(S(t)<K)$, l'option d'achat est dite \textbf{hors du
+      cours}.
+  \end{itemize}
+\end{itemize}
+
+Le prix à l'échéance d'une option d'achat européenne $C(t)$ est défini
+comme suit:
+\begin{align}
+  \label{eq:callpayoff}
+  C(T) = \left\{ \begin{array}{cc} 
+      S(T)-K & ,S(T) > K \\
+      0 & S(T) \leq K.
+    \end{array} \right.
+\end{align}
+
+La valeur du prix à l'échéance est appelée une \textbf{créance
+  éventuelle}. L'évaluation d'un produit dérivé équivaut à calculer la
+valeur espérée actualisée de la réclamation contingente définie par le
+contrat. Pour l'option d'achat européenne, on obtient la formule
+suivante:
+\begin{align}
+  C(t) &= B(t,T) E \left[C(T) \right] \nonumber\\
+  &= B(t,T) \int_{K}^{\infty} (S(T)-K)
+  d\hat{F}_{S(T)} \label{eq:reclamationcall}.
+\end{align}
+$B(t,T)$ est la valeur au temps $t$ d'une obligation zéro-coupon au taux sans
+risque $r$ d'échéance $T$. $\hat{F}_t(S(T))$ est la fonction de
+répartition de la distribution neutre au risque de $S(T)$.
+
+Les déterminants de la valeur d'une option sont:
+\begin{itemize}
+\item le prix courant de l'actif $S(t)$
+\item le prix d'exercice $K$
+\item la volatilité de l'actif $\sigma$
+\item le temps d'ici l'échéance $T-t$
+\item le taux d'intérêt sans risque $r$.
+\end{itemize}
+
+On peut aussi récrire \eqref{eq:reclamationcall} avec le logarithme du
+prix $k=\ln{K}$. On utilise donc $s(t)=\ln{S(T)}$, dont la fonction de
+répartition est définie par ${F}_{s(T)}(y) = Pr\left[\ln{S(T)} < y
+\right]$:
+\begin{align}
+  C(t) = B(t,T) \int_{k}^{\infty} (e^{s(T)}-e^{k}) d{F}_{s(T)}. \label{eq:reclamationcallintlog}
+\end{align}
+
+Enfin, une relation fondamentale, appelée parité vente-achat, permet,
+dans un scénario sans arbitrage, de calculer le prix d'une option de
+vente $P(t)$ (d'achat $C(t)$) en connaissant la valeur:
+\begin{itemize}
+\item de l'autre lorsqu'elles sont de mêmes échéance et prix
+  d'exercice
+\item de l'obligation $B(t,T)$
+\item initiale du titre sous-jacent $S(t)$ commun aux deux options.
+\end{itemize}
+
+\begin{align}
+  \label{eq:pariteputcall}
+  P(t)+S(t) = C(t)+ B(t,T) K.
+\end{align}
+
+Cette relation permettra d'évaluer les deux types d'option à l'aide
+d'un seul calcul.
+
+\subsection{Équation martingale}
+\label{sec:equationmartingale}
+L'évaluation d'options se fait traditionnellement dans un univers ou
+un espace de probabilités neutre au risque, noté $\mathbb{Q}$,
+c'est-à-dire un point de vue selon lequel les investisseurs n'exigent
+pas une prime de risque. Cette approche a été introduite par
+\cite{black1973pricing}. Dans cette perspective, les rendements
+espérés futurs sont escomptés au taux sans risque. La distribution des
+rendements cumulés \eqref{eq:rendementcumL} répond à la propriété
+martingale, selon laquelle la valeur actuelle d'un titre financier
+reflète l'ensemble de l'information connue sur ce dernier. Cette
+propriété permet de fixer un seul prix pour les
+options. \textbf{L'équation martingale} établit l'égalité entre la
+valeur espérée du titre au temps $t$ et celle d'un investissement de
+même valeur dans un compte en banque créditant le taux sans risque:
+\begin{align}
+  \label{eq:equationmartingale}
+  E\left[\exp(L_t) \right] = e^{rt}.
+\end{align}
+
+\subsection{Paramètres neutres au risque}
+\label{sec:GALrn}
+
+Afin de pouvoir utiliser les résultats de l'estimation paramétrique
+des chapitres précédents pour évaluer le prix de produits dérivés, on
+doit tout d'abord identifier les paramètres neutres au risque de la
+distribution de Laplace asymétrique généralisée associant le
+rendement cumulé $L_t$ au taux d'intérêt sans risque $r$. Pour ce
+faire, on utilise l'équation martingale \eqref{eq:equationmartingale}
+ainsi que la fonction génératrice des moments \eqref{eq:fgmGAL}. On
+obtient alors une expression pour le paramètre de dérive neutre au
+risque $\theta_{RN}$:
+\begin{align}
+  e^{rt} &= E\left[\exp(L_t) \right]
+  = E\left[\exp(R_1+\ldots+R_t) \right] \nonumber\\
+  &= M_{R_1+\ldots+R_t}(1)
+  = (M_{R}(1))^t \nonumber\\
+  &= \left(\frac{e^{\theta_{RN}}}{(1-\mu-\sigma^2/2)^{\tau}} \right)^t \nonumber\\
+  r &= \ln \left(\frac{e^{\theta_{RN}}}{(1-\mu-\sigma^2/2)^{\tau}} \right) \nonumber\\
+  &= \theta_{RN} - \tau\ln(1-\mu-\frac{\sigma^2}{2}) \nonumber\\
+  \theta_{RN} &= r +
+  \tau\ln(1-\mu-\frac{\sigma^2}{2}). \label{eq:martingaleGAL}
+\end{align}
+
+On obtient ainsi le paramètre de correction de la dérive $\omega$ à
+partir de l'équation martingale \eqref{eq:martingaleGAL}:
+\begin{align}
+  \label{eq:omegaGAL}
+  \omega = \tau\ln(1-\mu-\frac{\sigma^2}{2}).
+\end{align}
+
+Cette égalité impose une contrainte aux paramètres $\mu$ et $\sigma$
+qui doit respecter la condition
+\begin{align}
+  \label{eq:inegaliteparamrn}
+  \mu+\frac{\sigma^2}{2} < 1.
+\end{align}
+
+On obtient ensuite la fonction caractéristique de la mesure neutre au
+risque $\mathbb{Q}$ pour $L_T$ en remplaçant $\theta$ par
+$\theta_{RN}$:
+\begin{align}
+  \label{eq:fncaractGALrn}
+  \phi(\xi,L_T) = \frac{\exp\left(i\xi*\left(\ln\left(S_{t}\right)+\left(T-t\right)\left(r+\omega\right)\right)\right)}{\left(1-i\mu\,\xi+\left(\sigma^2\xi^2\right)/2\right)^{\tau\left(T-t\right)}}.
+\end{align}
+
+La distribution neutre au risque des rendements est donc $R_t \sim
+GAL(r+\tau\ln(1-\mu-\sigma^2/2),\sigma,\mu,\tau)$.
+
+\section{Aperçu du modèle de Black-Scholes}
+\label{sec:blackscholes}
+
+Étant donné l'importance du modèle de Black-Scholes en finance, on se
+doit de le présenter comme outil de référence lorsque l'on veut le
+remplacer. Ce modèle est basé sur les quatre hypothèses suivantes:
+\begin{enumerate}
+\item Les rendements ont une distribution normale de moyenne $\mu$ et
+  variance $\sigma^2$, ou, de manière équivalente, le processus de
+  prix $\lbrace S(t) \rbrace$ est un mouvement brownien géométrique de
+  dérive $\mu$ et de volatilité $\sigma$.
+\item Une obligation zéro-coupon au taux d'intérêt sans risque $r$
+  existe sur le marché.
+\item Le marché est complet et sans friction. Une position prise sur
+  ce marché peut être couverte de manière continue.
+\item La vente à découvert est autorisée, de plus tous les actifs sont
+  infiniment divisibles.
+\end{enumerate}
+
+En utilisant l'équation martingale \eqref{eq:equationmartingale}, on
+obtient la distribution neutre au risque des rendements, qui est
+normale avec une moyenne $r-\frac{\sigma^2}{2}$ et une variance
+$\sigma^2$.
+
+À partir de cette information, on peut dériver la formule de
+Black-Scholes pour le prix d'une option d'achat ou de vente
+\eqref{eq:pariteputcall} européenne:
+\begin{align}
+  \label{eq:blackscholes}
+  C(S(t),K,T) &= \Phi(\Delta_1) ~ S(t) - \Phi(\Delta_2) ~ K B(t,T) \\
+  \Delta_1 &= \frac{\ln\left(\frac{S(t)}{K}\right) + \left(r + \frac{\sigma^2}{2}\right)(T - t)}{\sigma\sqrt{T - t}} \nonumber\\
+  \Delta_2 &= \Delta_1 - \sigma\sqrt{T - t} \nonumber\\
+  P(S(t),K,T) &= \Phi(-\delta_2)K B(t,T) -
+  \Phi(-\delta_1)S(t). \label{eq:putblackscholes}
+\end{align}
+
+L'avantage de ce modèle est que toutes les données requises pour
+évaluer le prix d'options sur des actifs cotés sur les marchés
+boursiers, à l'exception de la volatilité, sont accessibles auprès de
+fournisseurs d'informations financières. Comme les options sont
+négociées sur les marchés financiers, on a aussi accès à leur prix, ce
+qui permet d'extrapoler la valeur de la volatilité implicite. C'est
+pour cette raison que le modèle, bien qu'il soit basé sur des
+hypothèses très restrictives, est toujours utilisé comme point de
+référence.
+
+\section{Méthodes d'évaluation pour options européennes}
+\label{sec:methodesoptions}
+
+Le modèle de Black-Scholes est un des seuls qui présentent une forme
+analytique simple pour le prix des options. Bien qu'on puisse en
+dériver une pour plusieurs modèles en utilisant les équations
+différentielles stochastiques et le calcul d'Îto, les résultats sont
+souvent difficiles à utiliser. On préfèrera alors utiliser des
+méthodes numériques pour calculer le prix des options.
+
+\subsection{Méthode de Heston}
+\label{sec:heston1993}
+
+L'approche utilisée par \cite{heston1993closed} est de calculer
+directement l'espérance de la créance éventuelle associée à l'option
+de vente européenne $P(S(t),K,T-t)$ sous la mesure neutre au risque
+$\mathbb{Q}$:
+\begin{align}
+  P(S(t),K,T) &= B(t,T) \int_{0}^{\infty} \max\left(K-S(T),0\right)\cdot d{F}_{S(T)}  \label{eq:PutHeston93-1}\\
+  &= B(t,T)K \int_{0}^{K} dF_{S(T)} - B(t,T)\int_{0}^{K} S(T)\cdot d{F}_{S(T)} \nonumber\\
+  &= B(t,T)K F_{S(t)}(K) - S(t) G_{S(t)}(K). \label{eq:PutHeston93}
+\end{align}
+
+On définit la fonction de répartition $F_{S(t)}(K)$ de la variable
+aléatoire $S(t) \leq K$ sous la mesure $\mathbb{Q}$. On définit aussi
+la fonction de répartition $G_{S(t)}(K)$ sous une autre mesure
+équivalant à $\mathbb{Q}$. Soit $\phi_F(\xi)$ la fonction
+caractéristique de $S(T)$ sous $\mathbb{Q}$, celle de cette mesure est
+alors définie comme suit:
+\begin{align}
+  \label{eq:mesureGHeston}
+  \phi_G(\xi) = \frac{\phi_F(\xi-i)}{\phi_F(-i)}.
+\end{align}
+C'est une transformée d'Esscher de paramètre $h=1$ de la mesure
+$\mathbb{Q}$. On remarquera la forme de \eqref{eq:PutHeston93} qui est
+très similaire à la formule du prix de l'option de vente du modèle de
+Black-Scholes \eqref{eq:putblackscholes}.
+
+Les fonctions de répartition $F_{S(t)}(K)$ et $G_{S(t)}(K)$
+peuvent être évaluées à partir de \eqref{eq:approxinvfncaract} ou de
+la méthode du point de selle.
+
+\cite{carr1999option} notent qu'on ne peut pas inverser
+l'approximation \eqref{eq:approxinvfncaract} en utilisant la méthode
+de la transformée de Fourier rapide. Cependant, l'approche de la
+méthode du point de selle n'a pas été considérée, bien qu'elle puisse
+fournir une solution analytique dans plusieurs situations, en
+particulier pour la distribution de Laplace asymétrique généralisée
+\eqref{eq:saddlepointGAL}.
+
+\subsection{Méthode de Carr et Madan}
+\label{sec:carrmadanfftoptions}
+
+La méthode de Heston nécessite l'évaluation de deux probabilités, donc
+deux inversions de fonctions
+caractéristiques. \cite{madan1998variance} ont développé une méthode
+qui ne nécessite qu'une seule inversion, décrite par
+\cite{epps2007pricing}. Cette méthode nécessite cependant la sélection
+d'un paramètre d'amortissement $\theta_{D}$ par tâtonnement afin
+d'obtenir de bons résultats. Elle utilise l'expression de la créance
+éventuelle \emph{amortie} \footnote{traduction de l'anglais damped} de
+l'option d'achat, construite à partir de l'expression
+\eqref{eq:reclamationcallintlog}:
+\begin{align}
+  \label{eq:callamortiCarr}
+  C_{\theta_D}(S(t),k,T) &= e^{\theta_{D}k} C(S(t),k,T) \\
+  &= e^{\theta_{D}k} B(t,T) \int_{K}^{\infty} (e^{s(T)}-e^{k})
+  d{F}_{s(T)}.
+\end{align}
+
+On applique la transformée de Fourier:
+\begin{align}
+  \label{eq:fouriercallamortiCarr}
+  \mathcal{F}C_{\theta_D}(\nu) = B(t,T) \frac{\phi\left( \nu - i(1+\theta_D) \ \right)}{(\theta_D+i\nu)(1+\theta_D+i\nu)}.
+\end{align}
+
+Ce résultat est inversé et \emph{amplifié} \footnote{traduction de
+  l'anglais amplified} pour retrouver le prix de l'option:
+\begin{align}
+  C(S(t),k,T) &= e^{-\theta_{D}k} \mathcal{F}^{-1}\left(\mathcal{F}C_{\theta_D}(\nu) \right) \nonumber\\
+  &= \frac{e^{-\theta_{D}k}}{2\pi} \int_{-\infty}^{\infty} e^{-i\nu k}
+  (\mathcal{F}C_{\theta_D})(\nu)\cdot
+  d\nu \nonumber\\
+  &= \frac{e^{-\theta_{D}k}}{\pi} \int_{0}^{\infty} e^{-i\nu k}
+  (\mathcal{F}C_{\theta_D})(\nu)\cdot d\nu \qquad \mbox{(par
+    symétrie)}. \label{eq:prixoptionCarr}
+\end{align}
+
+On peut utiliser la méthode de la transformée de Fourier rapide
+(section \ref{sec:methodeFFT}) pour retrouver les prix d'options en se
+référant à \cite{carr1999option}.
+
+On doit donc discrétiser \eqref{eq:prixoptionCarr} et effectuer des
+changements de variables pour obtenir la forme \eqref{eq:sommefft}. On
+fixe le nombre de points $N$ (idéalement une puissance de deux) et
+$\eta$ le pas de discrétisation. On définit l'incrément $\lambda$ pour le
+vecteur $k_u$, $u=1,\ldots,N$ des logarithmes des prix d'exercice:
+\begin{align}
+  \lambda = \frac{2\pi}{N\eta}.
+\end{align}
+
+La valeur maximale $b$ de ce prix d'exercice sera:
+\begin{align}
+  b=\frac{N\lambda}{2}.
+\end{align}
+
+Enfin, on obtient la suite des points d'évaluation de la fonction
+caractéristique $\nu_j = \eta (j-1)$. L'ensemble de ces substitutions
+permet d'obtenir une expression qui est de la forme requise pour
+appliquer la méthode de la transformée de Fourier rapide.
+\begin{align}
+  C(S(t),k_u,T) &\approx \frac{e^{-\theta_D\,k}}{\pi} \sum_{j=1}^N e^{-i\nu_j\,k} (\mathcal{F}C_{\theta_D})(\nu_j) \nonumber\\
+  &\approx \frac{e^{-\theta_D\,k}}{\pi} \sum_{j=1}^N
+  e^{-i\lambda\eta(j-1)(u-1)} e^{ib\nu_j}
+  (\mathcal{F}C_{\theta_D})(\nu_j) \eta. \label{eq:prixoptionFFT}
+\end{align}
+
+C'est essentiellement une intégration par la méthode du trapèze. On
+suggère d'implémenter la correction de Simpson, qui permet une
+intégration plus précise tout en conservant le même nombre de points
+de discrétisation. On obtiendra alors la formule suivante:
+\begin{align}
+  C(S(t),k_u,T) &\approx \frac{e^{-\theta_D\,k}}{\pi} \sum_{j=1}^N
+  e^{-i\lambda\eta(j-1)(u-1)} e^{ib\nu_j}
+  (\mathcal{F}C_{\theta_D})(\nu_j) \frac{\eta}{3} \left(3 + (-1)^j +
+    \delta_{j-1}\right). \label{eq:prixoptionFFTsimpson}
+\end{align}
+
+On peut par la suite calculer un prix d'option pour chaque prix
+d'exercice en utilisant une méthode d'interpolation (splines cubiques
+par exemple).
+
+\subsection{Prix d'exercice hors du cours}
+\label{sec:outofmoneyfft}
+
+L'intégration numérique de \eqref{eq:prixoptionCarr} pose problème
+quand l'échéance $T-t$ est petite, ou encore le prix d'exercice $K$
+est hors du cours ($k > \ln(S(t))$). Dans ce contexte particulier,
+\cite{carr1999option} développent une formule alternative à l'équation
+\eqref{eq:prixoptionCarr} pour évaluer le prix de l'option d'achat :
+\begin{align}
+  C(S(t),k,T) &= \frac{1}{\pi\sinh(\theta^{*}_D k)} \int_{0}^{\infty}
+  e^{-i\nu k} (\mathcal{F}C^{*}_{\theta^{*}_D})(\nu)\cdot
+  d\nu. \label{eq:prixoptionCarrOOM}
+\end{align}
+La transformée de Fourier de l'expression du prix de l'option d'achat
+européenne est exprimée sous la forme
+\begin{align}
+  \mathcal{F}C^{*}_{\theta^{*}_D} &= \frac{\zeta_T(\nu-i\theta^{*}_D) - \zeta_T(\nu+i\theta^{*}_D)}{2}\\
+  \zeta_T(\nu) &= e^{-r(T-t)}\bigg[\frac{1}{1+i\nu} -
+  \frac{e^{r(T-t)}}{iv} - \frac{\phi(\nu-i)}{\nu(\nu-i)} \bigg].
+  \nonumber
+\end{align}
+
+On note que ce paramètre d'amortissement $\theta^{*}_D$ peut être
+différent du paramètre $\theta_D$ qui a été utilisé précédemment.
+
+L'expression à utiliser pour la méthode de la transformée de Fourier
+rapide devient
+\begin{align}
+  C^{*}(S(t),k_u,T) &\approx \frac{1}{\pi\sinh(\theta^{*}_D k)}
+  \sum_{j=1}^N e^{-i\lambda\eta(j-1)(u-1)} e^{ib\nu_j}
+  (\mathcal{F}C^{*}_{\theta^{*}_D})(\nu_j) \frac{\eta}{3} \left(3 +
+    (-1)^j + \delta_{j-1}\right). \label{eq:prixoptionFFTsimpsonOOM}
+\end{align}
+Les paramètres $N ,\eta, \lambda$ et $\nu_j$ prennent les valeurs
+utilisées pour évaluer le prix dans la situation où le titre est dans
+le cours \eqref{eq:prixoptionFFTsimpson}.
+
+\subsection{Critique de la méthode de Carr-Madan}
+\label{sec:critiquecarrmadanfft}
+
+Un paramètre d'amortissement $\theta_{D}$ inférieur à la valeur
+optimale (lorsque comparé avec la méthode de Heston ou d’Epps) aura
+tendance à surestimer le prix des options d'achat
+européennes. \cite{itkin2005pricing} démontre que pour certaines
+régions de l'espace des paramètres, l'intégrale
+\eqref{eq:prixoptionCarr} a un comportement très irrégulier. De plus,
+il décrit plusieurs restrictions pour $\theta_{D}$ qui, dans plusieurs
+cas, ne permettent pas d'estimation convergente.
+
+\subsection{Méthode d’Epps}
+\label{sec:epps2007}
+
+\cite{epps2007pricing} propose une méthode qui, contrairement à celle
+de Carr et Madan, ne nécessite pas de paramètre d'amortissement et qui
+ne requiert aussi qu'une seule inversion de la fonction
+caractéristique. Pour ce faire, on se base sur l'expression de
+l'option de vente développée précédemment \eqref{eq:PutHeston93-1}, qui
+est ensuite exprimée sous la forme du logarithme, à la manière de
+\eqref{eq:reclamationcallintlog}.  Après l'utilisation de la formule
+d'inversion \eqref{eq:gilpelaez2}, on obtient le résultat suivant:
+\begin{align}
+  \label{eq:putepps-1}
+  E\left[max(K-S_T;0) \right] &= \int_{-\infty}^{k} {F}_{S(T)}(s)e^s\cdot\,ds \nonumber\\
+  &= \frac{K}{2}-\frac{1}{2}\int_{-\infty}^{k} \lim_{c\to\infty}
+  \underbrace{\int_{-c}^{c} \frac{e^{-i\nu s}}{\pi
+      i\nu}\phi(\nu)d\nu}_{a(c,s)}e^sds.
+\end{align}
+
+La formule d'inversion implique que lorsque $|\lim_{c\to\infty}
+a(c,s)| = |1-2{F}_{S(t)}(s)|\leq 1$, pour toute valeur $\epsilon>0$,
+$c_{\epsilon}$ existe telle que l'on a le résultat suivant:
+\begin{align}
+  \label{eq:putepps-resultat1}
+  |sup_s\left[1-2{F}_{S(t)}(s)-a(c_{\epsilon},s) \right]|<\epsilon.
+\end{align}
+
+Dans cette situation, $|a(c,s)e^s|\leq e^s(1+\epsilon)$ lorsque la
+constante $c$ est suffisamment grande. Comme la fonction $e^s$ est
+intégrable sur le support $(-\infty,k)$, le théorème de convergence
+dominée de Lebesgue (section \ref{sec:theor-de-conv}) implique que
+l'on peut poser l'égalité suivante:
+\begin{align}
+  \int_{-\infty}^{k} \lim_{c\to\infty} a(c,s)e^sds &= \lim_{c\to\infty}\int_{-\infty}^{k}  a(c,s)e^sds \nonumber\\
+  &= \lim_{c\to\infty} \int_{-\infty}^{k}\int_{-c}^{c}
+  \frac{e^{(1-i\nu) s}}{\pi i\nu}\phi(\nu)d\nu ds. \nonumber
+\end{align}
+
+De plus, comme la limite de la double intégrale précédente est égale à
+$K-2E\left[max(K-S_T;0) \right]$ qui appartient à l'intervalle
+$\left[-K,K\right]$, le théorème de Fubini (section
+\ref{sec:theoreme-de-fubini}) permet d'inverser l'ordre d'intégration:
+\begin{align}
+  \lim_{c\to\infty} \int_{-\infty}^{k}\int_{-c}^{c} \frac{e^{-i\nu
+      s}}{\pi i\nu}\phi(\nu)d\nu ds &= \lim_{c\to\infty} \int_{-c}^{c} \int_{-\infty}^{k}e^{(1-i\nu)s} ds \frac{\phi(\nu)}{\pi i \nu} d\nu \nonumber\\
+  &= \frac{K}{\pi} \lim_{c\to\infty} \int_{-c}^{c}
+  \frac{K^{-i\nu}}{i\nu+\nu^2}\phi(\nu)d\nu. \label{eq:fubini-integrale-a-EPPS}
+\end{align}
+
+En remplaçant le résultat \eqref{eq:fubini-integrale-a-EPPS} dans
+l'équation de départ \eqref{eq:putepps-1}, on obtient ainsi une
+expression particulièrement simple pour le prix de l'option de vente:
+\begin{align}
+  P(S(t),K,T) &= B(t,T)K\left[\frac{1}{2}-\frac{1}{2\pi} \int_{-c}^c
+    K^{-i\nu} \frac{\phi(\nu)}{\nu(i+\nu)}
+    d\nu\right]. \label{eq:PutEpps8.37}
+\end{align}
+
+Cependant, puisque la forme ne se prête pas à l'utilisation de
+l'algorithme de la transformée de Fourier rapide, on a recours à une
+procédure d'intégration numérique.
+
+\section{Particularités}
+\label{sec:monnaiescontrats}
+
+\subsection{Option sur actions avec dividendes}
+\label{sec:dividentoptions}
+
+Lorsqu'une option a, pour titre sous-jacent, une action qui verse des
+dividendes, on doit en tenir compte dans l'évaluation de son prix. Si
+l'on considère que la valeur au marché de l'action $S^{*}(t)$ a été
+évaluée avec la méthode de l'actualisation des flux financiers futurs,
+on doit tenir compte de la valeur actualisée des dividendes qui seront
+versés avant l'échéance de l'option et la soustraire de ce prix.
+
+Parfois, les dividendes ne sont pas fixes, mais proportionnels à la
+valeur de l'action à la date ex-dividende avec un taux $\delta$. Soit
+$n(T)$ le nombre de dates ex-dividende dans l'intervalle $\left] t,T
+\right]$, le prix initial $S(t)$ considéré pour le calcul de la valeur
+de l'option est alors défini comme suit:
+\begin{align}
+  \label{eq:prixinitialdividende}
+  S(t) = S^{*}(t) (1-\delta)^{n(T)}.
+\end{align}
+
+Lorsque l'on considère un indice composé de plusieurs titres, on peut
+prendre un dividende versé de manière continue à un taux $q$. Dans ce
+cas, le prix initial $S(t)$ sera
+\begin{align}
+  \label{eq:pricinitialdivcontinu}
+  S(t) = S^{*}(t) e^{-q(T-t)}.
+\end{align}
+
+\subsection{Options sur contrats à terme et taux de change}
+\label{sec:futureoptions}
+
+\cite{black1976pricing} (p.177) démontre que le prix d'une option sur
+un contrat à terme a le même prix que sur une action dont le taux de
+dividende équivaut au taux sans risque. On peut donc utiliser les
+résultats \eqref{eq:prixinitialdividende} et
+\eqref{eq:pricinitialdivcontinu} en posant $q=r$.
+
+De même, on peut évaluer le prix d'une option sur une monnaie
+étrangère en considérant le taux sans risque étranger $r_f$ comme un
+taux de dividende $q=r_f$. Selon la Banque des Règlements
+Internationaux, c'est le type d'options le plus transigé sur les
+marchés non réglementés en date de 2005, même s'il est moins étudié
+que les autres.
+
+
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "gabarit-maitrise"
+%%% End: 
