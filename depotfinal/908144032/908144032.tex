@@ -8,9 +8,11 @@
 %%
 %% Déclaration de la classe avec les langues les plus courantes. Le
 %% français sera la langue par défaut du document.
-\documentclass[11pt,english,francais]{ulthese} \usepackage{scrtime}
+\documentclass[11pt,english,francais]{ulthese} 
+\usepackage{scrtime}
 \usepackage{natbib} 
-\usepackage{tikz} \usepackage{multirow}
+\usepackage{tikz} 
+\usepackage{multirow}
 %% Encodage utilisé pour les caractères accentués dans les fichiers
 %% source du document. Les gabarits sont encodés en UTF-8.
 \usepackage[utf8]{inputenc}
@@ -18,18 +20,21 @@
 %% Quelques exemples; décommenter au besoin.
 \usepackage{amsmath} % recommandé pour les mathématiques
 \numberwithin{equation}{section} % pour numéroter les équations selon les sections
-\usepackage{amsfonts} \usepackage{amsthm} \usepackage{thmtools}
+\usepackage{amsfonts} 
+\usepackage{amsthm} 
+\usepackage{thmtools}
 % \usepackage{mathpazo} % texte en Palatino
 % \usepackage{mathptmx} % texte en Times
 %% Gestion des hyperliens dans le document. S'assurer que hyperref est
 %% le dernier paquetage chargé.
-\usepackage{hyperref} \hypersetup{colorlinks,allcolors=ULlinkcolor}
+\usepackage{hyperref} 
+\hypersetup{colorlinks,allcolors=ULlinkcolor}
 \usepackage{cleveref}
 \usepackage[hypcap]{caption} % permet de faire le lien au dessus des figures au lieu d en dessous
 \usepackage[off]{auto-pst-pdf}
 %% Pour utiliser Computer Modern comme police sans empattements
 %% (serif) plutôt que Helvetica, décommenter la ligne ci-dessous.
-\renewcommand{\sfdefault}{cmss}
+%% \renewcommand{\sfdefault}{cmss}
 
 %% Options de mise en forme du mode français de babel. Consulter la
 %% documentation du paquetage babel pour les options disponibles.
